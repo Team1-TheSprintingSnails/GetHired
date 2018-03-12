@@ -9,7 +9,7 @@
 
 ## Features
 
-Feature name | Feature Descritption | Feature Owner | Estimated time it would take (in hours) | Actual time it took (in hours) | Estimated time it would take to unit test (in hours) | Actual time it took to unit test (in hours)
+Feature name | Feature Descritption | Feature Owner | Estimated time it would take (in hours) | Actual time it took (in hours)
 --- | --- | --- | ---| --- | ---| ---| --- | ---
 ***Authentication handler*** | *Compares given credentials with credentials in db and if there is no match shows proper message to the user* | `Irina Hristova, Petko Petkov, Stilyan Mladenov` | *2* |  | *2*
 ***Register** command* | *Registers user* |`Irina Hristova, Petko Petkov, Stilyan Mladenov` | *1,5* |  | *1*
