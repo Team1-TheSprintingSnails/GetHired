@@ -54,5 +54,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GetHired.DomainModels\GetHired.DomainModels.csproj">
+      <Project>{cd3237f3-97ce-428b-a4b1-85e567e7dad6}</Project>
+      <Name>GetHired.DomainModels</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
