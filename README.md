@@ -9,7 +9,7 @@
 
 ## Features
 
-Feature name | Feature Descritption | Feature Owner | Estimated time it would take (in hours) | Actual time it took (in hours) | Estimated time it would take to unit test (in hours) | Actual time it took to unit test (in hours)
+Feature name | Feature Descritption | Feature Owner | Estimated time it would take (in hours) | Actual time it took (in hours) | Estimated time it would take to unit test (in days) | Actual time it took to unit test (in days)
 | ------------- | ------------- | :-------------: | :-------------: | ------------- | :-------------: | ------------- |
 | ***Register** command* | *Registers user* | Irina Hristova, Petko Petkov, Stilyan Mladenov | *1,5* |  | *1* |
 | ***Authentication handler*** | *Compares given credentials with credentials in db and if there is no match shows proper message to the user* | Irina Hristova, Petko Petkov, Stilyan Mladenov | *2* |  | *2* |
@@ -22,9 +22,10 @@ Feature name | Feature Descritption | Feature Owner | Estimated time it would ta
 | ***Edit user info** command* | *Changes user information and settings* | Irina Hristova, Petko Petkov, Stilyan Mladenov | *2* |  | *1*
 | ***List user info** command* | *Only shows user information and settings* | Irina Hristova, Petko Petkov, Stilyan Mladenov | *2* |  | *1*
 | ***Help** command* | *Lists all commands with needed parameters and explanation* | Irina Hristova, Petko Petkov, Stilyan Mladenov | *1* |  | *1*
-| ***Engine*** | *Handles program workflow* | Irina Hristova, Petko Petkov, Stilyan Mladenov | *4* |  | *3*
+| ***Engine and core logic*** | *Handles program workflow* | Irina Hristova, Petko Petkov, Stilyan Mladenov | *1* |  | *1*
 | ***Command Parser*** | *Parses commands* | Irina Hristova, Petko Petkov, Stilyan Mladenov | *1,5* |  | *2*
 | ***Command Processor*** | *Processes commands* | Irina Hristova, Petko Petkov, Stilyan Mladenov | *1,5* |  | *2*
+| ***IoC*** | *Creating console client and building IoC container* | Irina Hristova, Petko Petkov, Stilyan Mladenov | *1,5* |  | *1*
 
 
 ## Team Leader
