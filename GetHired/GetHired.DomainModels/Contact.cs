@@ -17,6 +17,5 @@ namespace GetHired.DomainModels
         [Required(ErrorMessage = "The phone is required")]
         [Phone(ErrorMessage = "The phone number is incorrect")]
         public string PhoneNumber { get; set; }
-
     }
 }
