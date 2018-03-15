@@ -7,7 +7,7 @@ namespace GetHired.DataModels.Repositories.Contracts
 {
     public interface IRepository<TEntity> where TEntity : class, IIdentifiable<int>
     {
-        IQueryable<TEntity> GetWhere(Expression<Func<TEntity, bool>> filter);
+        IQueryable<TEntity> All { get; }
         TEntity GetById(int id);
         void Insert(TEntity entity);
         void Delete(TEntity entity);

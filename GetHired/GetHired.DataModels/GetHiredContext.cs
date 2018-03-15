@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using GetHired.DataModels.Contracts;
 using GetHired.DomainModels;
 using GetHired.DomainModels.Enums;
 using Microsoft.TeamFoundation.TestManagement.Client;

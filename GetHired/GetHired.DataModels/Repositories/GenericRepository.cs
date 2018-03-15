@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using GetHired.DataModels.Contracts;
 using GetHired.DataModels.Repositories.Contracts;
 using Microsoft.TeamFoundation.TestManagement.Client;
 
@@ -40,14 +41,12 @@ namespace GetHired.DataModels.Repositories
             return this.dbSet.Find(id);
         }
 
-        public IQueryable<TEntity> GetWhere(Expression<Func<TEntity, bool>> filter)
+        public IQueryable<TEntity> All
         {
-            if (filter == null)
+            get
             {
-                throw new ArgumentNullException();
+                return this.dbSet;
             }
-
-            return this.dbSet.Where(filter);
         }
 
         public void Insert(TEntity entity)

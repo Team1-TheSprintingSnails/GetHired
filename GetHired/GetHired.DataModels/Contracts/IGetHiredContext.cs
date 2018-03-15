@@ -1,9 +1,8 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using GetHired.DomainModels;
-using Microsoft.TeamFoundation.TestManagement.Client;
 
-namespace GetHired.DataModels
+namespace GetHired.DataModels.Contracts
 {
     public interface IGetHiredContext
     {
