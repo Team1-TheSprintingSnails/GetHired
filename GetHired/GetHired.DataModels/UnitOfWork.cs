@@ -6,15 +6,21 @@ using GetHired.DomainModels;
 
 namespace GetHired.DataModels
 {
-    public class UnitOfWork : IUnitOfWork, IDisposable
+    public class UnitOfWork : IUnitOfWork
     {
-        private readonly GetHiredContext context;
+        private readonly IGetHiredContext context;
+
         private IRepository<Address> addressRepository;
         private IRepository<Company> companyRepository;
         private IRepository<Contact> contactsRepository;
         private IRepository<JobOffer> jobOfferRepository;
         private IRepository<Town> townRepository;
         private IRepository<User> userRepository;
+
+        public UnitOfWork(IGetHiredContext context)
+        {
+            this.context = context;
+        }
 
         public IRepository<Address> AddressRepository
         {
@@ -71,26 +77,6 @@ namespace GetHired.DataModels
         public void Save()
         {
             this.context.SaveChanges();
-        }
-        
-        private bool disposed = false;
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!this.disposed)
-            {
-                if (disposing)
-                {
-                    context.Dispose();
-                }
-            }
-            this.disposed = true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
         }
     }
 }

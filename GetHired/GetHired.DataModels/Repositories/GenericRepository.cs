@@ -10,10 +10,10 @@ namespace GetHired.DataModels.Repositories
     public class GenericRepository<TEntity> : IRepository<TEntity>
         where TEntity : class, IIdentifiable<int>
     {
-        private readonly DbContext context;
-        private readonly DbSet<TEntity> dbSet;
+        private readonly IGetHiredContext context;
+        private readonly IDbSet<TEntity> dbSet;
 
-        public GenericRepository(DbContext context)
+        public GenericRepository(IGetHiredContext context)
         {
             this.context = context;
             this.dbSet = this.context.Set<TEntity>();

@@ -11,8 +11,6 @@ namespace GetHired.DomainModels
         public int Id { get; set; }
 
         [Index(IsUnique = true)]
-        [Required(ErrorMessage = "The email address is required")]
-        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string ContactsId { get; set; }
 
         [MinLength(2), MaxLength(50)]
