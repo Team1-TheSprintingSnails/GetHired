@@ -51,6 +51,11 @@
     <Compile Include="Contracts\IGetHiredContext.cs" />
     <Compile Include="GetHiredContext.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
+    <Compile Include="Migrations\201803151449376_Initial.cs" />
+    <Compile Include="Migrations\201803151449376_Initial.Designer.cs">
+      <DependentUpon>201803151449376_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Contracts\IReadonlyRepository.cs" />
     <Compile Include="Repositories\Contracts\IRepository.cs" />
@@ -67,6 +72,11 @@
       <Project>{cd3237f3-97ce-428b-a4b1-85e567e7dad6}</Project>
       <Name>GetHired.DomainModels</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201803151449376_Initial.resx">
+      <DependentUpon>201803151449376_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

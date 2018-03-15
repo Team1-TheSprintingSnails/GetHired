@@ -51,7 +51,7 @@
   <ItemGroup>
     <Compile Include="Address.cs" />
     <Compile Include="Company.cs" />
-    <Compile Include="Contact.cs" />
+    <Compile Include="ContactInfo.cs" />
     <Compile Include="Enums\Role.cs" />
     <Compile Include="JobOffer.cs" />
     <Compile Include="Town.cs" />

@@ -7,7 +7,7 @@ namespace GetHired.DataModels.Contracts
     {
         IRepository<Address> AddressRepository { get; }
         IRepository<Company> CompanyRepository { get; }
-        IRepository<Contact> ContactsRepository { get; }
+        IRepository<ContactInfo> ContactsRepository { get; }
         IRepository<JobOffer> JobOfferRepository { get; }
         IRepository<Town> TownRepository { get; }
         IRepository<User> UserRepository { get; }

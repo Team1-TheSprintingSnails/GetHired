@@ -1,4 +1,4 @@
-﻿using GetHired.DomainModels.Enums;
+﻿using GetHired.DomainModels.Utilities;
 using Microsoft.TeamFoundation.TestManagement.Client;
 
 namespace GetHired.DomainModels
@@ -9,8 +9,10 @@ namespace GetHired.DomainModels
         public string Position { get; set; }
         public string Description { get; set; }
         public decimal Payment { get; set; }
-        public JobType JobType { get; set; }
-        public JobCategory JobCategory { get; set; }
-        public int JobCompanyId { get; set; }
+        public int CompanyId { get; set; }
+
+        public virtual JobType JobType { get; set; }
+        public virtual JobCategory JobCategory { get; set; }
+        public virtual Company Company { get; set; }
     }
 }

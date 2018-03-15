@@ -1,4 +1,5 @@
-﻿using Microsoft.TeamFoundation.TestManagement.Client;
+﻿using System.Collections.Generic;
+using Microsoft.TeamFoundation.TestManagement.Client;
 
 namespace GetHired.DomainModels
 {
@@ -6,7 +7,12 @@ namespace GetHired.DomainModels
     {
         public int Id { get; set; }
         public string BusinessInfo { get; set; }
-        public int ContactsId { get; set; }
-        
+
+        public int ContactInfoId { get; set; }
+        public virtual ContactInfo ContactInfo { get; set; }
+
+        public virtual ICollection<Address> Addresses { get; set; }
+
+        public virtual ICollection<JobOffer> JobOffers { get; set; }
     }
 }

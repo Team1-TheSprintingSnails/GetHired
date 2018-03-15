@@ -12,11 +12,12 @@ namespace GetHired.DataModels
 
         private IRepository<Address> addressRepository;
         private IRepository<Company> companyRepository;
-        private IRepository<Contact> contactsRepository;
+        private IRepository<ContactInfo> contactsRepository;
         private IRepository<JobOffer> jobOfferRepository;
         private IRepository<Town> townRepository;
         private IRepository<User> userRepository;
         private IReadonlyRepository<JobType> jobTypeReadonlyRepository;
+        private IReadonlyRepository<JobCategory> jobCategoryReadonlyRepository;
 
         public UnitOfWork(IGetHiredContext context)
         {
@@ -41,12 +42,12 @@ namespace GetHired.DataModels
             }
         }
 
-        public IRepository<Contact> ContactsRepository
+        public IRepository<ContactInfo> ContactsRepository
         {
             get
             {
                 return this.contactsRepository ?? (this.contactsRepository =
-                           new GenericRepository<Contact>(this.context));
+                           new GenericRepository<ContactInfo>(this.context));
             }
         }
 
@@ -77,9 +78,21 @@ namespace GetHired.DataModels
 
         public IReadonlyRepository<JobType> JobTypeReadonlyRepository
         {
-            get { return jobTypeReadonlyRepository; }
+            get
+            {
+                return this.jobTypeReadonlyRepository ??
+                       (this.jobTypeReadonlyRepository = new GenericRepository<JobType>(this.context));
+            }
         }
 
+        public IReadonlyRepository<JobCategory> JobCategoryReadonlyRepository
+        {
+            get
+            {
+                return this.jobCategoryReadonlyRepository ??
+                       (this.jobCategoryReadonlyRepository = new GenericRepository<JobCategory>(this.context));
+            }
+        }
         public void Save()
         {
             this.context.SaveChanges();

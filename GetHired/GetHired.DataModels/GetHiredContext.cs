@@ -15,7 +15,7 @@ namespace GetHired.DataModels
         public virtual IDbSet<JobOffer> JobOffers { get; set; }
         public virtual IDbSet<Town> Towns { get; set; }
         public virtual IDbSet<User> Users { get; set; }
-        public virtual IDbSet<Contact> Contacts { get; set; }
+        public virtual IDbSet<ContactInfo> Contacts { get; set; }
         public virtual IDbSet<Company> Companies { get; set; }
         public virtual IDbSet<JobType> JobTypes { get; set; }
         public virtual IDbSet<JobCategory> JobCategories { get; set; }
