@@ -1,8 +1,8 @@
-﻿using System;
-using GetHired.DataModels.Contracts;
+﻿using GetHired.DataModels.Contracts;
 using GetHired.DataModels.Repositories;
 using GetHired.DataModels.Repositories.Contracts;
 using GetHired.DomainModels;
+using GetHired.DomainModels.Utilities;
 
 namespace GetHired.DataModels
 {
@@ -16,6 +16,7 @@ namespace GetHired.DataModels
         private IRepository<JobOffer> jobOfferRepository;
         private IRepository<Town> townRepository;
         private IRepository<User> userRepository;
+        private IReadonlyRepository<JobType> jobTypeReadonlyRepository;
 
         public UnitOfWork(IGetHiredContext context)
         {
@@ -72,6 +73,11 @@ namespace GetHired.DataModels
             {
                 return this.userRepository ?? (this.userRepository = new GenericRepository<User>(this.context));
             }
+        }
+
+        public IReadonlyRepository<JobType> JobTypeReadonlyRepository
+        {
+            get { return jobTypeReadonlyRepository; }
         }
 
         public void Save()

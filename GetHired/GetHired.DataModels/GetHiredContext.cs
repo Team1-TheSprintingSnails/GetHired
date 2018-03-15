@@ -1,8 +1,7 @@
 ﻿using System.Data.Entity;
 using GetHired.DataModels.Contracts;
 using GetHired.DomainModels;
-using GetHired.DomainModels.Enums;
-using Microsoft.TeamFoundation.TestManagement.Client;
+using GetHired.DomainModels.Utilities;
 
 namespace GetHired.DataModels
 {
@@ -10,9 +9,7 @@ namespace GetHired.DataModels
     {
         public GetHiredContext()
             : base("name=GetHired")
-        {
-            
-        }                                         
+        { }                                         
 
         public virtual IDbSet<Address> Addresses { get; set; }
         public virtual IDbSet<JobOffer> JobOffers { get; set; }
@@ -20,5 +17,7 @@ namespace GetHired.DataModels
         public virtual IDbSet<User> Users { get; set; }
         public virtual IDbSet<Contact> Contacts { get; set; }
         public virtual IDbSet<Company> Companies { get; set; }
+        public virtual IDbSet<JobType> JobTypes { get; set; }
+        public virtual IDbSet<JobCategory> JobCategories { get; set; }
     }
 }
