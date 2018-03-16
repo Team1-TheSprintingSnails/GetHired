@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.TeamFoundation.TestManagement.Client;
-using System.ComponentModel.DataAnnotations.Schema;
 using GetHired.DomainModels.Enums;
 using GetHired.DomainModels.Utilities;
 

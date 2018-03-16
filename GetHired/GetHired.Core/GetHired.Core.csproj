@@ -34,6 +34,7 @@
       <HintPath>..\packages\Bytes2you.Validation.2.0.0.0\lib\portable-win+net40+sl40+wp+Xbox40\Bytes2you.Validation.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,6 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authentication\Attributes\AccessModeratorRequired.cs" />
+    <Compile Include="Authentication\Attributes\LoginRequired.cs" />
+    <Compile Include="Authentication\Attributes\LogoutRequired.cs" />
+    <Compile Include="Authentication\Providers\AuthenticationHadler.cs" />
+    <Compile Include="Authentication\Contracts\IAuthenticationHadler.cs" />
     <Compile Include="Commands\Contracts\ICommand.cs" />
     <Compile Include="Factories\CommandFactory.cs" />
     <Compile Include="Factories\Contracts\ICommandFactory.cs" />
@@ -57,9 +63,17 @@
     <Compile Include="Providers\Contracts\IReader.cs" />
     <Compile Include="Providers\Contracts\IWriter.cs" />
     <Compile Include="Providers\Engine.cs" />
+    <Compile Include="Providers\Contracts\IPasswordHashGenerator.cs" />
+    <Compile Include="Providers\PasswordHashGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GetHired.DataModels\GetHired.DataModels.csproj">
+      <Project>{E7A3FF23-95AC-4C7A-AB7C-36C93E2568C2}</Project>
+      <Name>GetHired.DataModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
