@@ -93,6 +93,7 @@ namespace GetHired.DataModels
                        (this.jobCategoryReadonlyRepository = new GenericRepository<JobCategory>(this.context));
             }
         }
+
         public void Save()
         {
             this.context.SaveChanges();

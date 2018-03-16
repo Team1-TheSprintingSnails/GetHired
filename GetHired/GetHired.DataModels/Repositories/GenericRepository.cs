@@ -1,7 +1,5 @@
-﻿using System;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
-using System.Linq.Expressions;
 using GetHired.DataModels.Contracts;
 using GetHired.DataModels.Repositories.Contracts;
 using Microsoft.TeamFoundation.TestManagement.Client;
@@ -24,16 +22,20 @@ namespace GetHired.DataModels.Repositories
         {
             if (context.Entry(entity).State == EntityState.Detached)
             {
-                dbSet.Attach(entity);
+                this.dbSet.Attach(entity);
             }
 
-            dbSet.Remove(entity);
+            this.dbSet.Remove(entity);
         }
 
         public void Delete(int id)
         {
-            var entityToDelete = this.dbSet.Find(id);
-            this.Delete(entityToDelete);
+            var entity = this.GetById(id);
+
+            if (entity != null)
+            {
+                this.Delete(entity);
+            }
         }
 
         public TEntity GetById(int id)
@@ -56,8 +58,13 @@ namespace GetHired.DataModels.Repositories
 
         public void Update(TEntity entity)
         {
-            dbSet.Attach(entity);
-            context.Entry(entity).State = EntityState.Modified;
+            var entry = context.Entry(entity);
+            if (entry.State == EntityState.Detached)
+            {
+                this.dbSet.Attach(entity);
+            }
+
+            entry.State = EntityState.Modified;
         }
     }
 }

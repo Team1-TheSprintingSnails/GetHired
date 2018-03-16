@@ -1,5 +1,6 @@
 ﻿using GetHired.DataModels.Repositories.Contracts;
 using GetHired.DomainModels;
+using GetHired.DomainModels.Utilities;
 
 namespace GetHired.DataModels.Contracts
 {
@@ -11,6 +12,8 @@ namespace GetHired.DataModels.Contracts
         IRepository<JobOffer> JobOfferRepository { get; }
         IRepository<Town> TownRepository { get; }
         IRepository<User> UserRepository { get; }
+        IReadonlyRepository<JobType> JobTypeReadonlyRepository { get; }
+        IReadonlyRepository<JobCategory> JobCategoryReadonlyRepository { get; }
 
         void Save();
     }
