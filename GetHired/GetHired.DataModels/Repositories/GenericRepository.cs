@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using GetHired.DataModels.Contracts;
 using GetHired.DataModels.Repositories.Contracts;
@@ -20,7 +21,12 @@ namespace GetHired.DataModels.Repositories
 
         public void Delete(TEntity entity)
         {
-            if (context.Entry(entity).State == EntityState.Detached)
+            if (entity == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            if (this.context.Entry(entity).State == EntityState.Detached)
             {
                 this.dbSet.Attach(entity);
             }
@@ -53,11 +59,21 @@ namespace GetHired.DataModels.Repositories
 
         public void Insert(TEntity entity)
         {
+            if (entity == null)
+            {
+                throw new ArgumentNullException();
+            }
+
             this.dbSet.Add(entity);
         }
 
         public void Update(TEntity entity)
         {
+            if (entity == null)
+            {
+                throw new ArgumentNullException();
+            }
+
             var entry = context.Entry(entity);
             if (entry.State == EntityState.Detached)
             {
