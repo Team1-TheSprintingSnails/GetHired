@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Security.Authentication;
 using System.Security.Principal;
 using System.Threading;
 using GetHired.Core.Authentication.Contracts;
