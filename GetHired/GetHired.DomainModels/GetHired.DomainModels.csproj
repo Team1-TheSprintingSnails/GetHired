@@ -54,6 +54,7 @@
     <Compile Include="ContactInfo.cs" />
     <Compile Include="Enums\Role.cs" />
     <Compile Include="JobOffer.cs" />
+    <Compile Include="Password.cs" />
     <Compile Include="Town.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

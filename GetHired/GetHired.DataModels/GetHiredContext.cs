@@ -19,5 +19,12 @@ namespace GetHired.DataModels
         public virtual IDbSet<Company> Companies { get; set; }
         public virtual IDbSet<JobType> JobTypes { get; set; }
         public virtual IDbSet<JobCategory> JobCategories { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>()
+                .HasRequired(u => u.Password)
+                .WithRequiredDependent(p => p.User);
+        }
     }
 }
