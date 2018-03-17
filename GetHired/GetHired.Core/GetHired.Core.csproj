@@ -44,9 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authentication\Attributes\AccessModeratorRequired.cs" />
-    <Compile Include="Authentication\Attributes\LoginRequired.cs" />
-    <Compile Include="Authentication\Attributes\LogoutRequired.cs" />
+    <Compile Include="Authentication\Contracts\IdentityProvider.cs" />
+    <Compile Include="Authentication\Contracts\IIdentityProvider.cs" />
     <Compile Include="Authentication\Providers\AuthenticationHadler.cs" />
     <Compile Include="Authentication\Contracts\IAuthenticationHadler.cs" />
     <Compile Include="Commands\Contracts\ICommand.cs" />

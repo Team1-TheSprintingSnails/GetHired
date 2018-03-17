@@ -1,5 +1,5 @@
-﻿using System.Threading;
-using GetHired.Core.Authentication.Attributes;
+﻿using System;
+using GetHired.Core.Authentication.Contracts;
 using GetHired.DataModels.Contracts;
 
 namespace GetHired.Core.Authentication.Providers
@@ -13,22 +13,19 @@ namespace GetHired.Core.Authentication.Providers
             this.unitOfWork = unitOfWork;
         }
 
-        [LogoutRequired]
         public void Login(string username, string password)
         {
-            
+            throw new NotImplementedException();
         }
 
-        [LoginRequired]
         public void LogOut()
         {
-            Thread.CurrentPrincipal = null;
+            throw new NotImplementedException();
         }
 
-        [LogoutRequired]
         public void Register()
         {
-            
+            throw new NotImplementedException();
         }
     }
 }

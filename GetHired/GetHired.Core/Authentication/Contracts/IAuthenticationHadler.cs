@@ -1,4 +1,4 @@
-﻿namespace GetHired.Core.Authentication.Providers
+﻿namespace GetHired.Core.Authentication.Contracts
 {
     public interface IAuthenticationHadler
     {
