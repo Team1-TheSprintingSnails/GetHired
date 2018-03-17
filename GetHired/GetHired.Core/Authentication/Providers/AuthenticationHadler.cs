@@ -7,15 +7,17 @@ namespace GetHired.Core.Authentication.Providers
     public class AuthenticationHadler : IAuthenticationHadler
     {
         private readonly IUnitOfWork unitOfWork;
+        private readonly IIdentityProvider idednProvider;
 
-        public AuthenticationHadler(IUnitOfWork unitOfWork)
+        public AuthenticationHadler(IUnitOfWork unitOfWork, IIdentityProvider idednProvider)
         {
             this.unitOfWork = unitOfWork;
+            this.idednProvider = idednProvider;
         }
 
         public void Login(string username, string password)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void LogOut()
