@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using GetHired.DataModels.Contracts;
 using GetHired.DomainModels;
 using GetHired.DomainModels.Utilities;
@@ -22,6 +23,9 @@ namespace GetHired.DataModels
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+
             modelBuilder.Entity<User>()
                 .HasRequired(u => u.Password)
                 .WithRequiredDependent(p => p.User);

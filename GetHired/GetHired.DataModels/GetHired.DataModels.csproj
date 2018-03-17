@@ -55,6 +55,14 @@
     <Compile Include="Migrations\201803151449376_Initial.Designer.cs">
       <DependentUpon>201803151449376_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803171144204_PasswordEntityAdded.cs" />
+    <Compile Include="Migrations\201803171144204_PasswordEntityAdded.Designer.cs">
+      <DependentUpon>201803171144204_PasswordEntityAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803171150180_RemoveCascadeDelete.cs" />
+    <Compile Include="Migrations\201803171150180_RemoveCascadeDelete.Designer.cs">
+      <DependentUpon>201803171150180_RemoveCascadeDelete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Contracts\IReadonlyRepository.cs" />
@@ -76,6 +84,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201803151449376_Initial.resx">
       <DependentUpon>201803151449376_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803171144204_PasswordEntityAdded.resx">
+      <DependentUpon>201803171144204_PasswordEntityAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803171150180_RemoveCascadeDelete.resx">
+      <DependentUpon>201803171150180_RemoveCascadeDelete.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
