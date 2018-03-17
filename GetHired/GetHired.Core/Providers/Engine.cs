@@ -1,5 +1,4 @@
 ﻿using System;
-using Bytes2you.Validation;
 using GetHired.Core.Providers.Contracts;
 
 namespace GetHired.Core.Providers
@@ -17,10 +16,6 @@ namespace GetHired.Core.Providers
             IWriter writer,
             ICommandProcessor commandProcessor)
         {
-            Guard.WhenArgument(reader, "reader is null").IsNull().Throw();
-            Guard.WhenArgument(writer, "writer is null").IsNull().Throw();
-            Guard.WhenArgument(commandProcessor, "processor is null").IsNull().Throw();
-
             this.reader = reader;
             this.writer = writer;
             this.commandProcessor = commandProcessor;

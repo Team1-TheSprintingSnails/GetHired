@@ -10,13 +10,14 @@ namespace GetHired.DomainModels
         [ForeignKey("Company")]
         public int Id { get; set; }
 
-        //[Column(TypeName = "VARCHAR")]
-        //[Index(IsUnique = true)]
+        [Column(TypeName = "VARCHAR")]
+        [Index(IsUnique = true)]
         [Required(ErrorMessage = "The email address is required")]
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Email { get; set; }
 
-        //[Index(IsUnique = true)]
+        [Column(TypeName = "VARCHAR")]
+        [Index(IsUnique = true)]
         [Required(ErrorMessage = "The phone is required")]
         [Phone(ErrorMessage = "The phone number is incorrect")]
         public string PhoneNumber { get; set; }

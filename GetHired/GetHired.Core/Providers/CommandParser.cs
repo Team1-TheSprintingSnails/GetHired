@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Bytes2you.Validation;
 using GetHired.Core.Commands.Contracts;
 using GetHired.Core.Factories.Contracts;
 
@@ -12,8 +11,6 @@ namespace GetHired.Core.Providers
 
         public CommandParser(ICommandFactory commandFactory)
         {
-            Guard.WhenArgument(commandFactory, "commandFactory is null").IsNull().Throw();
-
             this.commandFactory = commandFactory;
         }
 

@@ -1,5 +1,4 @@
 ﻿using System;
-using Bytes2you.Validation;
 using GetHired.Core.Providers.Contracts;
 
 namespace GetHired.Core.Providers
@@ -10,8 +9,6 @@ namespace GetHired.Core.Providers
 
         public CommandProcessor(ICommandParser commandParser)
         {
-            Guard.WhenArgument(commandParser, "commandParser is null").IsNull().Throw();
-
             this.commandParser = commandParser;
         }
 

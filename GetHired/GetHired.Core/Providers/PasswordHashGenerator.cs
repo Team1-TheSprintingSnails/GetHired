@@ -25,7 +25,7 @@ namespace GetHired.Core.Providers
             int maxLength = 32;
 
             // Empty salt array
-            byte[] salt = new byte[maxLength];
+            var salt = new byte[maxLength];
 
             // Build the random bytes
             random.GetNonZeroBytes(salt);
