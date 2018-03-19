@@ -13,7 +13,7 @@ namespace GetHired.Core.Providers
 
             HashAlgorithm algorithm = new SHA256Managed();
             var saltedHashBytes = algorithm.ComputeHash(plainTextWithSaltBytes);
-
+            
             return Convert.ToBase64String(saltedHashBytes);
         }
 

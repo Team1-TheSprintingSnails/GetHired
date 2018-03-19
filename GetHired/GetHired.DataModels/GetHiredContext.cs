@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using GetHired.DataModels.Contracts;
 using GetHired.DomainModels;
@@ -26,9 +27,23 @@ namespace GetHired.DataModels
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
-            modelBuilder.Entity<User>()
-                .HasRequired(u => u.Password)
-                .WithRequiredDependent(p => p.User);
+            modelBuilder.Entity<Password>()
+                .Property(p => p.Id)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+
+            modelBuilder.Entity<ContactInfo>()
+                .Property(p => p.Id)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+
+            modelBuilder.Entity<JobOffer>()
+                .HasOptional(e => e.JobType)
+                .WithMany(e => e.JobOffers)
+                .HasForeignKey(e => e.JobTypeId);
+
+            modelBuilder.Entity<JobOffer>()
+                .HasOptional(e => e.JobCategory)
+                .WithMany(e => e.JobOffers)
+                .HasForeignKey(e => e.JobCategoryId);
         }
     }
 }

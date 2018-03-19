@@ -1,9 +1,13 @@
-﻿using Microsoft.TeamFoundation.TestManagement.Client;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.TeamFoundation.TestManagement.Client;
 
 namespace GetHired.DomainModels
 {
     public class Password : IIdentifiable<int>
     {
+        [Key]
+        [ForeignKey("User")]
         public int Id { get; set; }
         public string PasswordHash { get; set; }
         public string PasswordSalt { get; set; }

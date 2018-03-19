@@ -11,6 +11,9 @@ namespace GetHired.DomainModels
         public decimal Payment { get; set; }
         public int CompanyId { get; set; }
 
+        public int? JobTypeId { get; set; }
+        public int? JobCategoryId { get; set; }
+        
         public virtual JobType JobType { get; set; }
         public virtual JobCategory JobCategory { get; set; }
         public virtual Company Company { get; set; }
