@@ -1,6 +1,4 @@
-﻿using System;
-using System.Data.Entity.Infrastructure;
-using GetHired.DataModels;
+﻿using GetHired.DataModels;
 using GetHired.DomainModels;
 using GetHired.DomainModels.Enums;
 
@@ -10,23 +8,14 @@ namespace GetHired.ConsoleClient
     {
         public static void Main()
         {
-            try
-            {
+            var context = new GetHiredContext();
 
-                var context = new GetHiredContext();
+            var password = new Password();
+            var user = new User { Role = Role.Regular, Username = "pesho999", Password = password };
 
-                var user = new User { Role = Role.Regular, Username = "asdkljflkdsjfkjskld"};
-                var pass
+            context.Users.Add(user);
 
-                context.Users.Add(user);
-
-                context.SaveChanges();
-            }
-
-            catch (DbUpdateException e)
-            {
-                Console.WriteLine(e);
-            }
+            context.SaveChanges();
         }
     }
 }

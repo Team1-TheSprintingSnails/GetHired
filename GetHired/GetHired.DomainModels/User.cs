@@ -10,7 +10,6 @@ namespace GetHired.DomainModels
     public class User : IIdentifiable<int>
     {
         [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         
         [MinLength(2), MaxLength(50)]
