@@ -51,34 +51,6 @@
     <Compile Include="Contracts\IGetHiredContext.cs" />
     <Compile Include="GetHiredContext.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
-    <Compile Include="Migrations\201803151449376_Initial.cs" />
-    <Compile Include="Migrations\201803151449376_Initial.Designer.cs">
-      <DependentUpon>201803151449376_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803171144204_PasswordEntityAdded.cs" />
-    <Compile Include="Migrations\201803171144204_PasswordEntityAdded.Designer.cs">
-      <DependentUpon>201803171144204_PasswordEntityAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803171150180_RemoveCascadeDelete.cs" />
-    <Compile Include="Migrations\201803171150180_RemoveCascadeDelete.Designer.cs">
-      <DependentUpon>201803171150180_RemoveCascadeDelete.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803171528234_UniqueUsernameAdded.cs" />
-    <Compile Include="Migrations\201803171528234_UniqueUsernameAdded.Designer.cs">
-      <DependentUpon>201803171528234_UniqueUsernameAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803180850435_OneToOneOrZeroFixes.cs" />
-    <Compile Include="Migrations\201803180850435_OneToOneOrZeroFixes.Designer.cs">
-      <DependentUpon>201803180850435_OneToOneOrZeroFixes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803191120014_RelationshipsFixes.cs" />
-    <Compile Include="Migrations\201803191120014_RelationshipsFixes.Designer.cs">
-      <DependentUpon>201803191120014_RelationshipsFixes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803191140474_Test.cs" />
-    <Compile Include="Migrations\201803191140474_Test.Designer.cs">
-      <DependentUpon>201803191140474_Test.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Contracts\IReadonlyRepository.cs" />
@@ -96,29 +68,6 @@
       <Project>{cd3237f3-97ce-428b-a4b1-85e567e7dad6}</Project>
       <Name>GetHired.DomainModels</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201803151449376_Initial.resx">
-      <DependentUpon>201803151449376_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803171144204_PasswordEntityAdded.resx">
-      <DependentUpon>201803171144204_PasswordEntityAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803171150180_RemoveCascadeDelete.resx">
-      <DependentUpon>201803171150180_RemoveCascadeDelete.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803171528234_UniqueUsernameAdded.resx">
-      <DependentUpon>201803171528234_UniqueUsernameAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803180850435_OneToOneOrZeroFixes.resx">
-      <DependentUpon>201803180850435_OneToOneOrZeroFixes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803191120014_RelationshipsFixes.resx">
-      <DependentUpon>201803191120014_RelationshipsFixes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803191140474_Test.resx">
-      <DependentUpon>201803191140474_Test.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
