@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GetHired.DTO
+﻿namespace GetHired.DTO
 {
-    class AddressModel
+    public class AddressModel
     {
         public string Name { get; set; }
     }

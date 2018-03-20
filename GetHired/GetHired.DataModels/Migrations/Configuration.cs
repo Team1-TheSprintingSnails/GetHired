@@ -2,7 +2,7 @@ namespace GetHired.DataModels.Migrations
 {
     using System.Data.Entity.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<GetHired.DataModels.GetHiredContext>
+    public sealed class Configuration : DbMigrationsConfiguration<GetHired.DataModels.GetHiredContext>
     {
         public Configuration()
         {
