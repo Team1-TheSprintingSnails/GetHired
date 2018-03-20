@@ -2,6 +2,7 @@
 using GetHired.DataModels.Contracts;
 using GetHired.DomainModels;
 using System;
+using System.Linq;
 using GetHired.DTO;
 
 namespace GetHired.Services.Services
@@ -27,11 +28,12 @@ namespace GetHired.Services.Services
             this.unitOfWork.JobOfferRepository.Insert(regularJobOffer);
         }
 
-        public void GetAllJobOffers()
+        public IQueryable<JobOffer> GetAllJobOffers()
         {
-            //var allJobOffers = this.unitOfWork.JobOfferRepository.All();
-
             // implementation
+
+            var allJobOffers = this.unitOfWork.JobOfferRepository.All;
+            return allJobOffers;
         }
     }
 }
