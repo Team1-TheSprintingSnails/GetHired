@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.TeamFoundation.TestManagement.Client;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace GetHired.DomainModels
 {
@@ -15,7 +17,19 @@ namespace GetHired.DomainModels
         }
         public int Id { get; set; }
         public string BusinessInfo { get; set; }
-        
+
+        [Column(TypeName = "VARCHAR")]
+        [Index(IsUnique = true)]
+        [Required(ErrorMessage = "The email address is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        public string Email { get; set; }
+
+        [Column(TypeName = "VARCHAR")]
+        [Index(IsUnique = true)]
+        [Required(ErrorMessage = "The phone is required")]
+        [Phone(ErrorMessage = "The phone number is incorrect")]
+        public string PhoneNumber { get; set; }
+
         public virtual ContactInfo ContactInfo { get; set; }
 
         public virtual ICollection<Address> Addresses
