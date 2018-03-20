@@ -26,7 +26,7 @@ namespace GetHired.DomainModels
         public virtual JobCategory JobCategory { get; set; }
         public virtual Company Company { get; set; }
 
-        public ICollection<User> Followers
+        public virtual ICollection<User> Followers
         {
             get { return followers; }
             set { followers = value; }
