@@ -1,12 +1,8 @@
 ﻿using AutoMapper;
 using GetHired.DataModels.Contracts;
 using GetHired.DomainModels;
-using GetHired.DTO;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using GetHired.DTO;
 
 namespace GetHired.Services.Services
 {

@@ -1,9 +1,6 @@
-﻿using GetHired.Common.Mapping;
-using GetHired.DomainModels;
-
-namespace GetHired.DTO
+﻿namespace GetHired.DTO
 {
-    public class JobOfferModel : IMapTo<JobOffer>
+    public class JobOfferModel //: IMapTo<JobOffer>
     {
         public string Position { get; set; }
 
