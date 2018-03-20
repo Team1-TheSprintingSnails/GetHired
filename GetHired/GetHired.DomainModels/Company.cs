@@ -15,7 +15,7 @@ namespace GetHired.DomainModels
         }
         public int Id { get; set; }
         public string BusinessInfo { get; set; }
-
+        
         public virtual ContactInfo ContactInfo { get; set; }
 
         public virtual ICollection<Address> Addresses

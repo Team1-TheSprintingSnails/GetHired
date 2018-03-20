@@ -10,7 +10,7 @@ namespace GetHired.DataModels
     {
         public GetHiredContext()
             : base("name=GetHired")
-        { }                                         
+        { }
 
         public virtual IDbSet<Address> Addresses { get; set; }
         public virtual IDbSet<JobOffer> JobOffers { get; set; }
@@ -24,7 +24,7 @@ namespace GetHired.DataModels
         {
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-            
+
             modelBuilder.Entity<JobOffer>()
                 .HasOptional(e => e.JobType)
                 .WithMany(e => e.JobOffers)

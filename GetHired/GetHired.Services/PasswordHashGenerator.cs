@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
+using GetHired.Services.Contracts;
 
 namespace GetHired.Services
 {
