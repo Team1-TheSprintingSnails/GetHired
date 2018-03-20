@@ -7,9 +7,6 @@ namespace GetHired.Services.Services
     {
         private readonly IUnitOfWork unitOfWork;
 
-        public UserService(IUnitOfWork unitOfWork)
-        {
-
-        }
+        public UserService(IUnitOfWork unitOfWork) { }
     }
 }

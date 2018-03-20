@@ -50,9 +50,12 @@
     <Compile Include="Contracts\IPasswordHashGenerator.cs" />
     <Compile Include="Contracts\IUserService.cs" />
     <Compile Include="PasswordHashGenerator.cs" />
+    <Compile Include="Services\AddressService.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CompanyService.cs" />
     <Compile Include="Services\JobOfferService.cs" />
+    <Compile Include="Services\TownService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>

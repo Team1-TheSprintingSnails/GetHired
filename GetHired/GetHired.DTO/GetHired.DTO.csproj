@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="AddressModel.cs" />
     <Compile Include="CompanyModel.cs" />
-    <Compile Include="ContactInfoModel.cs" />
     <Compile Include="JobCategoryModel.cs" />
     <Compile Include="JobOfferModel.cs" />
     <Compile Include="JobTypeModel.cs" />
@@ -53,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GetHired.Common\GetHired.Common.csproj">
-      <Project>{F77F51D7-DE4C-4087-9CBA-57A32265CB15}</Project>
+      <Project>{f77f51d7-de4c-4087-9cba-57a32265cb15}</Project>
       <Name>GetHired.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\GetHired.DomainModels\GetHired.DomainModels.csproj">

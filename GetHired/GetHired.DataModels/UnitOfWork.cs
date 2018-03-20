@@ -15,7 +15,6 @@ namespace GetHired.DataModels
         private IRepository<JobOffer> jobOfferRepository;
         private IRepository<Town> townRepository;
         private IRepository<User> userRepository;
-        private IRepository<ContactInfo> contactInfoRepository;
         private IReadonlyRepository<JobType> jobTypeReadonlyRepository;
         private IReadonlyRepository<JobCategory> jobCategoryReadonlyRepository;
 
@@ -82,15 +81,6 @@ namespace GetHired.DataModels
             {
                 return this.jobCategoryReadonlyRepository ??
                        (this.jobCategoryReadonlyRepository = new GenericRepository<JobCategory>(this.context));
-            }
-        }
-
-        public IRepository<ContactInfo> ContactInfoRepository
-        {
-            get
-            {
-                return this.contactInfoRepository ?? (this.contactInfoRepository =
-                           new GenericRepository<ContactInfo>(this.context));
             }
         }
 

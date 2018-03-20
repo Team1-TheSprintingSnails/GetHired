@@ -30,8 +30,6 @@ namespace GetHired.DomainModels
         [Phone(ErrorMessage = "The phone number is incorrect")]
         public string PhoneNumber { get; set; }
 
-        public virtual ContactInfo ContactInfo { get; set; }
-
         public virtual ICollection<Address> Addresses
         {
             get { return addresses; }
