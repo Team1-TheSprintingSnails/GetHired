@@ -1,7 +1,4 @@
-﻿using GetHired.Core.Providers;
-using GetHired.DataModels;
-using GetHired.DomainModels;
-using GetHired.DomainModels.Enums;
+﻿using GetHired.DataModels;
 
 namespace GetHired.ConsoleClient
 {

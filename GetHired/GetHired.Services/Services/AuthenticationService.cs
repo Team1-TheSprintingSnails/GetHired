@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Linq;
-using System.Security.Principal;
 using System.Threading;
 using GetHired.DataModels.Contracts;
 using GetHired.Services.Contracts;
