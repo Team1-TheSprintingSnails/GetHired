@@ -1,7 +1,4 @@
-﻿using GetHired.Common.Mapping;
-using GetHired.DomainModels.Utilities;
-
-namespace GetHired.DTO
+﻿namespace GetHired.DTO
 {
     public class JobTypeModel
     {
