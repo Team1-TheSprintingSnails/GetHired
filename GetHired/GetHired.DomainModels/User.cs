@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.TeamFoundation.TestManagement.Client;
@@ -35,6 +36,8 @@ namespace GetHired.DomainModels
 
         [Required]
         public string PasswordSalt { get; set; }
+
+        public DateTime? DataOfBirth { get; set; }
 
         public Role Role { get; set; }
 

@@ -1,8 +1,8 @@
 using System.Threading;
-using GetHired.Core.Authentication.Contracts;
+using GetHired.Core.Providers.Contracts;
 using GetHired.DomainModels.Enums;
 
-namespace GetHired.Core.Authentication.Providers
+namespace GetHired.Core.Providers
 {
     class AuthorizationHandler : IAuthorizationHandler
     {

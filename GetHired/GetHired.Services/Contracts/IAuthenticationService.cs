@@ -1,6 +1,6 @@
-﻿namespace GetHired.Core.Authentication.Contracts
+﻿namespace GetHired.Services.Contracts
 {
-    public interface IAuthenticationHadler
+    public interface IAuthenticationService
     {
         void LogOut();
         bool Login(string username, string password);

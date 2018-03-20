@@ -1,6 +1,6 @@
 ﻿using GetHired.DomainModels.Enums;
 
-namespace GetHired.Core.Authentication.Contracts
+namespace GetHired.Core.Providers.Contracts
 {
     public interface IAuthorizationHandler
     {

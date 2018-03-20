@@ -1,4 +1,4 @@
-﻿namespace GetHired.Core.Providers.Contracts
+﻿namespace GetHired.Services
 {
     public interface IPasswordHashGenerator
     {
