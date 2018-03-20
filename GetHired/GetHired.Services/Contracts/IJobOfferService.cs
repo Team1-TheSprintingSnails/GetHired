@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GetHired.DTO
+namespace GetHired.Services.Contracts
 {
-    class AddressModel
+    public interface IJobOfferService
     {
-        public string Name { get; set; }
     }
 }

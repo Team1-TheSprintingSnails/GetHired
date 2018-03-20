@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GetHired.DTO
+namespace GetHired.Common.Mapping
 {
-    class AddressModel
+    public interface IMapFrom<T> where T : class
     {
-        public string Name { get; set; }
     }
 }

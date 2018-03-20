@@ -31,8 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,11 +46,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IAuthenticationService.cs" />
+    <Compile Include="Contracts\IJobOfferService.cs" />
     <Compile Include="Contracts\IPasswordHashGenerator.cs" />
     <Compile Include="Contracts\IUserService.cs" />
     <Compile Include="PasswordHashGenerator.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\JobOfferService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +64,13 @@
       <Project>{cd3237f3-97ce-428b-a4b1-85e567e7dad6}</Project>
       <Name>GetHired.DomainModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GetHired.DTO\GetHired.DTO.csproj">
+      <Project>{469A47B2-848B-4F50-ADCE-EBE0411F690F}</Project>
+      <Name>GetHired.DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
