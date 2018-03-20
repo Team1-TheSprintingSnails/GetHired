@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configurations\Contracts\IFluentConfiguration.cs" />
+    <Compile Include="Configurations\JobOfferConfiguration.cs" />
     <Compile Include="Contracts\IGetHiredContext.cs" />
     <Compile Include="GetHiredContext.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
