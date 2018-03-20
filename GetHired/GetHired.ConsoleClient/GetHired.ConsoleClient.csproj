@@ -59,6 +59,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GetHired.Core\GetHired.Core.csproj">
+      <Project>{9E3CFC76-3EE6-44DE-A632-788A7F6FF5B6}</Project>
+      <Name>GetHired.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GetHired.DataModels\GetHired.DataModels.csproj">
       <Project>{E7A3FF23-95AC-4C7A-AB7C-36C93E2568C2}</Project>
       <Name>GetHired.DataModels</Name>

@@ -12,7 +12,6 @@ namespace GetHired.DataModels
 
         private IRepository<Address> addressRepository;
         private IRepository<Company> companyRepository;
-        private IRepository<ContactInfo> contactsRepository;
         private IRepository<JobOffer> jobOfferRepository;
         private IRepository<Town> townRepository;
         private IRepository<User> userRepository;
@@ -39,15 +38,6 @@ namespace GetHired.DataModels
             {
                 return this.companyRepository ?? (this.companyRepository =
                            new GenericRepository<Company>(this.context));
-            }
-        }
-
-        public IRepository<ContactInfo> ContactsRepository
-        {
-            get
-            {
-                return this.contactsRepository ?? (this.contactsRepository =
-                           new GenericRepository<ContactInfo>(this.context));
             }
         }
 

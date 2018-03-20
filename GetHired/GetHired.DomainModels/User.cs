@@ -9,6 +9,13 @@ namespace GetHired.DomainModels
 {
     public class User : IIdentifiable<int>
     {
+        private ICollection<JobOffer> favouriteJobOffers;
+
+        public User()
+        {
+            this.favouriteJobOffers = new HashSet<JobOffer>();
+        }
+
         [Key]
         public int Id { get; set; }
         
@@ -23,11 +30,18 @@ namespace GetHired.DomainModels
         [MinLength(2), MaxLength(50)]
         public string LastName { get; set; }
 
-        public Role Role { get; set; }
-        
-        public virtual ICollection<JobType> DesiredJobTypes { get; set; }
-        public virtual ICollection<JobCategory> DesiredJobCategories { get; set; }
+        [Required]
+        public string PasswordHash { get; set; }
 
-        public virtual Password Password { get; set; }
+        [Required]
+        public string PasswordSalt { get; set; }
+
+        public Role Role { get; set; }
+
+        public virtual ICollection<JobOffer> FavouriteJobOffers
+        {
+            get { return favouriteJobOffers; }
+            set { favouriteJobOffers = value; }
+        }
     }
 }

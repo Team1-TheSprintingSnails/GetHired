@@ -5,11 +5,20 @@ namespace GetHired.DomainModels.Utilities
 {
     public class JobType : IIdentifiable<int>
     {
+        private ICollection<JobOffer> jobOffers;
+
+        public JobType()
+        {
+            this.jobOffers = new HashSet<JobOffer>();
+        }
+
         public int Id { get; set; }
         public string TypeName { get; set; }
 
-        public virtual ICollection<JobOffer> JobOffers { get; set; }
-        public virtual ICollection<User> Users { get; set; }
-
+        public virtual ICollection<JobOffer> JobOffers
+        {
+            get { return jobOffers; }
+            set { jobOffers = value; }
+        }
     }
 }

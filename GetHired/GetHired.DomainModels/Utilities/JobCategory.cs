@@ -5,11 +5,19 @@ namespace GetHired.DomainModels.Utilities
 {
     public class JobCategory : IIdentifiable<int>
     {
+        private ICollection<JobOffer> jobOffers;
+
+        public JobCategory()
+        {
+            this.JobOffers = new HashSet<JobOffer>();
+        }
         public int Id { get; set; }
         public string CategoryName { get; set; }
 
-        public virtual ICollection<JobOffer> JobOffers { get; set; }
-        public virtual ICollection<User> Users { get; set; }
-
+        public virtual ICollection<JobOffer> JobOffers
+        {
+            get { return jobOffers; }
+            set { jobOffers = value; }
+        }
     }
 }

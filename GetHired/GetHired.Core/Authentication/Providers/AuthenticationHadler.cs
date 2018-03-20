@@ -22,28 +22,28 @@ namespace GetHired.Core.Authentication.Providers
 
         public bool Login(string username, string password)
         {
-            var user = this.unitOfWork
-                .UserRepository.All
-                .FirstOrDefault(u => u.Username == username);
+            //var user = this.unitOfWork
+            //    .UserRepository.All
+            //    .FirstOrDefault(u => u.Username == username);
 
-            if (user == null)
-            {
-                return false;
-            }
+            //if (user == null)
+            //{
+            //    return false;
+            //}
 
-            var pass = user.Password;
-            var expectedPasswordHash = pass.PasswordHash;
-            var passwordSalt = pass.PasswordSalt;
+            //var pass = user.Password;
+            //var expectedPasswordHash = pass.PasswordHash;
+            //var passwordSalt = pass.PasswordSalt;
 
-            var actualPasswordHash = this.passwordHashGenerator.GenerateSaltedHash(password, passwordSalt);
+            //var actualPasswordHash = this.passwordHashGenerator.GenerateSaltedHash(password, passwordSalt);
 
-            if (string.Compare(expectedPasswordHash, actualPasswordHash, StringComparison.Ordinal) != 0)
-            {
-                return false;
-            }
+            //if (string.Compare(expectedPasswordHash, actualPasswordHash, StringComparison.Ordinal) != 0)
+            //{
+            //    return false;
+            //}
 
-            var identity = new GenericIdentity(username);
-            Thread.CurrentPrincipal = new GenericPrincipal(identity, new []{user.Role.ToString()});
+            //var identity = new GenericIdentity(username);
+            //Thread.CurrentPrincipal = new GenericPrincipal(identity, new []{user.Role.ToString()});
             return true;
         }
 

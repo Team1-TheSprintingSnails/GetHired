@@ -16,11 +16,9 @@ namespace GetHired.DataModels
         public virtual IDbSet<JobOffer> JobOffers { get; set; }
         public virtual IDbSet<Town> Towns { get; set; }
         public virtual IDbSet<User> Users { get; set; }
-        public virtual IDbSet<ContactInfo> Contacts { get; set; }
         public virtual IDbSet<Company> Companies { get; set; }
         public virtual IDbSet<JobType> JobTypes { get; set; }
         public virtual IDbSet<JobCategory> JobCategories { get; set; }
-        public virtual IDbSet<Password> Passwords { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -36,10 +34,6 @@ namespace GetHired.DataModels
                 .HasOptional(e => e.JobCategory)
                 .WithMany(e => e.JobOffers)
                 .HasForeignKey(e => e.JobCategoryId);
-
-            modelBuilder.Entity<User>()
-                .HasRequired(u => u.Password)
-                .WithRequiredPrincipal(p => p.User);
         }
     }
 }
