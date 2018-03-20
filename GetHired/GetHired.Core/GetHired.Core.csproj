@@ -87,6 +87,10 @@
       <Project>{CD3237F3-97CE-428B-A4B1-85E567E7DAD6}</Project>
       <Name>GetHired.DomainModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GetHired.Services\GetHired.Services.csproj">
+      <Project>{e59d5f5a-0d55-4fe1-a044-765fd6b2ff24}</Project>
+      <Name>GetHired.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
