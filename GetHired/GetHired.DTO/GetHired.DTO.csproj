@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GetHired.DTO</RootNamespace>
     <AssemblyName>GetHired.DTO</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,6 +50,16 @@
     <Compile Include="TownModel.cs" />
     <Compile Include="UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GetHired.Common\GetHired.Common.csproj">
+      <Project>{F77F51D7-DE4C-4087-9CBA-57A32265CB15}</Project>
+      <Name>GetHired.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GetHired.DomainModels\GetHired.DomainModels.csproj">
+      <Project>{cd3237f3-97ce-428b-a4b1-85e567e7dad6}</Project>
+      <Name>GetHired.DomainModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
