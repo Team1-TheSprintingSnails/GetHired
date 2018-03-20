@@ -1,20 +1,19 @@
 ﻿using System.Collections.Generic;
 using Bytes2you.Validation;
 using GetHired.Core.Commands.Contracts;
-using GetHired.DataModels.Contracts;
-using GetHired.DomainModels;
+using GetHired.Services.Contracts;
 
 namespace GetHired.Core.Commands
 {
     public class AddJobOffer : ICommand
     {
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IJobOfferService jobOfferService;
 
-        public AddJobOffer(IUnitOfWork unitOfWork)
+        public AddJobOffer(IJobOfferService jobOfferService)
         {
-            Guard.WhenArgument(unitOfWork, "unit of work").IsNull().Throw();
+            Guard.WhenArgument(jobOfferService, "jobOfferService").IsNull().Throw();
 
-            this.unitOfWork = unitOfWork;
+            this.jobOfferService = jobOfferService;
         }
 
         public string Execute(IList<string> parameters)
@@ -27,8 +26,8 @@ namespace GetHired.Core.Commands
             string jobCategoryStr = parameters[5];
 
             // need to be fixed
-            var jobOffer = new JobOffer();
-            this.unitOfWork.JobOfferRepository.Insert(jobOffer);
+            //var jobOfferModel = null;
+            //this.jobOfferService.AddJobOffer(jobOfferModel);
 
             return $"Vehicle with ID 0 was created."; // also to be fixed
         }
