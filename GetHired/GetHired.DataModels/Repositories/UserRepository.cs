@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using GetHired.DataModels.Contracts;
+
 using GetHired.DomainModels;
 
 namespace GetHired.DataModels.Repositories
@@ -36,9 +37,39 @@ namespace GetHired.DataModels.Repositories
             return oneWithFavouriteOffers;
         }
 
-        public void AddJobOfferToUser(JobOffer jobOffer, int userId)
+        /// <summary>
+        /// Updates relationship between existing JobOffer and User. JobOffer must be already in database. 
+        /// </summary>
+        /// <param name="jobOffer"></param>
+        /// <param name="userId"></param>
+        public void AttachJobOfferToUser(JobOffer jobOffer, int userId)
         {
-            var user = this.GetById(userId);
+            var user = this.DbSet.Find(userId);
+
+            if (user == null)
+            {
+                throw new ArgumentException($"User with id {userId} not found in database!");
+            }
+            
+            this.Context.Entry(jobOffer).State = EntityState.Unchanged;
+            user.FavouriteJobOffers.Add(jobOffer);
+        }
+
+        /// <summary>
+        /// Insert new JobOffer to User. SQL INSERT is performed on JobOffer.
+        /// </summary>
+        /// <param name="jobOffer"></param>
+        /// <param name="userId"></param>
+        public void InsertJobOfferToUser(JobOffer jobOffer, int userId)
+        {
+            var user = this.DbSet.Find(userId);
+
+            if (user == null)
+            {
+                throw new ArgumentException($"User with id {userId} not found in database!");
+            }
+
+            this.Context.Entry(jobOffer).State = EntityState.Added;
             user.FavouriteJobOffers.Add(jobOffer);
         }
 

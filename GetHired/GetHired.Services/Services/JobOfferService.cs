@@ -27,13 +27,5 @@ namespace GetHired.Services.Services
 
             this.unitOfWork.JobOfferRepository.Insert(regularJobOffer);
         }
-
-        public IQueryable<JobOffer> GetAllJobOffers()
-        {
-            // implementation
-
-            var allJobOffers = this.unitOfWork.JobOfferRepository.All;
-            return allJobOffers;
-        }
     }
 }

@@ -10,7 +10,8 @@ namespace GetHired.DataModels.Repositories
     {
         User GetOneWithFavouriteOffers(int id);
         User GetOneWithFavouriteOffers(Expression<Func<User, bool>> predicate);
-        void AddJobOfferToUser(JobOffer jobOffer, int userId);
+        void AttachJobOfferToUser(JobOffer jobOffer, int userId);
+        void InsertJobOfferToUser(JobOffer jobOffer, int userId);
         IEnumerable<User> GetManyWithFavouriteOffers(Expression<Func<User, bool>> predicate);
         IEnumerable<User> GetManyWithFavouriteOffers(Expression<Func<User, bool>> predicate, int count);
     }
