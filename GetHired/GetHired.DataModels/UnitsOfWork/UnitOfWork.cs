@@ -1,9 +1,10 @@
 ﻿using GetHired.DataModels.Contracts;
 using GetHired.DataModels.Repositories;
 using GetHired.DataModels.Repositories.Contracts;
+using GetHired.DataModels.UnitsOfWork.Contracts;
 using GetHired.DomainModels.Utilities;
 
-namespace GetHired.DataModels
+namespace GetHired.DataModels.UnitsOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {

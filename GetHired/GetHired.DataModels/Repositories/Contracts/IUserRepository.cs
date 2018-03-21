@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using GetHired.DataModels.Repositories.Contracts;
 using GetHired.DomainModels;
 
-namespace GetHired.DataModels.Repositories
+namespace GetHired.DataModels.Repositories.Contracts
 {
     public interface IUserRepository : IRepository<User>
     {

@@ -1,4 +1,5 @@
 ﻿using GetHired.DataModels.Contracts;
+using GetHired.DataModels.UnitsOfWork.Contracts;
 using GetHired.Services.Contracts;
 
 namespace GetHired.Services.Services

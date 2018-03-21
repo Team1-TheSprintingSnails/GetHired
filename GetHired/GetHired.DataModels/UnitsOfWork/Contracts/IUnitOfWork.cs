@@ -1,8 +1,7 @@
-﻿using GetHired.DataModels.Repositories;
-using GetHired.DataModels.Repositories.Contracts;
+﻿using GetHired.DataModels.Repositories.Contracts;
 using GetHired.DomainModels.Utilities;
 
-namespace GetHired.DataModels.Contracts
+namespace GetHired.DataModels.UnitsOfWork.Contracts
 {
     public interface IUnitOfWork
     {

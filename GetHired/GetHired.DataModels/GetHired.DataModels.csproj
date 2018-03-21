@@ -52,7 +52,7 @@
     <Compile Include="Configurations\JobOfferConfiguration.cs" />
     <Compile Include="Contracts\IGetHiredContext.cs" />
     <Compile Include="GetHiredContext.cs" />
-    <Compile Include="Contracts\IUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\Contracts\IUnitOfWork.cs" />
     <Compile Include="Migrations\201803191716378_Initial.cs" />
     <Compile Include="Migrations\201803191716378_Initial.Designer.cs">
       <DependentUpon>201803191716378_Initial.cs</DependentUpon>
@@ -81,7 +81,7 @@
     <Compile Include="Repositories\JobOfferRepository.cs" />
     <Compile Include="Repositories\TownRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
-    <Compile Include="UnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

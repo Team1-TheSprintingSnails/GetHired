@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using GetHired.DataModels.Contracts;
-
+using GetHired.DataModels.Repositories.Contracts;
 using GetHired.DomainModels;
 
 namespace GetHired.DataModels.Repositories
