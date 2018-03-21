@@ -17,7 +17,7 @@ namespace GetHired.DataModels.Repositories.Contracts
         IEnumerable<JobOffer> GetManyWithCompany(Expression<Func<JobOffer, bool>> predicate);
         IEnumerable<JobOffer> GetManyWithcompany(Expression<Func<JobOffer, bool>> predicate, int count);
 
-        IEnumerable<JobOffer> GetOneWithFullDetails(Expression<Func<JobOffer, bool>> predicate);
-        IEnumerable<JobOffer> GetOneWithFullDetails(int id);
-        }
+        JobOffer GetOneWithFullDetails(Expression<Func<JobOffer, bool>> predicate);
+        JobOffer GetOneWithFullDetails(int id);
+    }
 }

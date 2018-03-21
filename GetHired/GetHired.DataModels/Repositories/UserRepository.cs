@@ -18,12 +18,7 @@ namespace GetHired.DataModels.Repositories
 
         public User GetOneWithFavouriteOffers(int id)
         {
-            var oneWithFavouriteOffers = this.DbSet
-                .AsNoTracking()
-                .Include(x => x.FavouriteJobOffers)
-                .FirstOrDefault(x => x.Id == id);
-
-            return oneWithFavouriteOffers;
+            return this.GetOneWithFavouriteOffers(x => x.Id == id);
         }
 
         public User GetOneWithFavouriteOffers(Expression<Func<User, bool>> predicate)
