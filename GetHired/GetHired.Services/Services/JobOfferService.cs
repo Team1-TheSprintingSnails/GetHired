@@ -2,7 +2,6 @@
 using GetHired.DataModels.Contracts;
 using GetHired.DomainModels;
 using System;
-using System.Linq;
 using GetHired.DTO;
 
 namespace GetHired.Services.Services
