@@ -9,5 +9,7 @@ namespace GetHired.DataModels.Repositories
         public JobOfferRepository(IGetHiredContext context) : base(context)
         {
         }
+
+
     }
 }
