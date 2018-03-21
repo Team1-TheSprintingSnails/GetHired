@@ -1,8 +1,10 @@
 ﻿using System;
+using GetHired.Common.Mapping;
+using GetHired.DomainModels;
 
 namespace GetHired.DTO
 {
-    public class UserModel
+    public class UserModel : IMapFrom<User>
     {
         public string FirstName { get; set; }
 

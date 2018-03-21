@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GetHired.Common
 {
@@ -18,22 +16,22 @@ namespace GetHired.Common
                 .Where(x => !x.IsDynamic)
                 .SelectMany(x => x.GetReferencedAssemblies())
                 .Select(x => Assembly.Load(x))
-                .SelectMany(x => x.GetTypes());
+                .SelectMany(x => x.GetTypes()).ToList();
 
-            Mapper.Initialize(cfg => Load(types, cfg));
+            //Mapper.Initialize(cfg => Load(types, cfg));
         }
 
 
         private static void Load(IEnumerable<Type> types, IMapperConfigurationExpression cfg)
         {
             LoadStandardMappings(types, cfg);
-            LoadCustomMappings(types, cfg);
+            //LoadCustomMappings(types, cfg);
         }
 
         private static void LoadStandardMappings(IEnumerable<Type> types, IMapperConfigurationExpression cfg)
         {
             LoadMapFrom(types, cfg);
-            LoadMapTo(types, cfg);
+            //LoadMapTo(types, cfg);
         }
 
         private static void LoadMapTo(IEnumerable<Type> types, IMapperConfigurationExpression cfg)

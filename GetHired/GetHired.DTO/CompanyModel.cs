@@ -3,8 +3,9 @@ using GetHired.DomainModels;
 
 namespace GetHired.DTO
 {
-    public class CompanyModel : IMapTo<Company>
+    public class CompanyModel : IMapFrom<Company>
     {
         public string BusinessInfo { get; set; }
+
     }
 }

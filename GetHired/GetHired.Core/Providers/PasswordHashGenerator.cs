@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
-using GetHired.Services.Contracts;
+using GetHired.Core.Providers.Contracts;
 
-namespace GetHired.Services
+namespace GetHired.Core.Providers
 {
     public class PasswordHashGenerator : IPasswordHashGenerator
     {
