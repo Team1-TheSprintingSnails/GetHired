@@ -57,16 +57,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GetHired.DataModels\GetHired.DataModels.csproj">
-      <Project>{e7a3ff23-95ac-4c7a-ab7c-36c93e2568c2}</Project>
-      <Name>GetHired.DataModels</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\GetHired.DomainModels\GetHired.DomainModels.csproj">
-      <Project>{CD3237F3-97CE-428B-A4B1-85E567E7DAD6}</Project>
-      <Name>GetHired.DomainModels</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="DataModels\Repositories\GenericRepositoryTests\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

@@ -61,12 +61,18 @@
     <Compile Include="Migrations\201803201100003_RemovedPasswordEntity.Designer.cs">
       <DependentUpon>201803201100003_RemovedPasswordEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803211348235_ModelsChanged.cs" />
+    <Compile Include="Migrations\201803211348235_ModelsChanged.Designer.cs">
+      <DependentUpon>201803211348235_ModelsChanged.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Contracts\IReadonlyRepository.cs" />
     <Compile Include="Repositories\Contracts\IRepository.cs" />
     <Compile Include="Repositories\Contracts\IWriteonlyRepository.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="Repositories\Contracts\IUserRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -84,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803201100003_RemovedPasswordEntity.resx">
       <DependentUpon>201803201100003_RemovedPasswordEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803211348235_ModelsChanged.resx">
+      <DependentUpon>201803211348235_ModelsChanged.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

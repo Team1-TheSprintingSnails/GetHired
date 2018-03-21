@@ -16,7 +16,7 @@ namespace GetHired.Common
                 .Where(x => !x.IsDynamic)
                 .SelectMany(x => x.GetReferencedAssemblies())
                 .Select(x => Assembly.Load(x))
-                .SelectMany(x => x.GetTypes()).ToList();
+                .SelectMany(x => x.GetTypes());
 
             //Mapper.Initialize(cfg => Load(types, cfg));
         }

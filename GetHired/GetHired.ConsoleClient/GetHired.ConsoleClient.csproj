@@ -44,6 +44,7 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.TeamFoundation.TestManagement.Client, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -85,6 +86,10 @@
     <ProjectReference Include="..\GetHired.DomainModels\GetHired.DomainModels.csproj">
       <Project>{CD3237F3-97CE-428B-A4B1-85E567E7DAD6}</Project>
       <Name>GetHired.DomainModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GetHired.DTO\GetHired.DTO.csproj">
+      <Project>{469a47b2-848b-4f50-adce-ebe0411f690f}</Project>
+      <Name>GetHired.DTO</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
