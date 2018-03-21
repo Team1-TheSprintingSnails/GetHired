@@ -15,7 +15,7 @@ namespace GetHired.DomainModels.Utilities
         public int Id { get; set; }
         public string TypeName { get; set; }
 
-        public virtual ICollection<JobOffer> JobOffers
+        public ICollection<JobOffer> JobOffers
         {
             get { return jobOffers; }
             set { jobOffers = value; }

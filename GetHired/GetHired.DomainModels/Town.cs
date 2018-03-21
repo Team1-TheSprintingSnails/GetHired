@@ -15,7 +15,7 @@ namespace GetHired.DomainModels
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public virtual ICollection<Address> Addresses
+        public ICollection<Address> Addresses
         {
             get { return addresses; }
             set { addresses = value; }

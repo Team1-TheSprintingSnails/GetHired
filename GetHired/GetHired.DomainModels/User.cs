@@ -41,7 +41,7 @@ namespace GetHired.DomainModels
 
         public Role Role { get; set; }
 
-        public virtual ICollection<JobOffer> FavouriteJobOffers
+        public ICollection<JobOffer> FavouriteJobOffers
         {
             get { return favouriteJobOffers; }
             set { favouriteJobOffers = value; }
