@@ -23,7 +23,7 @@ namespace GetHired.Services.Services
             }
 
             var regularAddress = Mapper.Map<Address>(address);
-            this.unitOfWork.AddressRepository.Insert(regularAddress);
+            //this.unitOfWork.AddressRepository.Insert(regularAddress);
         }
     }
 }

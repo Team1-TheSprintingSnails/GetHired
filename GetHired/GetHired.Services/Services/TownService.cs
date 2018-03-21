@@ -24,7 +24,7 @@ namespace GetHired.Services.Services
             }
 
             var regularTown = Mapper.Map<Town>(town);
-            this.unitOfWork.TownRepository.Insert(regularTown);
+            //this.unitOfWork.TownRepository.Insert(regularTown);
         }
     }
 }

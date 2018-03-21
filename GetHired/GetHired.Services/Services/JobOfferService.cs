@@ -24,7 +24,7 @@ namespace GetHired.Services.Services
 
             var regularJobOffer = Mapper.Map<JobOffer>(jobOffer);
 
-            this.unitOfWork.JobOfferRepository.Insert(regularJobOffer);
+            //this.unitOfWork.JobOfferRepository.Insert(regularJobOffer);
         }
     }
 }

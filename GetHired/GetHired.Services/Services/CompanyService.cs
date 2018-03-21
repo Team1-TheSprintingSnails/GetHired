@@ -23,7 +23,7 @@ namespace GetHired.Services.Services
             }
 
             var regularCompany = Mapper.Map<Company>(company);
-            this.unitOfWork.CompanyRepository.Insert(regularCompany);
+            //this.unitOfWork.CompanyRepository.Insert(regularCompany);
         }
     }
 }

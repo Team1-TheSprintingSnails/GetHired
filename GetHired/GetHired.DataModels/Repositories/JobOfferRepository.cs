@@ -15,7 +15,6 @@ namespace GetHired.DataModels.Repositories
         {
         }
 
-
         public IEnumerable<JobOffer> GetManyWithJobCategory(Expression<Func<JobOffer, bool>> predicate)
         {
             var manyWithJobCategory = this.DbSet
@@ -91,11 +90,6 @@ namespace GetHired.DataModels.Repositories
                 .AsNoTracking()
                 .Where(predicate)
                 .FirstOrDefault();
-        }
-
-        public JobOffer GetOneWithFullDetails(int id)
-        {
-            return this.GetOneWithFullDetails(x => x.Id == id);
         }
     }
 }

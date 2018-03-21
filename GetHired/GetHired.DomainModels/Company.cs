@@ -32,14 +32,14 @@ namespace GetHired.DomainModels
 
         public ICollection<Address> Addresses
         {
-            get { return addresses; }
-            set { addresses = value; }
+            get { return this.addresses; }
+            set { this.addresses = value; }
         }
 
         public ICollection<JobOffer> JobOffers
         {
-            get { return jobOffers; }
-            set { jobOffers = value; }
+            get { return this.jobOffers; }
+            set { this.jobOffers = value; }
         }
     }
 }
