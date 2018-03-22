@@ -23,7 +23,7 @@ namespace GetHired.DomainModels
             set { jobOffers = value; }
         }
 
-        public DateTime DataModified { get; set; }
-        public DateTime DataCreated { get; set; }
+        public DateTime DateModified { get; set; }
+        public DateTime DateCreated { get; set; }
     }
 }

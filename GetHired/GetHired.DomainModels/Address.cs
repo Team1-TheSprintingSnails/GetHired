@@ -15,7 +15,7 @@ namespace GetHired.DomainModels
 
         public Town Town { get; set; }
 
-        public DateTime DataModified { get; set; }
-        public DateTime DataCreated { get; set; }
+        public DateTime DateModified { get; set; }
+        public DateTime DateCreated { get; set; }
     }
 }

@@ -47,7 +47,7 @@ namespace GetHired.DomainModels
             set { favouriteJobOffers = value; }
         }
 
-        public DateTime DataModified { get; set; }
-        public DateTime DataCreated { get; set; }
+        public DateTime DateModified { get; set; }
+        public DateTime DateCreated { get; set; }
     }
 }

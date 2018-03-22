@@ -4,7 +4,7 @@ namespace GetHired.DomainModels.Contracts
 {
     public interface IModificationHistory
     {
-        DateTime DataModified { get; set; }
-        DateTime DataCreated { get; set; }
+        DateTime DateModified { get; set; }
+        DateTime DateCreated { get; set; }
     }
 }
