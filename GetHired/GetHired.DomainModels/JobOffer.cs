@@ -7,11 +7,9 @@ namespace GetHired.DomainModels
 {
     public class JobOffer : IIdentifiable<int>, IModificationHistory
     {
-        private ICollection<User> followers;
-
         public JobOffer()
         {
-            this.Followers = new HashSet<User>();
+            this.LikedBy = new HashSet<User>();
         }
 
         public int Id { get; set; }
@@ -27,11 +25,7 @@ namespace GetHired.DomainModels
         public JobCategory JobCategory { get; set; }
         public Company Company { get; set; }
 
-        public ICollection<User> Followers
-        {
-            get { return this.followers; }
-            set { this.followers = value; }
-        }
+        public ICollection<User> LikedBy { get; set; }
 
         public DateTime DateModified { get; set; }
         public DateTime DateCreated { get; set; }

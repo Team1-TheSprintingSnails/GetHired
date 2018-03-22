@@ -49,13 +49,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddressModel.cs" />
+    <Compile Include="Views\AddressTownView.cs" />
     <Compile Include="CompanyModel.cs" />
+    <Compile Include="Contracts\IModificationHistory.cs" />
     <Compile Include="JobCategoryModel.cs" />
     <Compile Include="JobOfferModel.cs" />
     <Compile Include="JobTypeModel.cs" />
     <Compile Include="TownModel.cs" />
     <Compile Include="UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\CompanyJobOffersView.cs" />
+    <Compile Include="Views\JobOfferUsersView.cs" />
+    <Compile Include="Views\TownAddressesView.cs" />
+    <Compile Include="Views\UserFavouriteJobOffersView.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GetHired.DomainModels\GetHired.DomainModels.csproj">

@@ -9,13 +9,10 @@ namespace GetHired.DomainModels
 {
     public class Company : IIdentifiable<int> , IModificationHistory
     {
-        private ICollection<Address> addresses;
-        private ICollection<JobOffer> jobOffers;
-
         public Company()
         {
-            this.addresses = new HashSet<Address>();
-            this.jobOffers = new HashSet<JobOffer>();
+            this.Addresses = new HashSet<Address>();
+            this.JobOffers = new HashSet<JobOffer>();
         }
         public int Id { get; set; }
         public string BusinessInfo { get; set; }
@@ -32,17 +29,9 @@ namespace GetHired.DomainModels
         [Phone(ErrorMessage = "The phone number is incorrect")]
         public string PhoneNumber { get; set; }
 
-        public ICollection<Address> Addresses
-        {
-            get { return this.addresses; }
-            set { this.addresses = value; }
-        }
+        public ICollection<Address> Addresses { get; set; }
 
-        public ICollection<JobOffer> JobOffers
-        {
-            get { return this.jobOffers; }
-            set { this.jobOffers = value; }
-        }
+        public ICollection<JobOffer> JobOffers { get; set; }
 
         public DateTime DateModified { get; set; }
         public DateTime DateCreated { get; set; }

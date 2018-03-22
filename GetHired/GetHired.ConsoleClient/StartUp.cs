@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using AutoMapper;
 using GetHired.DataModels;
 using GetHired.DataModels.Migrations;

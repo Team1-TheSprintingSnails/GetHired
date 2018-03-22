@@ -7,21 +7,15 @@ namespace GetHired.DomainModels
 {
     public class JobType : IIdentifiable<int>, IModificationHistory
     {
-        private ICollection<JobOffer> jobOffers;
-
         public JobType()
         {
-            this.jobOffers = new HashSet<JobOffer>();
+            this.JobOffers = new HashSet<JobOffer>();
         }
 
         public int Id { get; set; }
         public string TypeName { get; set; }
 
-        public ICollection<JobOffer> JobOffers
-        {
-            get { return this.jobOffers; }
-            set { this.jobOffers = value; }
-        }
+        public ICollection<JobOffer> JobOffers { get; set; }
 
         public DateTime DateModified { get; set; }
         public DateTime DateCreated { get; set; }

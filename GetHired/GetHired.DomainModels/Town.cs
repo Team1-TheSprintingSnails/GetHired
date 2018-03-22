@@ -7,8 +7,6 @@ namespace GetHired.DomainModels
 {
     public class Town : IIdentifiable<int>, IModificationHistory
     {
-        private ICollection<Address> addresses;
-
         public Town()
         {
             this.Addresses = new HashSet<Address>();
@@ -17,11 +15,7 @@ namespace GetHired.DomainModels
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public ICollection<Address> Addresses
-        {
-            get { return this.addresses; }
-            set { this.addresses = value; }
-        }
+        public ICollection<Address> Addresses { get; set; }
 
         public DateTime DateModified { get; set; }
         public DateTime DateCreated { get; set; }

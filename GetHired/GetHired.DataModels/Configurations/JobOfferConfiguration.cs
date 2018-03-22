@@ -4,7 +4,7 @@ using GetHired.DomainModels;
 
 namespace GetHired.DataModels.Configurations
 {
-    public class JobOfferConfiguration : IFluentConfiguration
+    internal class JobOfferConfiguration : IFluentConfiguration
     {
         public void Register(DbModelBuilder modelBuilder)
         {
