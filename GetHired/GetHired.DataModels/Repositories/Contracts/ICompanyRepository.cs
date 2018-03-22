@@ -5,7 +5,7 @@ using GetHired.DomainModels;
 
 namespace GetHired.DataModels.Repositories.Contracts
 {
-    public interface ICompanyRepository
+    public interface ICompanyRepository : IGenericRepository<Company>
     {
         IEnumerable<Company> GetManyWithAddresses(Expression<Func<Company, bool>> predicate);
 

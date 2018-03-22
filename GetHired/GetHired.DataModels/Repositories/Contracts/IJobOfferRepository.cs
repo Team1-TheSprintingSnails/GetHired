@@ -5,14 +5,14 @@ using GetHired.DomainModels;
 
 namespace GetHired.DataModels.Repositories.Contracts
 {
-    public interface IJobOfferRepository
+    public interface IJobOfferRepository : IGenericRepository<JobOffer>
     {
         IEnumerable<JobOffer> GetManyWithJobCategory(Expression<Func<JobOffer, bool>> predicate);
         IEnumerable<JobOffer> GetManyWithJobCategory(Expression<Func<JobOffer, bool>> predicate, int count);
 
         IEnumerable<JobOffer> GetManyWithJobType(Expression<Func<JobOffer, bool>> predicate);
         IEnumerable<JobOffer> GetManyWithJobType(Expression<Func<JobOffer, bool>> predicate, int count);
-        
+
         IEnumerable<JobOffer> GetManyWithCompany(Expression<Func<JobOffer, bool>> predicate);
         IEnumerable<JobOffer> GetManyWithcompany(Expression<Func<JobOffer, bool>> predicate, int count);
 
