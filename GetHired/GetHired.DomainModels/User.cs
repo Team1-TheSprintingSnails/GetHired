@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using GetHired.DomainModels.Contracts;
 using Microsoft.TeamFoundation.TestManagement.Client;
 using GetHired.DomainModels.Enums;
-using GetHired.DomainModels.Utilities;
 
 namespace GetHired.DomainModels
 {
-    public class User : IIdentifiable<int>
+    public class User : IIdentifiable<int>, IModificationHistory
     {
         private ICollection<JobOffer> favouriteJobOffers;
 
@@ -46,5 +46,8 @@ namespace GetHired.DomainModels
             get { return favouriteJobOffers; }
             set { favouriteJobOffers = value; }
         }
+
+        public DateTime DataModified { get; set; }
+        public DateTime DataCreated { get; set; }
     }
 }

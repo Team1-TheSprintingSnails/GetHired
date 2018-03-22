@@ -9,7 +9,7 @@ using Microsoft.TeamFoundation.TestManagement.Client;
 
 namespace GetHired.DataModels.Repositories
 {
-    public class GenericRepository<TEntity> : IRepository<TEntity>
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity>
         where TEntity : class, IIdentifiable<int>
     {
         private readonly IGetHiredContext context;
@@ -28,12 +28,7 @@ namespace GetHired.DataModels.Repositories
                 throw new ArgumentNullException();
             }
 
-            if (this.Context.Entry(entity).State == EntityState.Detached)
-            {
-                this.DbSet.Attach(entity);
-            }
-
-            this.DbSet.Remove(entity);
+            this.context.Entry(entity).State = EntityState.Deleted;
         }
 
         public void Delete(int id)
@@ -46,9 +41,21 @@ namespace GetHired.DataModels.Repositories
             }
         }
 
+        public void Attach(TEntity entity)
+        {
+            if (entity == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            this.context.Entry(entity).State = EntityState.Unchanged;
+        }
+
         public TEntity GetById(int id)
         {
-            return this.DbSet.AsNoTracking().FirstOrDefault(x => x.Id == id);
+            return this.DbSet
+                .AsNoTracking()
+                .FirstOrDefault(x => x.Id == id);
         }
 
         public IEnumerable<TEntity> All
@@ -71,9 +78,10 @@ namespace GetHired.DataModels.Repositories
             get { return dbSet; }
         }
 
-        public IEnumerable<TEntity> GetWhere(Expression<Func<TEntity, bool>> predicate)
+        public IEnumerable<TEntity> GetMany(Expression<Func<TEntity, bool>> predicate)
         {
-            return this.DbSet.AsNoTracking()
+            return this.DbSet
+                .AsNoTracking()
                 .Where(predicate)
                 .AsEnumerable();
         }
@@ -85,7 +93,7 @@ namespace GetHired.DataModels.Repositories
                 throw new ArgumentNullException();
             }
 
-            this.DbSet.Add(entity);
+            this.context.Entry(entity).State = EntityState.Added;
         }
 
         public void Update(TEntity entity)
@@ -95,13 +103,7 @@ namespace GetHired.DataModels.Repositories
                 throw new ArgumentNullException();
             }
 
-            var entry = Context.Entry(entity);
-            if (entry.State == EntityState.Detached)
-            {
-                this.DbSet.Attach(entity);
-            }
-
-            entry.State = EntityState.Modified;
+            this.Context.Entry(entity).State = EntityState.Modified;
         }
     }
 }

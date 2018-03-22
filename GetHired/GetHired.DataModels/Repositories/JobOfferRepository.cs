@@ -88,6 +88,9 @@ namespace GetHired.DataModels.Repositories
         {
             return this.DbSet
                 .AsNoTracking()
+                .Include(x => x.Company)
+                .Include(x => x.JobType)
+                .Include(x => x.JobCategory)
                 .Where(predicate)
                 .FirstOrDefault();
         }

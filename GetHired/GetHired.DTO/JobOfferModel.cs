@@ -1,9 +1,9 @@
-﻿using GetHired.Common.Mapping;
-using GetHired.DomainModels;
+﻿using GetHired.DomainModels;
+using Heroic.AutoMapper;
 
 namespace GetHired.DTO
 {
-    public class JobOfferModel : IMapFrom<JobOffer>
+    public class JobOfferModel : IMapFrom<JobOffer>, IMapTo<JobOffer>
     {
         public string Position { get; set; }
 

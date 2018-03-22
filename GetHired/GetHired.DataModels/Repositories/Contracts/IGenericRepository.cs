@@ -2,7 +2,7 @@
 
 namespace GetHired.DataModels.Repositories.Contracts
 {
-    public interface IRepository<TEntity> : IReadonlyRepository<TEntity>, IWriteonlyRepository<TEntity> 
+    public interface IGenericRepository<TEntity> : IReadonlyRepository<TEntity>, IWriteonlyRepository<TEntity> 
         where TEntity : class, IIdentifiable<int>
     {
     }

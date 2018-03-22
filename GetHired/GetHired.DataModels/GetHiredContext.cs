@@ -6,7 +6,6 @@ using System.Reflection;
 using GetHired.DataModels.Configurations.Contracts;
 using GetHired.DataModels.Contracts;
 using GetHired.DomainModels;
-using GetHired.DomainModels.Utilities;
 
 namespace GetHired.DataModels
 {

@@ -1,5 +1,5 @@
 ﻿using GetHired.DataModels.Repositories.Contracts;
-using GetHired.DomainModels.Utilities;
+using GetHired.DomainModels;
 
 namespace GetHired.DataModels.UnitsOfWork.Contracts
 {

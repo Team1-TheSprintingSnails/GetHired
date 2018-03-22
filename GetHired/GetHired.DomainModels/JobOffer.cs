@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
-using GetHired.DomainModels.Utilities;
+﻿using System;
+using System.Collections.Generic;
+using GetHired.DomainModels.Contracts;
 using Microsoft.TeamFoundation.TestManagement.Client;
 
 namespace GetHired.DomainModels
 {
-    public class JobOffer : IIdentifiable<int>
+    public class JobOffer : IIdentifiable<int>, IModificationHistory
     {
         private ICollection<User> followers;
 
@@ -31,5 +32,8 @@ namespace GetHired.DomainModels
             get { return this.followers; }
             set { this.followers = value; }
         }
+
+        public DateTime DataModified { get; set; }
+        public DateTime DataCreated { get; set; }
     }
 }

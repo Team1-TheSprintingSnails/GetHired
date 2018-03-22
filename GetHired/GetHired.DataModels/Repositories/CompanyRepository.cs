@@ -40,6 +40,8 @@ namespace GetHired.DataModels.Repositories
         public Company GetOneWithAllDetails(Expression<Func<Company, bool>> predicate)
         {
             return this.DbSet
+                .Include(x => x.JobOffers)
+                .Include(x => x.Addresses)
                 .AsNoTracking()
                 .Where(predicate)
                 .FirstOrDefault();

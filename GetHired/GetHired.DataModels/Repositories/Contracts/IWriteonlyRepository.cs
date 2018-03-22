@@ -7,6 +7,7 @@ namespace GetHired.DataModels.Repositories.Contracts
         void Insert(TEntity entity);
         void Delete(TEntity entity);
         void Delete(int id);
+        void Attach(TEntity entity);
         void Update(TEntity entity);
     }
 }

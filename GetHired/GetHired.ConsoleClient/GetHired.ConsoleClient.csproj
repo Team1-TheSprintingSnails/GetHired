@@ -44,7 +44,13 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Heroic.AutoMapper, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Heroic.AutoMapper.4.0.0\lib\net45\Heroic.AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.TeamFoundation.TestManagement.Client, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -58,9 +64,12 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutofacModules\AutofacModule.cs" />
+    <Compile Include="HeroicMapperConfig\AutoMapperConfig.cs" />
     <Compile Include="StartUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -71,10 +80,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GetHired.Common\GetHired.Common.csproj">
-      <Project>{F77F51D7-DE4C-4087-9CBA-57A32265CB15}</Project>
-      <Name>GetHired.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\GetHired.Core\GetHired.Core.csproj">
       <Project>{9E3CFC76-3EE6-44DE-A632-788A7F6FF5B6}</Project>
       <Name>GetHired.Core</Name>
@@ -90,6 +95,10 @@
     <ProjectReference Include="..\GetHired.DTO\GetHired.DTO.csproj">
       <Project>{469a47b2-848b-4f50-adce-ebe0411f690f}</Project>
       <Name>GetHired.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GetHired.Services\GetHired.Services.csproj">
+      <Project>{e59d5f5a-0d55-4fe1-a044-765fd6b2ff24}</Project>
+      <Name>GetHired.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

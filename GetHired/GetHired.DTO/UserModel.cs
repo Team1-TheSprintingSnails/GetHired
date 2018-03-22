@@ -1,10 +1,10 @@
 ﻿using System;
-using GetHired.Common.Mapping;
 using GetHired.DomainModels;
+using Heroic.AutoMapper;
 
 namespace GetHired.DTO
 {
-    public class UserModel : IMapFrom<User>
+    public class UserModel : IMapFrom<User>, IMapTo<User>
     {
         public string FirstName { get; set; }
 

@@ -2,7 +2,7 @@
 using GetHired.DataModels.Repositories;
 using GetHired.DataModels.Repositories.Contracts;
 using GetHired.DataModels.UnitsOfWork.Contracts;
-using GetHired.DomainModels.Utilities;
+using GetHired.DomainModels;
 
 namespace GetHired.DataModels.UnitsOfWork
 {
@@ -15,8 +15,8 @@ namespace GetHired.DataModels.UnitsOfWork
         private IJobOfferRepository jobOfferRepository;
         private ITownRepository townRepository;
         private IUserRepository userRepository;
-        private IReadonlyRepository<JobType> jobTypeReadonlyRepository;
-        private IReadonlyRepository<JobCategory> jobCategoryReadonlyRepository;
+        private IGenericRepository<JobType> jobTypeRepository;
+        private IGenericRepository<JobCategory> jobCategoryRepository;
 
         public UnitOfWork(IGetHiredContext context)
         {
@@ -70,8 +70,8 @@ namespace GetHired.DataModels.UnitsOfWork
         {
             get
             {
-                return this.jobTypeReadonlyRepository ??
-                       (this.jobTypeReadonlyRepository = new GenericRepository<JobType>(this.context));
+                return this.jobTypeRepository ??
+                       (this.jobTypeRepository = new GenericRepository<JobType>(this.context));
             }
         }
 
@@ -79,8 +79,8 @@ namespace GetHired.DataModels.UnitsOfWork
         {
             get
             {
-                return this.jobCategoryReadonlyRepository ??
-                       (this.jobCategoryReadonlyRepository = new GenericRepository<JobCategory>(this.context));
+                return this.jobCategoryRepository ??
+                       (this.jobCategoryRepository = new GenericRepository<JobCategory>(this.context));
             }
         }
 

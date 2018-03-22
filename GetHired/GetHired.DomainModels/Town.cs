@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using GetHired.DomainModels.Contracts;
 using Microsoft.TeamFoundation.TestManagement.Client;
 
 namespace GetHired.DomainModels
 {
-    public class Town : IIdentifiable<int>
+    public class Town : IIdentifiable<int>, IModificationHistory
     {
         private ICollection<Address> addresses;
 
@@ -20,5 +22,8 @@ namespace GetHired.DomainModels
             get { return addresses; }
             set { addresses = value; }
         }
+
+        public DateTime DataModified { get; set; }
+        public DateTime DataCreated { get; set; }
     }
 }

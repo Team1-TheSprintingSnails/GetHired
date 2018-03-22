@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetHired.DomainModels", "GetHired.DomainModels\GetHired.DomainModels.csproj", "{CD3237F3-97CE-428B-A4B1-85E567E7DAD6}"
 EndProject
@@ -16,8 +16,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetHired.Services", "GetHired.Services\GetHired.Services.csproj", "{E59D5F5A-0D55-4FE1-A044-765FD6B2FF24}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetHired.DTO", "GetHired.DTO\GetHired.DTO.csproj", "{469A47B2-848B-4F50-ADCE-EBE0411F690F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetHired.Common", "GetHired.Common\GetHired.Common.csproj", "{F77F51D7-DE4C-4087-9CBA-57A32265CB15}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetHired.UnitTests", "GetHired.UnitTests\GetHired.UnitTests.csproj", "{7A89514E-96B2-41AD-86CA-F5AE709C0531}"
 EndProject
@@ -55,10 +53,6 @@ Global
 		{469A47B2-848B-4F50-ADCE-EBE0411F690F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{469A47B2-848B-4F50-ADCE-EBE0411F690F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{469A47B2-848B-4F50-ADCE-EBE0411F690F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F77F51D7-DE4C-4087-9CBA-57A32265CB15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F77F51D7-DE4C-4087-9CBA-57A32265CB15}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F77F51D7-DE4C-4087-9CBA-57A32265CB15}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F77F51D7-DE4C-4087-9CBA-57A32265CB15}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7A89514E-96B2-41AD-86CA-F5AE709C0531}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7A89514E-96B2-41AD-86CA-F5AE709C0531}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A89514E-96B2-41AD-86CA-F5AE709C0531}.Release|Any CPU.ActiveCfg = Release|Any CPU

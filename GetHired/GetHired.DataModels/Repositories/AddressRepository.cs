@@ -30,6 +30,7 @@ namespace GetHired.DataModels.Repositories
         {
             return this.DbSet
                 .AsNoTracking()
+                .Include(x => x.Town)
                 .Where(predicate)
                 .FirstOrDefault();
         }

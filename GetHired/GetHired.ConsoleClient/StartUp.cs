@@ -1,12 +1,6 @@
-﻿using System;
-using System.Data.Entity;
-using System.Reflection;
-using Autofac;
-using GetHired.Common;
+﻿using System.Data.Entity;
 using GetHired.DataModels;
 using GetHired.DataModels.Migrations;
-using GetHired.DomainModels;
-using GetHired.DomainModels.Enums;
 
 namespace GetHired.ConsoleClient
 {
@@ -14,23 +8,12 @@ namespace GetHired.ConsoleClient
     {
         public static void Main()
         {
-
-
-            //var builder = new ContainerBuilder();
-            //builder.RegisterAssemblyModules(Assembly.GetExecutingAssembly());
-            //var container = builder.Build();
-
-            var ctx = new GetHiredContext();
-            ctx.Database.Log = Console.WriteLine;
-
-            ctx.SaveChanges();
+            Init();
         }
         
         private static void Init()
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<GetHiredContext, Configuration>());
-
-            //AutomapperConfiguration.Initialize();
         }
     }
 }
