@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="AddressModel.cs" />
     <Compile Include="CompanyModel.cs" />
+    <Compile Include="Contracts\IModificationHistory.cs" />
     <Compile Include="JobCategoryModel.cs" />
     <Compile Include="JobOfferModel.cs" />
     <Compile Include="JobTypeModel.cs" />
