@@ -29,16 +29,6 @@ namespace GetHired.DataModels
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
-            //modelBuilder.Entity<JobOffer>()
-            //    .HasOptional(e => e.JobType)
-            //    .WithMany(e => e.JobOffers)
-            //    .HasForeignKey(e => e.JobTypeId);
-
-            //modelBuilder.Entity<JobOffer>()
-            //    .HasOptional(e => e.JobCategory)
-            //    .WithMany(e => e.JobOffers)
-            //    .HasForeignKey(e => e.JobCategoryId);
-
             this.RegisterConfigurations(modelBuilder);
 
             base.OnModelCreating(modelBuilder);
