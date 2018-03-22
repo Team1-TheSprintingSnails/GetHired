@@ -1,4 +1,6 @@
-﻿using GetHired.DomainModels;
+﻿using System;
+using AutoMapper;
+using GetHired.DomainModels;
 using GetHired.DTO.Contracts;
 using Heroic.AutoMapper;
 using Microsoft.TeamFoundation.TestManagement.Client;

@@ -1,5 +1,7 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using AutoMapper;
+using GetHired.ConsoleClient.HeroicMapperConfig;
 using GetHired.DataModels;
 using GetHired.DataModels.Migrations;
 using GetHired.DataModels.UnitsOfWork;
@@ -14,19 +16,12 @@ namespace GetHired.ConsoleClient
         public static void Main()
         {
             Init();
-
-            var service = new JobOfferService(new UnitOfWork(new GetHiredContext()), Mapper.Instance);
-
-            var c = new CompanyModel{};
-            var jt = new JobTypeModel();
-            var jc = new JobCategoryModel();
-
-            var jo = new JobOffer();
-
+            Mapper.Map<JobOffer, JobOfferModel>(new JobOffer());
         }
         
         private static void Init()
         {
+            AutoMapperConfig.Configure();
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<GetHiredContext, Configuration>());
         }
     }

@@ -66,7 +66,7 @@ namespace GetHired.DataModels.UnitsOfWork
             }
         }
 
-        public IReadonlyRepository<JobType> JobTypeReadonlyRepository
+        public IGenericRepository<JobType> JobTypeReadonlyRepository
         {
             get
             {
@@ -75,7 +75,7 @@ namespace GetHired.DataModels.UnitsOfWork
             }
         }
 
-        public IReadonlyRepository<JobCategory> JobCategoryReadonlyRepository
+        public IGenericRepository<JobCategory> JobCategoryReadonlyRepository
         {
             get
             {

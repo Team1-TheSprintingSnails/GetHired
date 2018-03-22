@@ -1,7 +1,5 @@
-using GetHired.ConsoleClient.HeroicMapperConfig;
 using Heroic.AutoMapper;
 
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(AutoMapperConfig), "Configure")]
 namespace GetHired.ConsoleClient.HeroicMapperConfig    
 {
 	public static class AutoMapperConfig
