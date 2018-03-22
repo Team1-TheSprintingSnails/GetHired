@@ -23,6 +23,10 @@ namespace GetHired.DTO
 
         public string BusinessInfo { get; set; }
 
+        public string Email { get; set; }
+
+        public string PhoneNumber { get; set; }
+        
         public DateTime DateModified { get; }
 
         public DateTime DateCreated { get; }

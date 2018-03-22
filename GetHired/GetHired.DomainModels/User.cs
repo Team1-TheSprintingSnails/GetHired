@@ -10,23 +10,21 @@ namespace GetHired.DomainModels
 {
     public class User : IIdentifiable<int>, IModificationHistory
     {
-        private ICollection<JobOffer> favouriteJobOffers;
-
         public User()
         {
-            this.favouriteJobOffers = new HashSet<JobOffer>();
+            this.FavouriteJobOffers = new HashSet<JobOffer>();
         }
 
         [Key]
         public int Id { get; set; }
-        
-        [MinLength(2), MaxLength(50)]
-        public string FirstName { get; set; }
 
         [Required]
         [Index(IsUnique = true)]
         [Column(TypeName = "VARCHAR")]
         public string Username { get; set; }
+
+        [MinLength(2), MaxLength(50)]
+        public string FirstName { get; set; }
 
         [MinLength(2), MaxLength(50)]
         public string LastName { get; set; }
@@ -41,11 +39,7 @@ namespace GetHired.DomainModels
 
         public Role Role { get; set; }
 
-        public ICollection<JobOffer> FavouriteJobOffers
-        {
-            get { return this.favouriteJobOffers; }
-            set { this.favouriteJobOffers = value; }
-        }
+        public ICollection<JobOffer> FavouriteJobOffers { get; set; }
 
         public DateTime DateModified { get; set; }
         public DateTime DateCreated { get; set; }

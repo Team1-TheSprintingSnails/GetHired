@@ -27,7 +27,7 @@ namespace GetHired.DTO
 
         public DateTime DateCreated { get; }
 
-        public void CreateMappings(IMapperConfigurationExpression configuration)
+        public virtual void CreateMappings(IMapperConfigurationExpression configuration)
         {
             configuration.CreateMap<Address, AddressModel>()
                 .ConstructUsing(x => new AddressModel(x.DateModified, x.DateCreated, x.Id));
