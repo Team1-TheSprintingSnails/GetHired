@@ -43,8 +43,8 @@ namespace GetHired.DomainModels
 
         public ICollection<JobOffer> FavouriteJobOffers
         {
-            get { return favouriteJobOffers; }
-            set { favouriteJobOffers = value; }
+            get { return this.favouriteJobOffers; }
+            set { this.favouriteJobOffers = value; }
         }
 
         public DateTime DateModified { get; set; }

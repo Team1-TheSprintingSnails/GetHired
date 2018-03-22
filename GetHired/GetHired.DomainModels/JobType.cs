@@ -19,8 +19,8 @@ namespace GetHired.DomainModels
 
         public ICollection<JobOffer> JobOffers
         {
-            get { return jobOffers; }
-            set { jobOffers = value; }
+            get { return this.jobOffers; }
+            set { this.jobOffers = value; }
         }
 
         public DateTime DateModified { get; set; }
