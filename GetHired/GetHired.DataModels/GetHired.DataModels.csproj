@@ -45,6 +45,10 @@
     <Compile Include="Configurations\JobOfferConfiguration.cs" />
     <Compile Include="Contracts\IGetHiredContext.cs" />
     <Compile Include="GetHiredContext.cs" />
+    <Compile Include="Migrations\201803220705154_InterfaceIModificationHistoryImplemented.cs" />
+    <Compile Include="Migrations\201803220705154_InterfaceIModificationHistoryImplemented.Designer.cs">
+      <DependentUpon>201803220705154_InterfaceIModificationHistoryImplemented.cs</DependentUpon>
+    </Compile>
     <Compile Include="UnitsOfWork\Contracts\IUnitOfWork.cs" />
     <Compile Include="Migrations\201803191716378_Initial.cs" />
     <Compile Include="Migrations\201803191716378_Initial.Designer.cs">
@@ -94,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803211348235_ModelsChanged.resx">
       <DependentUpon>201803211348235_ModelsChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803220705154_InterfaceIModificationHistoryImplemented.resx">
+      <DependentUpon>201803220705154_InterfaceIModificationHistoryImplemented.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

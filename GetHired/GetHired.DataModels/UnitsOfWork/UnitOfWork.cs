@@ -84,9 +84,9 @@ namespace GetHired.DataModels.UnitsOfWork
             }
         }
 
-        public void Save()
+        public int SaveChanges()
         {
-            this.context.SaveChanges();
+            return this.context.SaveChanges();
         }
     }
 }

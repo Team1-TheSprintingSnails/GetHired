@@ -13,6 +13,6 @@ namespace GetHired.DataModels.UnitsOfWork.Contracts
         IReadonlyRepository<JobType> JobTypeReadonlyRepository { get; }
         IReadonlyRepository<JobCategory> JobCategoryReadonlyRepository { get; }
 
-        void Save();
+        int SaveChanges();
     }
 }

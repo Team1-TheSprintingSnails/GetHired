@@ -6,6 +6,7 @@ using System.Reflection;
 using GetHired.DataModels.Configurations.Contracts;
 using GetHired.DataModels.Contracts;
 using GetHired.DomainModels;
+using GetHired.DomainModels.Contracts;
 
 namespace GetHired.DataModels
 {
@@ -56,6 +57,33 @@ namespace GetHired.DataModels
                 var instance = Activator.CreateInstance(config);
                 (instance as IFluentConfiguration)?.Register(modelBuilder);
             }
+        }
+
+        public override int SaveChanges()
+        {
+            var dbEntityEntries = this.ChangeTracker
+                .Entries()
+                .Where(e =>
+                {
+                    var implementsIModificationHistory = e.Entity is IModificationHistory;
+                    var isAddedOrModified = e.State == EntityState.Added || e.State == EntityState.Modified;
+
+                    return implementsIModificationHistory
+                           && isAddedOrModified;
+                })
+                .AsEnumerable();
+
+            foreach (var entry in dbEntityEntries)
+            {
+                if (entry.State == EntityState.Added)
+                {
+                    (entry.Entity as IModificationHistory).DateCreated = DateTime.Now;
+                }
+
+                (entry.Entity as IModificationHistory).DateModified = DateTime.Now;
+            }
+
+            return base.SaveChanges();
         }
     }
 }
