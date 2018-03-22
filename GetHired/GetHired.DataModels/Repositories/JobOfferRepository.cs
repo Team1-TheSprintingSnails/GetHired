@@ -20,8 +20,7 @@ namespace GetHired.DataModels.Repositories
             var manyWithJobCategory = this.DbSet
                 .AsNoTracking()
                 .Include(x => x.JobCategory)
-                .Where(predicate)
-                .AsEnumerable();
+                .Where(predicate);
 
             return manyWithJobCategory;
         }
@@ -32,8 +31,7 @@ namespace GetHired.DataModels.Repositories
                 .AsNoTracking()
                 .Include(x => x.JobCategory)
                 .Where(predicate)
-                .Take(count)
-                .AsEnumerable();
+                .Take(count);
 
             return manyWithJobCategory;
         }
@@ -43,8 +41,7 @@ namespace GetHired.DataModels.Repositories
             var manyWithJobType = this.DbSet
                 .AsNoTracking()
                 .Include(x => x.JobType)
-                .Where(predicate)
-                .AsEnumerable();
+                .Where(predicate);
 
             return manyWithJobType;
         }
@@ -55,8 +52,7 @@ namespace GetHired.DataModels.Repositories
                 .AsNoTracking()
                 .Include(x => x.JobType)
                 .Where(predicate)
-                .Take(count)
-                .AsEnumerable();
+                .Take(count);
 
             return manyWithJobType;
         }
@@ -66,8 +62,7 @@ namespace GetHired.DataModels.Repositories
             var manyWithCompany = this.DbSet
                 .AsNoTracking()
                 .Include(x => x.Company)
-                .Where(predicate)
-                .AsEnumerable();
+                .Where(predicate);
 
             return manyWithCompany;
         }
@@ -78,8 +73,7 @@ namespace GetHired.DataModels.Repositories
                 .AsNoTracking()
                 .Include(x => x.Company)
                 .Where(predicate)
-                .Take(count)
-                .AsEnumerable();
+                .Take(count);
 
             return manyWithCompany;
         }

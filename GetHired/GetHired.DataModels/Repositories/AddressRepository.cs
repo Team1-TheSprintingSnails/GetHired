@@ -20,8 +20,7 @@ namespace GetHired.DataModels.Repositories
             var manyWithTown = this.DbSet
                 .AsNoTracking()
                 .Include(x => x.Town)
-                .Where(predicate)
-                .AsEnumerable();
+                .Where(predicate);
 
             return manyWithTown;
         }

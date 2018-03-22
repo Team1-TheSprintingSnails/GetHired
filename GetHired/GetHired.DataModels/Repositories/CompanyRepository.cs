@@ -20,8 +20,7 @@ namespace GetHired.DataModels.Repositories
             var manyWithAddresses = this.DbSet
                 .AsNoTracking()
                 .Include(x => x.Addresses)
-                .Where(predicate)
-                .AsEnumerable();
+                .Where(predicate);
 
             return manyWithAddresses;
         }
@@ -31,8 +30,7 @@ namespace GetHired.DataModels.Repositories
             var manyWithJobOffers = this.DbSet
                 .AsNoTracking()
                 .Include(x => x.JobOffers)
-                .Where(predicate)
-                .AsEnumerable();
+                .Where(predicate);
 
             return manyWithJobOffers;
         }

@@ -32,8 +32,7 @@ namespace GetHired.DataModels.Repositories
             var manyWithFavouriteOffers = this.DbSet
                 .AsNoTracking()
                 .Include(x => x.FavouriteJobOffers)
-                .Where(predicate)
-                .AsEnumerable();
+                .Where(predicate);
 
             return manyWithFavouriteOffers;
         }
@@ -44,8 +43,7 @@ namespace GetHired.DataModels.Repositories
                 .AsNoTracking()
                 .Include(x => x.FavouriteJobOffers)
                 .Where(predicate)
-                .Take(count)
-                .AsEnumerable();
+                .Take(count);
 
             return manyWithFavouriteOffers;
         }

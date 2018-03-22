@@ -12,13 +12,24 @@ namespace GetHired.DataModels.Repositories
     public class GenericRepository<TEntity> : IGenericRepository<TEntity>
         where TEntity : class, IIdentifiable<int>
     {
-        private readonly IGetHiredContext context;
-        private readonly IDbSet<TEntity> dbSet;
-
         public GenericRepository(IGetHiredContext context)
         {
-            this.context = context;
-            this.dbSet = this.Context.Set<TEntity>();
+            this.Context = context;
+            this.DbSet = this.Context.Set<TEntity>();
+        }
+
+
+        protected IGetHiredContext Context { get; }
+
+        protected IDbSet<TEntity> DbSet { get; }
+
+        public IEnumerable<TEntity> All
+        {
+            get
+            {
+                return this.DbSet
+                    .AsNoTracking();
+            }
         }
 
         public void Delete(TEntity entity)
@@ -28,7 +39,7 @@ namespace GetHired.DataModels.Repositories
                 throw new ArgumentNullException();
             }
 
-            this.context.Entry(entity).State = EntityState.Deleted;
+            this.Context.Entry(entity).State = EntityState.Deleted;
         }
 
         public void Delete(int id)
@@ -48,7 +59,7 @@ namespace GetHired.DataModels.Repositories
                 throw new ArgumentNullException();
             }
 
-            this.context.Entry(entity).State = EntityState.Unchanged;
+            this.Context.Entry(entity).State = EntityState.Unchanged;
         }
 
         public TEntity GetById(int id)
@@ -58,32 +69,12 @@ namespace GetHired.DataModels.Repositories
                 .FirstOrDefault(x => x.Id == id);
         }
 
-        public IEnumerable<TEntity> All
-        {
-            get
-            {
-                return this.DbSet
-                    .AsNoTracking()
-                    .AsEnumerable();
-            }
-        }
-
-        protected IGetHiredContext Context
-        {
-            get { return context; }
-        }
-
-        protected IDbSet<TEntity> DbSet
-        {
-            get { return dbSet; }
-        }
 
         public IEnumerable<TEntity> GetMany(Expression<Func<TEntity, bool>> predicate)
         {
             return this.DbSet
                 .AsNoTracking()
-                .Where(predicate)
-                .AsEnumerable();
+                .Where(predicate);
         }
 
         public void Insert(TEntity entity)
@@ -93,7 +84,7 @@ namespace GetHired.DataModels.Repositories
                 throw new ArgumentNullException();
             }
 
-            this.context.Entry(entity).State = EntityState.Added;
+            this.Context.Entry(entity).State = EntityState.Added;
         }
 
         public void Update(TEntity entity)
