@@ -8,7 +8,7 @@ using GetHired.DataModels.Contracts;
 using GetHired.DomainModels;
 using GetHired.DomainModels.Contracts;
 
-namespace GetHired.DataModels
+namespace GetHired.DataModels.Models
 {
     public class GetHiredContext : DbContext, IGetHiredContext
     {

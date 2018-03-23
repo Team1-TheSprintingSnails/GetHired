@@ -7,7 +7,7 @@ using GetHired.DataModels.Contracts;
 using GetHired.DataModels.Repositories.Contracts;
 using GetHired.DomainModels;
 
-namespace GetHired.DataModels.Repositories
+namespace GetHired.DataModels.Repositories.Models
 {
     public class UserRepository : GenericRepository<User>, IUserRepository
     {
@@ -33,18 +33,6 @@ namespace GetHired.DataModels.Repositories
                 .AsNoTracking()
                 .Include(x => x.FavouriteJobOffers)
                 .Where(predicate)
-                .AsEnumerable();
-
-            return manyWithFavouriteOffers;
-        }
-
-        public IEnumerable<User> GetManyWithFavouriteOffers(Expression<Func<User, bool>> predicate, int count)
-        {
-            var manyWithFavouriteOffers = this.DbSet
-                .AsNoTracking()
-                .Include(x => x.FavouriteJobOffers)
-                .Where(predicate)
-                .Take(count)
                 .AsEnumerable();
 
             return manyWithFavouriteOffers;

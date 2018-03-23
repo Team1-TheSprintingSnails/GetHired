@@ -9,6 +9,8 @@ namespace GetHired.DomainModels
 {
     public class Company : IIdentifiable<int> , IModificationHistory
     {
+        public bool companyId;
+
         public Company()
         {
             this.Addresses = new HashSet<Address>();

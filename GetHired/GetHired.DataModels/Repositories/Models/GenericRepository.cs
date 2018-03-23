@@ -7,7 +7,7 @@ using GetHired.DataModels.Contracts;
 using GetHired.DataModels.Repositories.Contracts;
 using Microsoft.TeamFoundation.TestManagement.Client;
 
-namespace GetHired.DataModels.Repositories
+namespace GetHired.DataModels.Repositories.Models
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity>
         where TEntity : class, IIdentifiable<int>

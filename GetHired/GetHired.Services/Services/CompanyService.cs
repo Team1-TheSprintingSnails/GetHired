@@ -3,7 +3,6 @@ using GetHired.DataModels.Contracts;
 using GetHired.DomainModels;
 using GetHired.DTO;
 using System;
-using GetHired.DataModels.UnitsOfWork.Contracts;
 
 namespace GetHired.Services.Services
 {

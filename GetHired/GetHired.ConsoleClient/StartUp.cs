@@ -4,7 +4,7 @@ using AutoMapper;
 using GetHired.ConsoleClient.HeroicMapperConfig;
 using GetHired.DataModels;
 using GetHired.DataModels.Migrations;
-using GetHired.DataModels.UnitsOfWork;
+using GetHired.DataModels.Models;
 using GetHired.DomainModels;
 using GetHired.DTO;
 using GetHired.Services.Services;

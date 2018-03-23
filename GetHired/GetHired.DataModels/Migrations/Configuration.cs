@@ -1,3 +1,4 @@
+using GetHired.DataModels.Models;
 using GetHired.DomainModels;
 
 namespace GetHired.DataModels.Migrations

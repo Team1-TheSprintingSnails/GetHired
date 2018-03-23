@@ -9,6 +9,5 @@ namespace GetHired.DataModels.Repositories.Contracts
     {
         User GetOneWithFavouriteOffers(Expression<Func<User, bool>> predicate);
         IEnumerable<User> GetManyWithFavouriteOffers(Expression<Func<User, bool>> predicate);
-        IEnumerable<User> GetManyWithFavouriteOffers(Expression<Func<User, bool>> predicate, int count);
     }
 }

@@ -1,7 +1,7 @@
 ﻿using GetHired.DataModels.Repositories.Contracts;
 using GetHired.DomainModels;
 
-namespace GetHired.DataModels.UnitsOfWork.Contracts
+namespace GetHired.DataModels.Contracts
 {
     public interface IUnitOfWork
     {

@@ -7,7 +7,7 @@ using GetHired.DataModels.Contracts;
 using GetHired.DataModels.Repositories.Contracts;
 using GetHired.DomainModels;
 
-namespace GetHired.DataModels.Repositories
+namespace GetHired.DataModels.Repositories.Models
 {
     public class AddressRepository : GenericRepository<Address>, IAddressRepository
     {
@@ -15,24 +15,20 @@ namespace GetHired.DataModels.Repositories
         {
         }
 
-        public IEnumerable<Address> GetManyWithTown(Expression<Func<Address, bool>> predicate)
-        {
-            var manyWithTown = this.DbSet
-                .AsNoTracking()
-                .Include(x => x.Town)
-                .Where(predicate)
-                .AsEnumerable();
-
-            return manyWithTown;
-        }
-
-        public Address GetOneWithAllDetails(Expression<Func<Address, bool>> predicate)
+        public IEnumerable<Address> GetManyWithIncludedTown(Expression<Func<Address, bool>> predicate)
         {
             return this.DbSet
                 .AsNoTracking()
                 .Include(x => x.Town)
-                .Where(predicate)
-                .FirstOrDefault();
+                .Where(predicate);
+        }
+
+        public Address GetOneWithIncludedTown(Expression<Func<Address, bool>> predicate)
+        {
+            return this.DbSet
+                .AsNoTracking()
+                .Include(x => x.Town)
+                .FirstOrDefault(predicate);
         }
     }
 }

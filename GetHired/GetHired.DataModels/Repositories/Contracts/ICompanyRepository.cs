@@ -7,10 +7,12 @@ namespace GetHired.DataModels.Repositories.Contracts
 {
     public interface ICompanyRepository : IGenericRepository<Company>
     {
-        IEnumerable<Company> GetManyWithAddresses(Expression<Func<Company, bool>> predicate);
+        Company GetOneWithIncludedAddresses(Expression<Func<Company, bool>> predicate);
 
-        IEnumerable<Company> GetManyWithJobOffers(Expression<Func<Company, bool>> predicate);
+        Company GetOneWithIncludedJobOffers(Expression<Func<Company, bool>> predicate);
 
-        Company GetOneWithAllDetails(Expression<Func<Company, bool>> predicate);
+        IEnumerable<Company> GetManyWithIncludedAddresses(Expression<Func<Company, bool>> predicate);
+
+        IEnumerable<Company> GetManyWithIncludedJobOffers(Expression<Func<Company, bool>> predicate);
     }
 }

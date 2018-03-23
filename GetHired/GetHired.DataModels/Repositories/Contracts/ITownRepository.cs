@@ -7,7 +7,7 @@ namespace GetHired.DataModels.Repositories.Contracts
 {
     public interface ITownRepository : IGenericRepository<Town>
     {
-        IEnumerable<Town> GetManyWithAddresses(Expression<Func<Town, bool>> predicate);
-        Town GetOneWithAllDetails(Expression<Func<Town, bool>> predicate);
+        IEnumerable<Town> GetManyWithIncludedAddresses(Expression<Func<Town, bool>> predicate);
+        Town GetOneWithIncludedAddresses(Expression<Func<Town, bool>> predicate);
     }
 }
