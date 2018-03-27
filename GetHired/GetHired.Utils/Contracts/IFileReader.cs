@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GetHired.Core.Providers.Contracts
+namespace GetHired.Utils.Contracts
 {
     public interface IFileReader<T>
     {

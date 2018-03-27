@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using GetHired.Core.Providers.Contracts;
+using GetHired.Utils.Contracts;
 using Newtonsoft.Json;
 
-namespace GetHired.Core.Providers
+namespace GetHired.Utils
 {
     public class JSONReader<T> : IFileReader<T>
     {
