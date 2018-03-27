@@ -1,23 +1,23 @@
-﻿using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using GetHired.Utils.Contracts;
 using Newtonsoft.Json;
 
 namespace GetHired.Utils
 {
-    public class JSONReader<T> : IFileReader<T>
+    public class JSONReader : IFileReader
     {
-        public List<T> ReadFile(string fileName)
+        public object ReadFile(string fileName)
         {
-            List<T> listT = new List<T>();
+            dynamic result;
 
             using (StreamReader sr = new StreamReader(fileName))
             {
                 string json = sr.ReadToEnd();
-                listT = JsonConvert.DeserializeObject<List<T>>(json);
+
+                result = JsonConvert.DeserializeObject<dynamic>(json);
             }
 
-            return listT;
+            return result;
         }
     }
 }

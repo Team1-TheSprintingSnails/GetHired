@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace GetHired.Utils.Contracts
+﻿namespace GetHired.Utils.Contracts
 {
-    public interface IFileReader<T>
+    public interface IFileReader
     {
-        List<T> ReadFile(string fileName);
+        object ReadFile(string fileName);
     }
 }

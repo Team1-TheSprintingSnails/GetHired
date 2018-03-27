@@ -63,7 +63,7 @@ namespace GetHired.Utils
 
             var paragraph = section.Headers.Primary.AddParagraph();
 
-            var img = paragraph.AddImage("./../../../images/image.jpg");
+            var img = paragraph.AddImage("./../../Resources/image.jpg");
             img.LockAspectRatio = true;
             img.Height = 100;
             img.RelativeVertical = RelativeVertical.Line;
@@ -105,10 +105,8 @@ namespace GetHired.Utils
         /// <returns></returns>
         private PdfDocument Render(Document doc)
         {
-            var renderer = new PdfDocumentRenderer
-            {
-                Document = doc
-            };
+            var renderer = new PdfDocumentRenderer();
+            renderer.Document = doc;
             renderer.RenderDocument();
             return renderer.PdfDocument;
         }
