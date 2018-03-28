@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace GetHired.Services.Services
 {
-    class AddressService
+    public class AddressService
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;

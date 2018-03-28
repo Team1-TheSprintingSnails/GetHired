@@ -1,0 +1,23 @@
+﻿@model IEnumerable<GetHired.DTO.CityModel>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@*@foreach (var city in Model)
+{
+    <h2>@city.Name</h2>
+}*@
+
+
+<div class="form-group">
+    <label for="exampleFormControlSelect1">City</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+        @foreach (var city in Model)
+        {
+            <option>@city.Name</option>
+        }
+    </select>
+</div>
