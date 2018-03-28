@@ -7,8 +7,8 @@ namespace GetHired.DataModels.Repositories.Contracts
 {
     public interface IJobOfferRepository : IGenericRepository<JobOffer>
     {
-        IEnumerable<JobOffer> GetManyWithIncludedCompany(Expression<Func<JobOffer, bool>> predicate);
-        IEnumerable<JobOffer> GetManyWithIncludedJobDetails(Expression<Func<JobOffer, bool>> predicate);
-        JobOffer GetOneWithIncludedJobDetailsAndCompany(Expression<Func<JobOffer, bool>> predicate);
+        IEnumerable<JobOffer> GetByCompany(string companyName);
+        IEnumerable<JobOffer> GetByUser(string userEmail);
+        IEnumerable<JobOffer> OrderedByRatingSearchFor(Expression<Func<JobOffer, bool>> predicate);
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using GetHired.DomainModels.Contracts;
 using Microsoft.TeamFoundation.TestManagement.Client;
 using GetHired.DomainModels.Enums;
@@ -12,34 +11,32 @@ namespace GetHired.DomainModels
     {
         public User()
         {
-            this.FavouriteJobOffers = new HashSet<JobOffer>();
+            this.SavedJobOffers = new HashSet<JobOffer>();
         }
 
-        [Key]
         public int Id { get; set; }
+        
+        [Required, MinLength(8), MaxLength(50)]
+        public string Email { get; set; }
 
-        [Required]
-        [Index(IsUnique = true)]
-        [Column(TypeName = "VARCHAR")]
-        public string Username { get; set; }
-
-        [MinLength(2), MaxLength(50)]
+        [Required, MinLength(2), MaxLength(50)]
         public string FirstName { get; set; }
 
         [MinLength(2), MaxLength(50)]
+        public string MiddleName { get; set; }
+
+        [Required, MinLength(2), MaxLength(50)]
         public string LastName { get; set; }
 
         [Required]
         public string PasswordHash { get; set; }
 
-        [Required]
-        public string PasswordSalt { get; set; }
-
         public DateTime? DataOfBirth { get; set; }
 
+        [Required]
         public Role Role { get; set; }
 
-        public ICollection<JobOffer> FavouriteJobOffers { get; set; }
+        public ICollection<JobOffer> SavedJobOffers { get; set; }
 
         public DateTime DateModified { get; set; }
         public DateTime DateCreated { get; set; }

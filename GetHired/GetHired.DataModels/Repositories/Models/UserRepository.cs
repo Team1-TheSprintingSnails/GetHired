@@ -15,27 +15,12 @@ namespace GetHired.DataModels.Repositories.Models
             base(context)
         {
         }
-
-        public User GetOneWithFavouriteOffers(Expression<Func<User, bool>> predicate)
+        
+        public User GetByEmail(string email)
         {
-            var oneWithFavouriteOffers = this.DbSet
+            return this.DbSet
                 .AsNoTracking()
-                .Include(x => x.FavouriteJobOffers)
-                .Where(predicate)
-                .FirstOrDefault();
-
-            return oneWithFavouriteOffers;
-        }
-
-        public IEnumerable<User> GetManyWithFavouriteOffers(Expression<Func<User, bool>> predicate)
-        {
-            var manyWithFavouriteOffers = this.DbSet
-                .AsNoTracking()
-                .Include(x => x.FavouriteJobOffers)
-                .Where(predicate)
-                .AsEnumerable();
-
-            return manyWithFavouriteOffers;
+                .FirstOrDefault(x => x.Email == email);
         }
     }
 }

@@ -1,20 +1,19 @@
 ﻿using System.Collections.Generic;
 using Bytes2you.Validation;
 using GetHired.Core.Commands.Contracts;
-using GetHired.Services.Contracts;
 
 namespace GetHired.Core.Commands
 {
     public class AddJobOffer : ICommand
     {
-        private readonly IJobOfferService jobOfferService;
+        //private readonly IJobOfferService jobOfferService;
 
-        public AddJobOffer(IJobOfferService jobOfferService)
-        {
-            Guard.WhenArgument(jobOfferService, "jobOfferService").IsNull().Throw();
+        //public AddJobOffer(IJobOfferService jobOfferService)
+        //{
+        //    //Guard.WhenArgument(jobOfferService, "jobOfferService").IsNull().Throw();
 
-            this.jobOfferService = jobOfferService;
-        }
+        //    //this.jobOfferService = jobOfferService;
+        //}
 
         public string Execute(IList<string> parameters)
         {

@@ -16,14 +16,14 @@ namespace GetHired.Services.Services
             this.unitOfWork = unitOfWork;
         }
 
-        public void AddTown(TownModel town)
+        public void AddTown(CityModel city)
         {
-            if(town == null)
+            if(city == null)
             {
                 throw new ArgumentNullException();
             }
 
-            var regularTown = Mapper.Map<Town>(town);
+            var regularTown = Mapper.Map<City>(city);
             //this.unitOfWork.TownRepository.Insert(regularTown);
         }
     }

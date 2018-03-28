@@ -9,13 +9,13 @@ using GetHired.DomainModels;
 
 namespace GetHired.DataModels.Repositories.Models
 {
-    public class TownRepository : GenericRepository<Town>, ITownRepository
+    public class CityRepository : GenericRepository<City>, ICityRepository
     {
-        public TownRepository(IGetHiredContext context) : base(context)
+        public CityRepository(IGetHiredContext context) : base(context)
         {
         }
 
-        public IEnumerable<Town> GetManyWithIncludedAddresses(Expression<Func<Town, bool>> predicate)
+        public IEnumerable<City> GetManyWithIncludedAddresses(Expression<Func<City, bool>> predicate)
         {
             return this.DbSet
                 .AsNoTracking()
@@ -23,7 +23,7 @@ namespace GetHired.DataModels.Repositories.Models
                 .Where(predicate);
         }
 
-        public Town GetOneWithIncludedAddresses(Expression<Func<Town, bool>> predicate)
+        public City GetOneWithIncludedAddresses(Expression<Func<City, bool>> predicate)
         {
             return this.DbSet
                 .AsNoTracking()

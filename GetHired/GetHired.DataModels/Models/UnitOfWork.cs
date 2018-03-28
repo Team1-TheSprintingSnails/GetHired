@@ -1,7 +1,6 @@
 ﻿using GetHired.DataModels.Contracts;
 using GetHired.DataModels.Repositories.Contracts;
 using GetHired.DataModels.Repositories.Models;
-using GetHired.DomainModels;
 
 namespace GetHired.DataModels.Models
 {
@@ -12,10 +11,8 @@ namespace GetHired.DataModels.Models
         private IAddressRepository addressRepository;
         private ICompanyRepository companyRepository;
         private IJobOfferRepository jobOfferRepository;
-        private ITownRepository townRepository;
+        private ICityRepository cityRepository;
         private IUserRepository userRepository;
-        private IGenericRepository<JobType> jobTypeRepository;
-        private IGenericRepository<JobCategory> jobCategoryRepository;
 
         public UnitOfWork(IGetHiredContext context)
         {
@@ -49,11 +46,11 @@ namespace GetHired.DataModels.Models
             }
         }
 
-        public ITownRepository TownRepository
+        public ICityRepository CityRepository
         {
             get
             {
-                return this.townRepository ?? (this.townRepository = new TownRepository(this.context));
+                return this.cityRepository ?? (this.cityRepository = new CityRepository(this.context));
             }
         }
 
@@ -62,24 +59,6 @@ namespace GetHired.DataModels.Models
             get
             {
                 return this.userRepository ?? (this.userRepository = new UserRepository(this.context));
-            }
-        }
-
-        public IGenericRepository<JobType> JobTypeReadonlyRepository
-        {
-            get
-            {
-                return this.jobTypeRepository ??
-                       (this.jobTypeRepository = new GenericRepository<JobType>(this.context));
-            }
-        }
-
-        public IGenericRepository<JobCategory> JobCategoryReadonlyRepository
-        {
-            get
-            {
-                return this.jobCategoryRepository ??
-                       (this.jobCategoryRepository = new GenericRepository<JobCategory>(this.context));
             }
         }
 

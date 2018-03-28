@@ -15,19 +15,19 @@ namespace GetHired.DataModels.Repositories.Models
         {
         }
 
-        public IEnumerable<Address> GetManyWithIncludedTown(Expression<Func<Address, bool>> predicate)
+        public IEnumerable<Address> GetManyWithCity(Expression<Func<Address, bool>> predicate)
         {
             return this.DbSet
                 .AsNoTracking()
-                .Include(x => x.Town)
+                .Include(x => x.City)
                 .Where(predicate);
         }
 
-        public Address GetOneWithIncludedTown(Expression<Func<Address, bool>> predicate)
+        public Address FirstOrDefaultWithCity(Expression<Func<Address, bool>> predicate)
         {
             return this.DbSet
                 .AsNoTracking()
-                .Include(x => x.Town)
+                .Include(x => x.City)
                 .FirstOrDefault(predicate);
         }
     }

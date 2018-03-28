@@ -1,5 +1,4 @@
 using GetHired.DataModels.Models;
-using GetHired.DomainModels;
 
 namespace GetHired.DataModels.Migrations
 {
@@ -14,14 +13,7 @@ namespace GetHired.DataModels.Migrations
 
         protected override void Seed(GetHiredContext context)
         {
-            //User[] users = new User[]
-            //{
-            //    new User()
-            //    {
-
-            //    }, 
-            //};
-            //context.Users.AddOrUpdate(users);
+            
         }
     }
 }

@@ -17,45 +17,5 @@ namespace GetHired.Services.Services
             this.mapper = mapper;
         }
 
-        public void UpdateJobOffer(JobOfferModel jobOfferModel)
-        {
-            var jobOffer = mapper.Map<JobOfferModel, JobOffer>(jobOfferModel);
-
-            this.unitOfWork
-                .JobOfferRepository
-                .Update(jobOffer);
-
-            this.unitOfWork
-                .SaveChanges();
-        }
-
-        public void AddJobOfferWithNewDependencies(JobOfferModel jobOfferModel, CompanyModel companyModel,
-            JobTypeModel jobTypeModel = null, JobCategoryModel jobCategoryModel = null)
-        {
-            var jobOffer = mapper.Map<JobOfferModel, JobOffer>(jobOfferModel);
-            var company = mapper.Map<CompanyModel, Company>(companyModel);
-
-            var jobCategory = jobCategoryModel != null 
-                ? mapper.Map<JobCategoryModel, JobCategory>(jobCategoryModel)
-                : null;
-
-            var jobType = jobTypeModel != null 
-                ? mapper.Map<JobTypeModel, JobType>(jobTypeModel)
-                : null;
-
-            this.unitOfWork
-                .JobOfferRepository
-                .Insert(jobOffer);
-
-            this.unitOfWork
-                .CompanyRepository
-                .Insert(company);
-
-            jobOffer.Company = company;
-            jobOffer.JobType = jobType;
-            jobOffer.JobCategory = jobCategory;
-
-            this.unitOfWork.SaveChanges();
-        }
     }
 }

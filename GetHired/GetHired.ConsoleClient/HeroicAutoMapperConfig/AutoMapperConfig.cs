@@ -1,6 +1,6 @@
 using Heroic.AutoMapper;
 
-namespace GetHired.ConsoleClient.HeroicMapperConfig    
+namespace GetHired.ConsoleClient.HeroicAutoMapperConfig    
 {
 	public static class AutoMapperConfig
 	{

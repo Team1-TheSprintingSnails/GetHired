@@ -2,7 +2,7 @@
 
 namespace GetHired.DataModels.Configurations.Contracts
 {
-    public interface IFluentConfiguration
+    internal interface IFluentConfiguration
     {
         void Register(DbModelBuilder modelBuilder);
     }

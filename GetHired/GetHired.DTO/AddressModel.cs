@@ -1,36 +1,34 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using GetHired.DomainModels;
-using GetHired.DTO.Contracts;
 using Heroic.AutoMapper;
-using Microsoft.TeamFoundation.TestManagement.Client;
 
 namespace GetHired.DTO
 {
-    public class AddressModel : IMapFrom<Address>, IMapTo<Address>, IIdentifiable<int>, IModificationHistory, IHaveCustomMappings
+    public class AddressModel : IMapFrom<Address>, IMapTo<Address>, IHaveCustomMappings
     {
-        public AddressModel()
-        { }
+        public int AddressId { get; set; }
 
-        public AddressModel(DateTime dateModified, DateTime dateCreated, int id)
-        {
-            this.DateModified = dateModified;
-            this.DateCreated = dateCreated;
-            this.Id = id;
-        }
+        public string StreetName { get; set; }
 
-        public int Id { get; }
+        public string PostalCode { get; set; }
 
-        public string Name { get; set; }
+        public int CityId { get; set; }
 
-        public DateTime DateModified { get; }
+        public string CityName { get; set; }
 
-        public DateTime DateCreated { get; }
+        public string State { get; set; }
 
-        public virtual void CreateMappings(IMapperConfigurationExpression configuration)
+        public string Country { get; set; }
+
+        public int CompanyId { get; set; }
+
+        public void CreateMappings(IMapperConfigurationExpression configuration)
         {
             configuration.CreateMap<Address, AddressModel>()
-                .ConstructUsing(x => new AddressModel(x.DateModified, x.DateCreated, x.Id));
+                .ForMember(d => d.AddressId, cfg => cfg.MapFrom(s => s.Id));
+
+            configuration.CreateMap<AddressModel, Address>()
+                .ForMember(d => d.Id, cfg => cfg.MapFrom(s => s.AddressId));
         }
     }
 }

@@ -15,32 +15,27 @@ namespace GetHired.DataModels.Repositories.Models
         {
         }
 
-        public IEnumerable<JobOffer> GetManyWithIncludedJobDetails(Expression<Func<JobOffer, bool>> predicate)
+        public IEnumerable<JobOffer> GetByCompany(string companyName)
         {
             return this.DbSet
                 .AsNoTracking()
-                .Include(x => x.JobType)
-                .Include(x => x.JobCategory)
+                .Include(x => x.Company)
+                .Where(x => x.Company.Name.Equals(companyName));
+        }
+
+        public IEnumerable<JobOffer> GetByUser(string userEmail)
+        {
+            return this.DbSet
+                .Include(x => x.Company)
+                .Where(x => x.LikedBy.Any(u => u.Email.Equals(userEmail)));
+        }
+
+        public IEnumerable<JobOffer> OrderedByRatingSearchFor(Expression<Func<JobOffer, bool>> predicate)
+        {
+            return this.DbSet
+                .Include(x => x.Company)
                 .Where(predicate)
-                .AsEnumerable();
-        }
-
-        public IEnumerable<JobOffer> GetManyWithIncludedCompany(Expression<Func<JobOffer, bool>> predicate)
-        {
-            return this.DbSet
-                .AsNoTracking()
-                .Include(x => x.Company)
-                .Where(predicate);
-        }
-
-        public JobOffer GetOneWithIncludedJobDetailsAndCompany(Expression<Func<JobOffer, bool>> predicate)
-        {
-            return this.DbSet
-                .AsNoTracking()
-                .Include(x => x.Company)
-                .Include(x => x.JobCategory)
-                .Include(x => x.JobType)
-                .FirstOrDefault(predicate);
+                .OrderBy(x => x.Rating);
         }
     }
 }

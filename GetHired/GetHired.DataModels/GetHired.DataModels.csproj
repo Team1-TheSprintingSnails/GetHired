@@ -41,9 +41,33 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configurations\AddressConfiguration.cs" />
+    <Compile Include="Configurations\CityConfiguration.cs" />
+    <Compile Include="Configurations\CompanyConfiguration.cs" />
     <Compile Include="Configurations\Contracts\IFluentConfiguration.cs" />
     <Compile Include="Configurations\JobOfferConfiguration.cs" />
+    <Compile Include="Configurations\UserConfiguration.cs" />
     <Compile Include="Contracts\IGetHiredContext.cs" />
+    <Compile Include="Migrations\201803231601114_JobCategoryIdAndJobTypeIdNotNull.cs" />
+    <Compile Include="Migrations\201803231601114_JobCategoryIdAndJobTypeIdNotNull.Designer.cs">
+      <DependentUpon>201803231601114_JobCategoryIdAndJobTypeIdNotNull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803231710008_CompanyNameAdded.cs" />
+    <Compile Include="Migrations\201803231710008_CompanyNameAdded.Designer.cs">
+      <DependentUpon>201803231710008_CompanyNameAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803241550414_IndexesSet.cs" />
+    <Compile Include="Migrations\201803241550414_IndexesSet.Designer.cs">
+      <DependentUpon>201803241550414_IndexesSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803260713309_JobTypeJobCategoryModelsRemoved.cs" />
+    <Compile Include="Migrations\201803260713309_JobTypeJobCategoryModelsRemoved.Designer.cs">
+      <DependentUpon>201803260713309_JobTypeJobCategoryModelsRemoved.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803260727214_SettingMinLenght.cs" />
+    <Compile Include="Migrations\201803260727214_SettingMinLenght.Designer.cs">
+      <DependentUpon>201803260727214_SettingMinLenght.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\GetHiredContext.cs" />
     <Compile Include="Migrations\201803220705154_InterfaceIModificationHistoryImplemented.cs" />
     <Compile Include="Migrations\201803220705154_InterfaceIModificationHistoryImplemented.Designer.cs">
@@ -71,12 +95,12 @@
     <Compile Include="Repositories\Contracts\IJobOfferRepository.cs" />
     <Compile Include="Repositories\Contracts\IReadonlyRepository.cs" />
     <Compile Include="Repositories\Contracts\IGenericRepository.cs" />
-    <Compile Include="Repositories\Contracts\ITownRepository.cs" />
+    <Compile Include="Repositories\Contracts\ICityRepository.cs" />
     <Compile Include="Repositories\Contracts\IWriteonlyRepository.cs" />
     <Compile Include="Repositories\Models\GenericRepository.cs" />
     <Compile Include="Repositories\Contracts\IUserRepository.cs" />
     <Compile Include="Repositories\Models\JobOfferRepository.cs" />
-    <Compile Include="Repositories\Models\TownRepository.cs" />
+    <Compile Include="Repositories\Models\CityRepository.cs" />
     <Compile Include="Repositories\Models\UserRepository.cs" />
     <Compile Include="Models\UnitOfWork.cs" />
   </ItemGroup>
@@ -101,6 +125,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803220705154_InterfaceIModificationHistoryImplemented.resx">
       <DependentUpon>201803220705154_InterfaceIModificationHistoryImplemented.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803231601114_JobCategoryIdAndJobTypeIdNotNull.resx">
+      <DependentUpon>201803231601114_JobCategoryIdAndJobTypeIdNotNull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803231710008_CompanyNameAdded.resx">
+      <DependentUpon>201803231710008_CompanyNameAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803241550414_IndexesSet.resx">
+      <DependentUpon>201803241550414_IndexesSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803260713309_JobTypeJobCategoryModelsRemoved.resx">
+      <DependentUpon>201803260713309_JobTypeJobCategoryModelsRemoved.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803260727214_SettingMinLenght.resx">
+      <DependentUpon>201803260727214_SettingMinLenght.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

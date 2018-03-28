@@ -1,25 +1,13 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using GetHired.DomainModels;
-using GetHired.DTO.Contracts;
+using GetHired.DomainModels.Enums;
 using Heroic.AutoMapper;
-using Microsoft.TeamFoundation.TestManagement.Client;
 
 namespace GetHired.DTO
 {
-    public class JobOfferModel : IMapFrom<JobOffer>, IMapTo<JobOffer>, IIdentifiable<int>, IHaveCustomMappings, IModificationHistory
+    public class JobOfferModel : IMapFrom<JobOffer>, IMapTo<JobOffer>, IHaveCustomMappings
     {
-        public JobOfferModel()
-        { }
-
-        public JobOfferModel(DateTime dateModified, DateTime dateCreated, int id)
-        {
-            this.DateModified = dateModified;
-            this.DateCreated = dateCreated;
-            this.Id = id;
-        }
-
-        public int Id { get; }
+        public int JobOfferId { get; set; }
 
         public string Position { get; set; }
 
@@ -27,14 +15,32 @@ namespace GetHired.DTO
 
         public decimal Payment { get; set; }
 
-        public DateTime DateModified { get; }
+        public decimal JobOfferRating { get; set; }
 
-        public DateTime DateCreated { get; }
+        public JobType JobType { get; set; }
+
+        public JobCategory JobCategory { get; set; }
+
+        public int CompanyId { get; set; }
+
+        public int CompanyName { get; set; }
+
+        public int CompanyBusinessInfo { get; set; }
+
+        public string CompanyyWebsite { get; set; }
 
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
             configuration.CreateMap<JobOffer, JobOfferModel>()
-                .ConstructUsing(x => new JobOfferModel(x.DateModified, x.DateCreated, x.Id));
+                .ForMember(d => d.JobOfferId, cfg => cfg.MapFrom(s => s.Id))
+                .ForMember(d => d.JobOfferRating, cfg => cfg.MapFrom(s => s.Rating))
+                .ForMember(d => d.CompanyName, cfg => cfg.MapFrom(s => s.Company.Name))
+                .ForMember(d => d.CompanyBusinessInfo, cfg => cfg.MapFrom(s => s.Company.BusinessInfo))
+                .ForMember(d => d.CompanyyWebsite, cfg => cfg.MapFrom(s => s.Company.Website));
+
+            configuration.CreateMap<JobOfferModel, JobOffer>()
+                .ForMember(d => d.Id, cfg => cfg.MapFrom(s => s.JobOfferId))
+                .ForMember(d => d.Rating, cfg => cfg.MapFrom(s => s.JobOfferRating));
         }
     }
 }

@@ -1,40 +1,31 @@
 ﻿using System;
 using AutoMapper;
 using GetHired.DomainModels;
-using GetHired.DTO.Contracts;
 using Heroic.AutoMapper;
-using Microsoft.TeamFoundation.TestManagement.Client;
 
 namespace GetHired.DTO
 {
-    public class UserModel : IMapFrom<User>, IMapTo<User>, IIdentifiable<int>, IHaveCustomMappings, IModificationHistory
+    public class UserModel : IMapFrom<User>, IMapTo<User>, IHaveCustomMappings
     {
-        public UserModel()
-        { }
+        public int UserId { get; set; }
 
-        public UserModel(DateTime dateModified, DateTime dateCreated, int id)
-        {
-            this.DateModified = dateModified;
-            this.DateCreated = dateCreated;
-            this.Id = id;
-        }
-
-        public int Id { get; }
+        public string Email { get; set; }
 
         public string FirstName { get; set; }
 
+        public string MiddleName { get; set; }
+
         public string LastName { get; set; }
 
-        public DateTime? DateOfBirth { get; set; }
-
-        public DateTime DateModified { get; }
-
-        public DateTime DateCreated { get; }
+        public DateTime? DataOfBirth { get; set; }
 
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
             configuration.CreateMap<User, UserModel>()
-                .ConstructUsing(x => new UserModel(x.DateModified, x.DateCreated, x.Id));
+                .ForMember(d => d.UserId, cfg => cfg.MapFrom(s => s.Id));
+
+            configuration.CreateMap<UserModel, User>()
+                .ForMember(d => d.Id, cfg => cfg.MapFrom(s => s.UserId));
         }
     }
 }

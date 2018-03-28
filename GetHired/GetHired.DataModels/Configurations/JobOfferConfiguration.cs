@@ -9,14 +9,21 @@ namespace GetHired.DataModels.Configurations
         public void Register(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<JobOffer>()
-                .HasOptional(e => e.JobType)
-                .WithMany(e => e.JobOffers)
-                .HasForeignKey(e => e.JobTypeId);
+                .Property(x => x.Position)
+                .HasMaxLength(50)
+                .IsRequired();
 
             modelBuilder.Entity<JobOffer>()
-                .HasOptional(e => e.JobCategory)
-                .WithMany(e => e.JobOffers)
-                .HasForeignKey(e => e.JobCategoryId);
+                .Property(x => x.Description)
+                .HasColumnType("text");
+
+            modelBuilder.Entity<JobOffer>()
+                .Property(x => x.Payment)
+                .HasPrecision(20, 2);
+
+            modelBuilder.Entity<JobOffer>()
+                .Property(x => x.Rating)
+                .HasPrecision(2, 1);
         }
     }
 }

@@ -23,11 +23,6 @@ namespace GetHired.DataModels.Repositories.Models
 
         public void Delete(TEntity entity)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException();
-            }
-
             this.context.Entry(entity).State = EntityState.Deleted;
         }
 
@@ -43,11 +38,6 @@ namespace GetHired.DataModels.Repositories.Models
 
         public void Attach(TEntity entity)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException();
-            }
-
             this.context.Entry(entity).State = EntityState.Unchanged;
         }
 
@@ -88,21 +78,11 @@ namespace GetHired.DataModels.Repositories.Models
 
         public void Insert(TEntity entity)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException();
-            }
-
             this.context.Entry(entity).State = EntityState.Added;
         }
 
         public void Update(TEntity entity)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException();
-            }
-
             this.Context.Entry(entity).State = EntityState.Modified;
         }
     }

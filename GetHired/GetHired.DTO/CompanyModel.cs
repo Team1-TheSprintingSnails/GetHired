@@ -1,40 +1,28 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using GetHired.DomainModels;
-using GetHired.DTO.Contracts;
 using Heroic.AutoMapper;
-using Microsoft.TeamFoundation.TestManagement.Client;
 
 namespace GetHired.DTO
 {
-    public class CompanyModel : IMapFrom<Company>, IMapTo<Company>, IIdentifiable<int>, IHaveCustomMappings, IModificationHistory
+    public class CompanyModel : IMapFrom<Company>, IMapTo<Company>, IHaveCustomMappings
     {
-        public CompanyModel()
-        { }
+        public int CompanyId { get; set; }
 
-        public CompanyModel(DateTime dateModified, DateTime dateCreated, int id)
-        {
-            this.DateModified = dateModified;
-            this.DateCreated = dateCreated;
-            this.Id = id;
-        }
-
-        public int Id { get; }
+        public string Name { get; set; }
 
         public string BusinessInfo { get; set; }
 
-        public string Email { get; set; }
+        public string Website { get; set; }
 
         public string PhoneNumber { get; set; }
-        
-        public DateTime DateModified { get; }
-
-        public DateTime DateCreated { get; }
 
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
             configuration.CreateMap<Company, CompanyModel>()
-                .ConstructUsing(x => new CompanyModel(x.DateModified, x.DateCreated, x.Id));
+                .ForMember(d => d.CompanyId, cfg => cfg.MapFrom(s => s.Id));
+
+            configuration.CreateMap<CompanyModel, Company>()
+                .ForMember(d => d.Id, cfg => cfg.MapFrom(s => s.CompanyId));
         }
     }
 }

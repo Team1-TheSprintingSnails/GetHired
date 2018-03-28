@@ -18,11 +18,9 @@ namespace GetHired.DataModels.Models
 
         public virtual IDbSet<Address> Addresses { get; set; }
         public virtual IDbSet<JobOffer> JobOffers { get; set; }
-        public virtual IDbSet<Town> Towns { get; set; }
+        public virtual IDbSet<City> Towns { get; set; }
         public virtual IDbSet<User> Users { get; set; }
         public virtual IDbSet<Company> Companies { get; set; }
-        public virtual IDbSet<JobType> JobTypes { get; set; }
-        public virtual IDbSet<JobCategory> JobCategories { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -30,7 +28,7 @@ namespace GetHired.DataModels.Models
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
             this.RegisterConfigurations(modelBuilder);
-
+            
             base.OnModelCreating(modelBuilder);
         }
 
@@ -58,8 +56,7 @@ namespace GetHired.DataModels.Models
                     var implementsIModificationHistory = e.Entity is IModificationHistory;
                     var isAddedOrModified = e.State == EntityState.Added || e.State == EntityState.Modified;
 
-                    return implementsIModificationHistory
-                           && isAddedOrModified;
+                    return implementsIModificationHistory && isAddedOrModified;
                 })
                 .AsEnumerable();
 
@@ -68,6 +65,10 @@ namespace GetHired.DataModels.Models
                 if (entry.State == EntityState.Added)
                 {
                     (entry.Entity as IModificationHistory).DateCreated = DateTime.Now;
+                }
+                else
+                {
+                    entry.Property("DateCreated").IsModified = false;
                 }
 
                 (entry.Entity as IModificationHistory).DateModified = DateTime.Now;

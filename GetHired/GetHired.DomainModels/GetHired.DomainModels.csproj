@@ -45,13 +45,13 @@
     <Compile Include="Address.cs" />
     <Compile Include="Company.cs" />
     <Compile Include="Contracts\IModificationHistory.cs" />
+    <Compile Include="Enums\JobCategory.cs" />
+    <Compile Include="Enums\JobType.cs" />
     <Compile Include="Enums\Role.cs" />
     <Compile Include="JobOffer.cs" />
-    <Compile Include="Town.cs" />
+    <Compile Include="City.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="JobCategory.cs" />
-    <Compile Include="JobType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
