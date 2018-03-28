@@ -68,6 +68,10 @@
     <Compile Include="Migrations\201803260727214_SettingMinLenght.Designer.cs">
       <DependentUpon>201803260727214_SettingMinLenght.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803281556183_PostalCodeFixedLength.cs" />
+    <Compile Include="Migrations\201803281556183_PostalCodeFixedLength.Designer.cs">
+      <DependentUpon>201803281556183_PostalCodeFixedLength.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\GetHiredContext.cs" />
     <Compile Include="Migrations\201803220705154_InterfaceIModificationHistoryImplemented.cs" />
     <Compile Include="Migrations\201803220705154_InterfaceIModificationHistoryImplemented.Designer.cs">
@@ -138,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803260727214_SettingMinLenght.resx">
       <DependentUpon>201803260727214_SettingMinLenght.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803281556183_PostalCodeFixedLength.resx">
+      <DependentUpon>201803281556183_PostalCodeFixedLength.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

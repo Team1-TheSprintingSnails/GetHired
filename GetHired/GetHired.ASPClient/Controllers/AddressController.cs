@@ -1,7 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using AutoMapper;
-using GetHired.ASPClient.Models;
-using GetHired.DataModels.Contracts;
 using GetHired.DataModels.Models;
 using GetHired.DTO;
 using GetHired.Services.Services;
@@ -10,34 +9,45 @@ namespace GetHired.ASPClient.Controllers
 {
     public class AddressController : Controller
     {
-        private readonly CityService cityService = new CityService(new UnitOfWork(new GetHiredContext()), Mapper.Instance );
-        private readonly AddressService addressService = new AddressService(new UnitOfWork(new GetHiredContext()), Mapper.Instance );
+        private readonly CityService cityService = new CityService(new UnitOfWork(new GetHiredContext()), Mapper.Instance);
+        private readonly AddressService addressService = new AddressService(new UnitOfWork(new GetHiredContext()), Mapper.Instance);
 
         public ActionResult Index()
         {
-            return View();
+            var results = this.addressService.GetByCompanyId(1);
+            return View(results);
         }
 
         // GET: Address
         public ActionResult Create()
         {
-            var cities = cityService.GetAll();
-            ViewBag.CityId = new SelectList(cities, "CityId", "Name");
+
+            var cities = cityService.GetAll().ToList();
+            ViewBag.Cities = cities;
+
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CityId, Name")] AddressModel model)
+        public ActionResult Create(AddressWithCityDetailsModel withCityDetailsModel)
         {
-            if (addressService.Add(model))
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("Index");
+                //withCityDetailsModel.CityId = 1;
+                withCityDetailsModel.CompanyId = 1;
+
+                if (addressService.Add(withCityDetailsModel))
+                {
+                    return RedirectToAction("Index");
+                }
             }
-            else
-            {
-                return View(model);
-            }
+
+            var cities = cityService.GetAll().ToList();
+            ViewBag.Cities = cities;
+            ViewBag.Invalid = "Address already exists.";
+            return View(withCityDetailsModel);
+
         }
     }
 }

@@ -19,20 +19,20 @@ namespace GetHired.Services.Services
             this.mapper = mapper;
         }
 
-        public AddressModel GetById(int id)
+        public AddressWithCityDetailsModel GetById(int id)
         {
             var address = this.unitOfWork
                 .AddressRepository
                 .FirstOrDefaultWithCity(adr => adr.Id == id);
 
-            return this.mapper.Map<AddressModel>(address);
+            return this.mapper.Map<AddressWithCityDetailsModel>(address);
         }
 
-        public bool Update(AddressModel addressModel)
+        public bool Update(AddressWithCityDetailsModel addressWithCityDetailsModel)
         {
-            if (addressModel == null) return false;
+            if (addressWithCityDetailsModel == null) return false;
 
-            var address = this.mapper.Map<Address>(addressModel);
+            var address = this.mapper.Map<Address>(addressWithCityDetailsModel);
 
             try
             {
@@ -46,11 +46,11 @@ namespace GetHired.Services.Services
             }
         }
 
-        public bool Delete(AddressModel addressModel)
+        public bool Delete(AddressWithCityDetailsModel addressWithCityDetailsModel)
         {
-            if (addressModel == null) return false;
+            if (addressWithCityDetailsModel == null) return false;
 
-            var address = this.mapper.Map<Address>(addressModel);
+            var address = this.mapper.Map<Address>(addressWithCityDetailsModel);
 
             try
             {
@@ -64,11 +64,11 @@ namespace GetHired.Services.Services
             }
         }
         
-        public bool Add(AddressModel addressModel)
+        public bool Add(AddressWithCityDetailsModel addressWithCityDetailsModel)
         {
-            if (addressModel == null) return false;
+            if (addressWithCityDetailsModel == null) return false;
 
-            var address = this.mapper.Map<Address>(addressModel);
+            var address = this.mapper.Map<Address>(addressWithCityDetailsModel);
 
             try
             {
@@ -82,13 +82,13 @@ namespace GetHired.Services.Services
             }
         }
 
-        public IEnumerable<AddressModel> GetByCompanyId(int companyId)
+        public IEnumerable<AddressWithCityDetailsModel> GetByCompanyId(int companyId)
         {
             var addresses = this.unitOfWork
                 .AddressRepository
                 .GetManyWithCity(x => x.CompanyId == companyId);
 
-            return addresses.Select(adr => this.mapper.Map<AddressModel>(adr));
+            return addresses.Select(adr => this.mapper.Map<AddressWithCityDetailsModel>(adr));
         }
     }
 }

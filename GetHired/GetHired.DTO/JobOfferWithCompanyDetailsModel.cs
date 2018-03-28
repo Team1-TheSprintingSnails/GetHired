@@ -5,7 +5,7 @@ using Heroic.AutoMapper;
 
 namespace GetHired.DTO
 {
-    public class JobOfferModel : IMapFrom<JobOffer>, IMapTo<JobOffer>, IHaveCustomMappings
+    public class JobOfferWithCompanyDetailsModel : IMapFrom<JobOffer>, IMapTo<JobOffer>, IHaveCustomMappings
     {
         public int JobOfferId { get; set; }
 
@@ -31,14 +31,14 @@ namespace GetHired.DTO
 
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
-            configuration.CreateMap<JobOffer, JobOfferModel>()
+            configuration.CreateMap<JobOffer, JobOfferWithCompanyDetailsModel>()
                 .ForMember(d => d.JobOfferId, cfg => cfg.MapFrom(s => s.Id))
                 .ForMember(d => d.JobOfferRating, cfg => cfg.MapFrom(s => s.Rating))
                 .ForMember(d => d.CompanyName, cfg => cfg.MapFrom(s => s.Company.Name))
                 .ForMember(d => d.CompanyBusinessInfo, cfg => cfg.MapFrom(s => s.Company.BusinessInfo))
                 .ForMember(d => d.CompanyyWebsite, cfg => cfg.MapFrom(s => s.Company.Website));
 
-            configuration.CreateMap<JobOfferModel, JobOffer>()
+            configuration.CreateMap<JobOfferWithCompanyDetailsModel, JobOffer>()
                 .ForMember(d => d.Id, cfg => cfg.MapFrom(s => s.JobOfferId))
                 .ForMember(d => d.Rating, cfg => cfg.MapFrom(s => s.JobOfferRating));
         }

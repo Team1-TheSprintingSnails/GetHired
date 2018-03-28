@@ -10,7 +10,6 @@ namespace GetHired.DataModels.Configurations
         {
             modelBuilder.Entity<Address>()
                 .Property(x => x.PostalCode)
-                .HasColumnType("VARCHAR")
                 .HasMaxLength(4)
                 .IsFixedLength()
                 .IsRequired();

@@ -5,7 +5,7 @@ namespace GetHired.ASPClient.Models
 {
     public class CreateAddressViewModel
     {
-        public AddressModel AddressModel { get; set; }
+        public AddressWithCityDetailsModel AddressWithCityDetailsModel { get; set; }
         public IList<CityModel> Cities { get; set; }
     }
 }
