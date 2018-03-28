@@ -81,5 +81,14 @@ namespace GetHired.Services.Services
                 return false;
             }
         }
+
+        public IEnumerable<AddressModel> GetByCompanyId(int companyId)
+        {
+            var addresses = this.unitOfWork
+                .AddressRepository
+                .GetManyWithCity(x => x.CompanyId == companyId);
+
+            return addresses.Select(adr => this.mapper.Map<AddressModel>(adr));
+        }
     }
 }

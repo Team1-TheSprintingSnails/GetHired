@@ -95,12 +95,10 @@
     <Compile Include="Repositories\Contracts\IJobOfferRepository.cs" />
     <Compile Include="Repositories\Contracts\IReadonlyRepository.cs" />
     <Compile Include="Repositories\Contracts\IGenericRepository.cs" />
-    <Compile Include="Repositories\Contracts\ICityRepository.cs" />
     <Compile Include="Repositories\Contracts\IWriteonlyRepository.cs" />
     <Compile Include="Repositories\Models\GenericRepository.cs" />
     <Compile Include="Repositories\Contracts\IUserRepository.cs" />
     <Compile Include="Repositories\Models\JobOfferRepository.cs" />
-    <Compile Include="Repositories\Models\CityRepository.cs" />
     <Compile Include="Repositories\Models\UserRepository.cs" />
     <Compile Include="Models\UnitOfWork.cs" />
   </ItemGroup>

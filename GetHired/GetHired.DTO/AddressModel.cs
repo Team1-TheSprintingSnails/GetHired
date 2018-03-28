@@ -25,7 +25,10 @@ namespace GetHired.DTO
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
             configuration.CreateMap<Address, AddressModel>()
-                .ForMember(d => d.AddressId, cfg => cfg.MapFrom(s => s.Id));
+                .ForMember(d => d.AddressId, cfg => cfg.MapFrom(s => s.Id))
+                .ForMember(d => d.CityName, cfg => cfg.MapFrom(d => d.City.Name))
+                .ForMember(d => d.State, cfg => cfg.MapFrom(d => d.City.State))
+                .ForMember(d => d.Country, cfg => cfg.MapFrom(d => d.City.Country));
 
             configuration.CreateMap<AddressModel, Address>()
                 .ForMember(d => d.Id, cfg => cfg.MapFrom(s => s.AddressId));

@@ -1,6 +1,7 @@
 ﻿using GetHired.DataModels.Contracts;
 using GetHired.DataModels.Repositories.Contracts;
 using GetHired.DataModels.Repositories.Models;
+using GetHired.DomainModels;
 
 namespace GetHired.DataModels.Models
 {
@@ -11,7 +12,7 @@ namespace GetHired.DataModels.Models
         private IAddressRepository addressRepository;
         private ICompanyRepository companyRepository;
         private IJobOfferRepository jobOfferRepository;
-        private ICityRepository cityRepository;
+        private IReadonlyRepository<City> cityRepository;
         private IUserRepository userRepository;
 
         public UnitOfWork(IGetHiredContext context)
@@ -46,11 +47,11 @@ namespace GetHired.DataModels.Models
             }
         }
 
-        public ICityRepository CityRepository
+        public IReadonlyRepository<City> CityRepository
         {
             get
             {
-                return this.cityRepository ?? (this.cityRepository = new CityRepository(this.context));
+                return this.cityRepository ?? (this.cityRepository = new GenericRepository<City>(this.context));
             }
         }
 

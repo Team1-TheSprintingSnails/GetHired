@@ -52,7 +52,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CompanyService.cs" />
     <Compile Include="Services\JobOfferService.cs" />
-    <Compile Include="Services\TownService.cs" />
+    <Compile Include="Services\CityService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
