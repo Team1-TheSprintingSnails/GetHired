@@ -3,27 +3,78 @@ using GetHired.DataModels.Contracts;
 using GetHired.DomainModels;
 using GetHired.DTO;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using GetHired.Services.Contracts;
 
 namespace GetHired.Services.Services
 {
-    class CompanyService
+    class CompanyService : ICompanyService
     {
-        private IUnitOfWork unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
+        private readonly IMapper mapper;
 
-        public CompanyService(IUnitOfWork unitOfWork)
+        public CompanyService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
+            this.mapper = mapper;
         }
 
-        public void AddCompany(CompanyModel company)
+        public bool Add(CompanyModel model)
         {
-            if (company == null)
-            {
-                throw new ArgumentNullException();
-            }
+            if (model == null) return false;
 
-            var regularCompany = Mapper.Map<Company>(company);
-            //this.unitOfWork.CompanyRepository.Insert(regularCompany);
+            try
+            {
+                var company = this.mapper.Map<Company>(model);
+                this.unitOfWork.CompanyRepository.Insert(company);
+                this.unitOfWork.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool Delete(CompanyModel model)
+        {
+            if (model == null) return false;
+
+            try
+            {
+                var company = this.mapper.Map<Company>(model);
+                this.unitOfWork.CompanyRepository.Delete(company);
+                this.unitOfWork.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool Update(CompanyModel model)
+        {
+            if (model == null) return false;
+
+            try
+            {
+                var company = this.mapper.Map<Company>(model);
+                this.unitOfWork.CompanyRepository.Update(company);
+                this.unitOfWork.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public IEnumerable<CompanyModel> GetAll()
+        {
+            var companies = this.unitOfWork.CompanyRepository.All;
+            return companies.Select(c => this.mapper.Map<CompanyModel>(c));
         }
     }
 }

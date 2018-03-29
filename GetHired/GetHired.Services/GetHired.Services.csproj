@@ -46,11 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPasswordHashGenerator.cs" />
-    <Compile Include="PasswordHashGenerator.cs" />
+    <Compile Include="Contracts\IUserService.cs" />
     <Compile Include="Services\AddressService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CompanyService.cs" />
+    <Compile Include="Contracts\IAddressService.cs" />
+    <Compile Include="Contracts\ICityService.cs" />
+    <Compile Include="Contracts\ICompanyService.cs" />
+    <Compile Include="Contracts\IJobOfferService.cs" />
     <Compile Include="Services\JobOfferService.cs" />
     <Compile Include="Services\CityService.cs" />
     <Compile Include="Services\UserService.cs" />
@@ -73,8 +76,6 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Contracts\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

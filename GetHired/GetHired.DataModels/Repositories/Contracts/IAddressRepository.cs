@@ -7,7 +7,6 @@ namespace GetHired.DataModels.Repositories.Contracts
 {
     public interface IAddressRepository : IGenericRepository<Address>
     {
-        IEnumerable<Address> GetManyWithCity(Expression<Func<Address, bool>> predicate);
         Address FirstOrDefaultWithCity(Expression<Func<Address, bool>> predicate);
     }
 }

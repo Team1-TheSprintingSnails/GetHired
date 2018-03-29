@@ -30,14 +30,14 @@ namespace GetHired.ASPClient.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(AddressWithCityDetailsModel withCityDetailsModel)
+        public ActionResult Create(AddressModel withCityViewModel)
         {
             if (ModelState.IsValid)
             {
                 //withCityDetailsModel.CityId = 1;
-                withCityDetailsModel.CompanyId = 1;
+                withCityViewModel.CompanyId = 1;
 
-                if (addressService.Add(withCityDetailsModel))
+                if (addressService.Add(withCityViewModel))
                 {
                     return RedirectToAction("Index");
                 }
@@ -46,7 +46,7 @@ namespace GetHired.ASPClient.Controllers
             var cities = cityService.GetAll().ToList();
             ViewBag.Cities = cities;
             ViewBag.Invalid = "Address already exists.";
-            return View(withCityDetailsModel);
+            return View(withCityViewModel);
 
         }
     }

@@ -10,7 +10,7 @@ namespace GetHired.DataModels.Models
         private readonly IGetHiredContext context;
 
         private IAddressRepository addressRepository;
-        private ICompanyRepository companyRepository;
+        private IGenericRepository<Company> companyRepository;
         private IJobOfferRepository jobOfferRepository;
         private IReadonlyRepository<City> cityRepository;
         private IUserRepository userRepository;
@@ -29,12 +29,12 @@ namespace GetHired.DataModels.Models
             }
         }
 
-        public ICompanyRepository CompanyRepository
+        public IGenericRepository<Company> CompanyRepository
         {
             get
             {
                 return this.companyRepository ?? (this.companyRepository =
-                           new CompanyRepository(this.context));
+                           new GenericRepository<Company>(this.context));
             }
         }
 

@@ -15,14 +15,6 @@ namespace GetHired.DataModels.Repositories.Models
         {
         }
 
-        public IEnumerable<Address> GetManyWithCity(Expression<Func<Address, bool>> predicate)
-        {
-            return this.DbSet
-                .AsNoTracking()
-                .Include(x => x.City)
-                .Where(predicate);
-        }
-
         public Address FirstOrDefaultWithCity(Expression<Func<Address, bool>> predicate)
         {
             return this.DbSet

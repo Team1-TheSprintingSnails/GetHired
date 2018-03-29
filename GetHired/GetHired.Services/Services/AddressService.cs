@@ -5,10 +5,12 @@ using GetHired.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using GetHired.DTO.ViewModels;
+using GetHired.Services.Contracts;
 
 namespace GetHired.Services.Services
 {
-    public class AddressService
+    public class AddressService : IAddressService
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
@@ -19,20 +21,20 @@ namespace GetHired.Services.Services
             this.mapper = mapper;
         }
 
-        public AddressWithCityDetailsModel GetById(int id)
+        public AddressWithCityViewModel GetById(int id)
         {
             var address = this.unitOfWork
                 .AddressRepository
                 .FirstOrDefaultWithCity(adr => adr.Id == id);
 
-            return this.mapper.Map<AddressWithCityDetailsModel>(address);
+            return this.mapper.Map<AddressWithCityViewModel>(address);
         }
 
-        public bool Update(AddressWithCityDetailsModel addressWithCityDetailsModel)
+        public bool Update(AddressModel addressWithCityViewModel)
         {
-            if (addressWithCityDetailsModel == null) return false;
+            if (addressWithCityViewModel == null) return false;
 
-            var address = this.mapper.Map<Address>(addressWithCityDetailsModel);
+            var address = this.mapper.Map<Address>(addressWithCityViewModel);
 
             try
             {
@@ -46,11 +48,11 @@ namespace GetHired.Services.Services
             }
         }
 
-        public bool Delete(AddressWithCityDetailsModel addressWithCityDetailsModel)
+        public bool Delete(AddressModel addressWithCityViewModel)
         {
-            if (addressWithCityDetailsModel == null) return false;
+            if (addressWithCityViewModel == null) return false;
 
-            var address = this.mapper.Map<Address>(addressWithCityDetailsModel);
+            var address = this.mapper.Map<Address>(addressWithCityViewModel);
 
             try
             {
@@ -64,11 +66,11 @@ namespace GetHired.Services.Services
             }
         }
         
-        public bool Add(AddressWithCityDetailsModel addressWithCityDetailsModel)
+        public bool Add(AddressModel addressWithCityViewModel)
         {
-            if (addressWithCityDetailsModel == null) return false;
+            if (addressWithCityViewModel == null) return false;
 
-            var address = this.mapper.Map<Address>(addressWithCityDetailsModel);
+            var address = this.mapper.Map<Address>(addressWithCityViewModel);
 
             try
             {
@@ -82,13 +84,13 @@ namespace GetHired.Services.Services
             }
         }
 
-        public IEnumerable<AddressWithCityDetailsModel> GetByCompanyId(int companyId)
+        public IEnumerable<AddressModel> GetByCompanyId(int companyId)
         {
             var addresses = this.unitOfWork
                 .AddressRepository
-                .GetManyWithCity(x => x.CompanyId == companyId);
+                .SearchFor(x => x.CompanyId == companyId);
 
-            return addresses.Select(adr => this.mapper.Map<AddressWithCityDetailsModel>(adr));
+            return addresses.Select(adr => this.mapper.Map<AddressModel>(adr));
         }
     }
 }

@@ -56,13 +56,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddressWithCityDetailsModel.cs" />
+    <Compile Include="AddressModel.cs" />
+    <Compile Include="ViewModels\AddressWithCityViewModel.cs" />
     <Compile Include="CompanyModel.cs" />
-    <Compile Include="JobOfferWithCompanyDetailsModel.cs" />
+    <Compile Include="JobOffer.cs" />
+    <Compile Include="ViewModels\JobOfferWithCompanyViewModel.cs" />
     <Compile Include="CityModel.cs" />
-    <Compile Include="UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserRegistrationModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GetHired.DomainModels\GetHired.DomainModels.csproj">
@@ -71,8 +71,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetHired.DomainModels", "GetHired.DomainModels\GetHired.DomainModels.csproj", "{CD3237F3-97CE-428B-A4B1-85E567E7DAD6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetHired.DataModels", "GetHired.DataModels\GetHired.DataModels.csproj", "{E7A3FF23-95AC-4C7A-AB7C-36C93E2568C2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetHired.Core", "GetHired.Core\GetHired.Core.csproj", "{9E3CFC76-3EE6-44DE-A632-788A7F6FF5B6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetHired.ConsoleClient", "GetHired.ConsoleClient\GetHired.ConsoleClient.csproj", "{87B87337-23D1-4EE3-874C-BD5DA23E876C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetHired.IntegrationTests", "GetHired.IntegrationTests\GetHired.IntegrationTests.csproj", "{43251A60-E0DA-4311-921D-0427165E4FAA}"
 EndProject
@@ -39,10 +37,6 @@ Global
 		{9E3CFC76-3EE6-44DE-A632-788A7F6FF5B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E3CFC76-3EE6-44DE-A632-788A7F6FF5B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E3CFC76-3EE6-44DE-A632-788A7F6FF5B6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{87B87337-23D1-4EE3-874C-BD5DA23E876C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{87B87337-23D1-4EE3-874C-BD5DA23E876C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{87B87337-23D1-4EE3-874C-BD5DA23E876C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{87B87337-23D1-4EE3-874C-BD5DA23E876C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{43251A60-E0DA-4311-921D-0427165E4FAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{43251A60-E0DA-4311-921D-0427165E4FAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43251A60-E0DA-4311-921D-0427165E4FAA}.Release|Any CPU.ActiveCfg = Release|Any CPU

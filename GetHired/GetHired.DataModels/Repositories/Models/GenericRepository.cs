@@ -85,5 +85,13 @@ namespace GetHired.DataModels.Repositories.Models
         {
             this.Context.Entry(entity).State = EntityState.Modified;
         }
+
+        public IEnumerable<TEntity> SearchFor(Expression<Func<TEntity, bool>> predicate)
+        {
+            return this.dbSet
+                .Where(predicate)
+                .AsEnumerable();
+        }
+
     }
 }
