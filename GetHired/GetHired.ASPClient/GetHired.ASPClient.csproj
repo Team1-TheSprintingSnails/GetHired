@@ -219,6 +219,8 @@
     <Content Include="Views\Address\Index.cshtml" />
     <Content Include="Views\JobOffer\Index.cshtml" />
     <Content Include="Views\Company\Index.cshtml" />
+    <Content Include="Views\Company\Details.cshtml" />
+    <Content Include="Views\Company\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
