@@ -1,6 +1,5 @@
 using Heroic.AutoMapper;
 
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(GetHired.ASPClient.AutoMapperConfig), "Configure")]
 namespace GetHired.ASPClient
 {
 	public static class AutoMapperConfig

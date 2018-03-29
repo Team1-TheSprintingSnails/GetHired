@@ -3,14 +3,21 @@ using System.Web.Mvc;
 using AutoMapper;
 using GetHired.DataModels.Models;
 using GetHired.DTO;
+using GetHired.Services.Contracts;
 using GetHired.Services.Services;
 
 namespace GetHired.ASPClient.Controllers
 {
     public class AddressController : Controller
     {
-        private readonly CityService cityService = new CityService(new UnitOfWork(new GetHiredContext()), Mapper.Instance);
-        private readonly AddressService addressService = new AddressService(new UnitOfWork(new GetHiredContext()), Mapper.Instance);
+        private readonly ICityService cityService;
+        private readonly IAddressService addressService;
+
+        public AddressController(ICityService cityService, IAddressService addressService)
+        {
+            this.cityService = cityService;
+            this.addressService = addressService;
+        }
 
         public ActionResult Index()
         {

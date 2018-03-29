@@ -2,8 +2,6 @@
 using System.Web.Optimization;
 using System.Web.Routing;
 
-using Heroic.AutoMapper;
-
 namespace GetHired.ASPClient
 {
     public class MvcApplication : System.Web.HttpApplication
@@ -14,7 +12,9 @@ namespace GetHired.ASPClient
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            
+
+            AutoMapperConfig.Configure();
+            AutofacConfig.Build();
         }
     }
 }
