@@ -2,6 +2,7 @@
 using System.Reflection;
 using Autofac;
 using Autofac.Integration.Mvc;
+using AutoMapper;
 using GetHired.DataModels.Contracts;
 using GetHired.Services.Contracts;
 
@@ -32,6 +33,8 @@ namespace GetHired.ASPClient
 
             builder.RegisterControllers(typeof(MvcApplication).Assembly)
                 .InstancePerRequest();
+
+            builder.Register(m => Mapper.Instance);
 
             container = builder.Build();
             return container;

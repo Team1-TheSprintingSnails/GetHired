@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Autofac.Integration.Mvc;
 
 namespace GetHired.ASPClient
 {
@@ -14,7 +15,9 @@ namespace GetHired.ASPClient
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             AutoMapperConfig.Configure();
-            AutofacConfig.Build();
+
+            var container = AutofacConfig.Build();
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
     }
 }
