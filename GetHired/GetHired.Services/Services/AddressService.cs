@@ -108,7 +108,7 @@ namespace GetHired.Services.Services
             }
         }
 
-        public IEnumerable<AddressModel> GetByCompanyId(int companyId)
+        public IEnumerable<AddressModel> GetByCompanyId(int? companyId)
         {
             var addresses = this.unitOfWork
                 .AddressRepository
