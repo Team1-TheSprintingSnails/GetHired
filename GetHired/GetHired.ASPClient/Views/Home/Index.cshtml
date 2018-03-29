@@ -1,15 +1,23 @@
-﻿@{
+﻿@using WebGrease
+@{
     ViewBag.Title = "Home Page";
 }
 
 <body>
-
-    <img src="https://images.fastcompany.net/image/upload/w_1280,f_auto,q_auto,fl_lossy/fc/3028471-poster-p-war-room.gif" style="width: 150%" class="img-responsive">
-    <div class="container">
-        <div class="carousel-caption">
-            <h1 style="color: blue">Changes to the Grid</h1>
-            <p>Bootstrap 3 still features a 12-column grid, but many of the CSS class names have completely changed.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+    <div>
+        <img style="opacity: 0.7" src="/Resources/vid.gif" class="img-responsive">
+        <div class="container">
+            <div class="carousel-caption">
+                <h1>FIND YOUR DREAM PLACE</h1>
+                <p>
+                    @Html.ActionLink(
+                             linkText: "Еxplore",
+                             actionName: "Index",
+                             controllerName: "Company",
+                        routeValues: null, 
+                          htmlAttributes: new { @class = "btn btn-success btn-lg" })
+                </p>
+            </div>
         </div>
     </div>
 </body>
