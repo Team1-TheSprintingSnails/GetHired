@@ -103,5 +103,20 @@ namespace GetHired.Services.Services
 
             return this.mapper.Map<JobOfferWithCompanyViewModel>(jobOffers);
         }
+
+        public bool DeleteById(int jobOfferId)
+        {
+            try
+            {
+                var jobOffer = this.unitOfWork.JobOfferRepository.GetById(jobOfferId);
+                this.unitOfWork.JobOfferRepository.Delete(jobOffer);
+                this.unitOfWork.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

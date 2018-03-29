@@ -37,6 +37,21 @@ namespace GetHired.Services.Services
             }
         }
 
+        public bool DeleteById(int companyId)
+        {
+            try
+            {
+                var company = this.unitOfWork.CompanyRepository.GetById(companyId);
+                this.unitOfWork.CompanyRepository.Delete(company);
+                this.unitOfWork.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public bool Delete(CompanyModel model)
         {
             if (model == null) return false;

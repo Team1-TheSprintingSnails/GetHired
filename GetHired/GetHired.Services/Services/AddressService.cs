@@ -65,7 +65,22 @@ namespace GetHired.Services.Services
                 return false;
             }
         }
-        
+
+        public bool DeleteById(int addressId)
+        {
+           try
+            {
+                var address = this.unitOfWork.AddressRepository.GetById(addressId);
+                this.unitOfWork.AddressRepository.Delete(address);
+                this.unitOfWork.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public bool Add(AddressModel addressWithCityViewModel)
         {
             if (addressWithCityViewModel == null) return false;

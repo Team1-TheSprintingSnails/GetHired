@@ -47,20 +47,17 @@ namespace GetHired.ASPClient.Controllers
         }
 
         // POST: Company/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
+        //[HttpPost]
+        //public ActionResult Create(FormCollection collection)
+        //{
+        //    if (addressService.Add(model))
+        //    {
+        //        return RedirectToAction("Index");
+        //    }
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //    ViewBag.Invalid = "Company already exists.";
+        //    return View(model);
+        //}
 
         // GET: Company/Edit/5
         public ActionResult Edit(int id)

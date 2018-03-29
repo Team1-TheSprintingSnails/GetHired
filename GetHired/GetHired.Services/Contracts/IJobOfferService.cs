@@ -13,5 +13,6 @@ namespace GetHired.Services.Contracts
         JobOfferWithCompanyViewModel GetById(int jobOfferId);
         IEnumerable<JobOfferModel> GetByUserId(int userId);
         bool Update(JobOfferModel model);
+        bool DeleteById(int jobOfferId);
     }
 }

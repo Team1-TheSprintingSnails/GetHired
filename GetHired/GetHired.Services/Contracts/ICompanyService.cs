@@ -10,5 +10,6 @@ namespace GetHired.Services.Contracts
         IEnumerable<CompanyModel> GetAll();
         bool Update(CompanyModel model);
         CompanyModel GetById(int companyId);
+        bool DeleteById(int companyId);
     }
 }

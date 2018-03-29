@@ -11,5 +11,6 @@ namespace GetHired.Services.Contracts
         IEnumerable<AddressModel> GetByCompanyId(int companyId);
         AddressWithCityViewModel GetById(int id);
         bool Update(AddressModel addressWithCityViewModel);
+        bool DeleteById(int addressId);
     }
 }
