@@ -2,6 +2,8 @@
 using System.Web.Optimization;
 using System.Web.Routing;
 using Autofac.Integration.Mvc;
+using System.Data.Entity;
+using GetHired.DataModels.Models;
 
 namespace GetHired.ASPClient
 {
@@ -9,6 +11,7 @@ namespace GetHired.ASPClient
     {
         protected void Application_Start()
         {
+            Database.SetInitializer<GetHiredContext>(new DropCreateDatabaseIfModelChanges<GetHiredContext>());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

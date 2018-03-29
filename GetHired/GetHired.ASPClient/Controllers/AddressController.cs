@@ -16,7 +16,7 @@ namespace GetHired.ASPClient.Controllers
             this.addressService = addressService;
         }
 
-        public ActionResult Index(int id)
+        public ActionResult Index(int? id)
         {
             var results = this.addressService.GetByCompanyId(id);
             return View(results);
