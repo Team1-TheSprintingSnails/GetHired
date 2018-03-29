@@ -3,34 +3,35 @@
 @{
     ViewBag.Title = "Index";
 }
+<body class="container">
+    <br />
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success btn-lg" })
+    </p>
+    <div class="row">
+        @foreach (var item in Model)
+        {
 
-<br />
-<p>
-    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success btn-lg" })
-</p>
-<div class="row">
-    @foreach (var item in Model)
-    {
-
-        <div class="form-inline">
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <div class="caption">
-                        <p class="h3 text-center">Address</p>
-                        <p>
-                            <ul class="list-unstyled">
-                                <li>@Html.LabelFor(x => item.StreetName): @item.StreetName</li>
-                                <li>@Html.LabelFor(x => item.PostalCode): @item.PostalCode</li>
-                            </ul>
-                        </p>
-                        <p class="text-right">
-                            <a href="#" class="btn btn-primary" role="button">Edit</a>
-                            <a href="#" class="btn btn-danger" role="button">Delete</a>
-                            <a href="#" class="btn btn-info" role="button">Details</a>
-                        </p>
+            <div class="form-inline">
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <p class="h3 text-center">Address</p>
+                            <p>
+                                <ul class="list-unstyled">
+                                    <li>@Html.LabelFor(x => item.StreetName): @item.StreetName</li>
+                                    <li>@Html.LabelFor(x => item.PostalCode): @item.PostalCode</li>
+                                </ul>
+                            </p>
+                            <p class="text-right">
+                                <a href="#" class="btn btn-primary" role="button">Edit</a>
+                                <a href="#" class="btn btn-danger" role="button">Delete</a>
+                                <a href="#" class="btn btn-info" role="button">Details</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    }
-</div>
+        }
+    </div>
+</body> 
