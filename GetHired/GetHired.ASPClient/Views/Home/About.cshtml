@@ -2,8 +2,127 @@
     ViewBag.Title = "About";
 }
 <body class="container">
-    <h2>@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
+    <h1><a id="Databases_Teamwork_Assignment_0"></a>Databases: Teamwork Assignment</h1>
+    <h2><a id="Project_Description_2"></a>Project Description</h2>
+    <p>Create a project of your choice and implement it using Code First approach with Entity Framework. You must use SQL Server 2017 as your database. Part of the data in SQL Server must be provided via external files (Excel, XML, JSON, zip, etc.) of your choice. You should create PDF reports based on your application logic. They should consists of meaningful data.</p>
+    <ul>
+        <li>
+            Project examples:
+            <ul>
+                <li>Sports ranking</li>
+                <li>Online store</li>
+                <li>Movie ranking</li>
+                <li>Book store</li>
+            </ul>
+        </li>
+    </ul>
+    <h2><a id="Preliminary_Requirements_12"></a>Preliminary Requirements</h2>
+    <p>Before you start writing code and building databases, please take your time to write a simple project specification. Together with your team members, read the requirements below and answer the following questions in a (README in your repo) in a style of your choosing.</p>
+    <ul>
+        <li>What is the name of your team? (copy it from <a href="http://my.telerikacademy.com/Courses/Teamwork/List">http://my.telerikacademy.com/Courses/Teamwork/List</a>)</li>
+        <li>Who is your team leader?</li>
+        <li>Who are your team members?</li>
+        <li>What is your project going to be about?</li>
+        <li>What features will it consist of? Explain their purpose. (Try to be as granular as possible.)</li>
+        <li>
+            Write a table with the following columns and fill it: (Some of those columns you will have to fill as go)
+            <ul>
+                <li>Name of Feature</li>
+                <li>Name of Feature Owner (who will write it?)</li>
+                <li>Estimated time it would take (in hours, <strong>don’t overthink it</strong>)</li>
+                <li>Actual time it took (in hours)</li>
+                <li>Estimated time it would take to unit test (in hours)</li>
+                <li>Actual time it took to unit test (in hours)</li>
+            </ul>
+        </li>
+    </ul>
+    <p>Try to adhere to this project specification and make your project as close to it as possible. As you implement each feature, write down the time it really took you and compare them with the estimate. Do not be surprised if the difference between them is great, that’s completely normal when you do something like this for the first time. Also, don’t go crazy on features, implement a few but implement them amazingly!</p>
+    <p>You have <strong>until Tuesday afternoon (13th March)</strong> to present this specification to either me or Marto in person or via Slack.</p>
+    <h2><a id="General_Requirements_33"></a>General Requirements</h2>
+    <ul>
+        <li>Use Code First approach</li>
+        <li>Use Entity Framework</li>
+        <li>Use SQL Server 2017</li>
+        <li>At least five tables in the SQL Server database</li>
+        <li>Provide all type of relations in the database and use both attributes and the Fluent API (Model builder) for configuration</li>
+        <li>Load some of the data from external files (Either Excel, XML, JSON, zip, etc.) of your choice</li>
+        <li>The user should be able to manipulate the database through the client (basic CRUD)</li>
+        <li>Provide some usable user interface for the client (could be the console, WPF, Windows Forms, <a href="http://ASP.NET">ASP.NET</a> Web, etc.)</li>
+        <li>Generate PDF reports based on your application’s data. The PDF doesn’t have to be pretty.</li>
+        <li>Follow the SOLID principles and the OOP principles. The lack of SRP is punished by death.</li>
+        <li>Write unit tests for the majority of your application’s features. Unisolated tests are not considered valid.</li>
+    </ul>
+    <h2><a id="Additional_Requirements_47"></a>Additional Requirements</h2>
+    <ul>
+        <li>For the PDF export use a non-commercial third party framework</li>
+        <li>The XML files should be read / written through the standard .NET parsers (of your choice)</li>
+        <li>For JSON serializations use a non-commercial library / framework of your choice</li>
+    </ul>
+    <h2><a id="Optional_Requirements_53"></a>Optional Requirements</h2>
+    <ul>
+        <li>You could use Repository pattern or Services of your choice or use pure Entity Framework and DbContext (research the options and choose your preferable way to do it)</li>
+        <li>
+            Completely finished project is not obligatory required. It will not be a big problem if your project is not completely finished or is not working greatly
+            <ul>
+                <li>This team work project is for educational purpose</li>
+                <li>Its main purpose it to gain experience using Entity Framework in a real-world-like project and to get some experience in team working and team collaboration with a source control system</li>
+            </ul>
+        </li>
+    </ul>
+    <h2><a id="Deliverables_60"></a>Deliverables</h2>
+    <ul>
+        <li>Upload a brief video (2-3 mins) of your application and upload it in <a href="https://youtube.com">YouTube</a></li>
+        <li>
+            Upload your project in <a href="http://best.telerikacademy.com">http://best.telerikacademy.com</a>
+            <ul>
+                <li>A brief description of your application</li>
+                <li>Link the video in the description</li>
+                <li>Mandatory refer the github repository of your application</li>
+            </ul>
+        </li>
+    </ul>
+    <h2><a id="Project_Defense_68"></a>Project Defense</h2>
+    <p>Each team member will have around 20 minutes to:</p>
+    <ul>
+        <li>Present the project overall</li>
+        <li>Explain how they have contributed to the project</li>
+        <li>Explain the source code of their teammates</li>
+        <li>Answer some theoretical questions</li>
+    </ul>
+    <p>These are the theoretical questions that will most likely be asked during the project defense. As you can see, they are seperated into two groups. The first group are questions that we expect you know the answers of in great details. The second set consists of questions that we expect you to know about and can give a basic answer, without diving deep into the subject, as they are related to material that we have not covered during this section of the module. You should research those topics in your spare time.</p>
+    <p>Questions that you must be able to answer in details:</p>
+    <ul>
+        <li>What is SQL?</li>
+        <li>What type of JOIN clauses do you know in SQL?</li>
+        <li>How can you select all the even number records from a table? All the odd number records?</li>
+        <li>What is the difference between char and varchar2?</li>
+        <li>What is Entity Framework?</li>
+        <li>What are the development approaches are supported in Entity Framework?</li>
+        <li>What are the different types of table relations?</li>
+        <li>When and why do we use select, where, order by and etc. on database sets?</li>
+        <li>What are transactions and why do we use them?</li>
+        <li>How do we achieve transactions in Entity Framework?</li>
+        <li>Where do we use virtual classes in Entity Framework DbContext Models and why?</li>
+        <li>How we can enforce number of characters (minimum or maximum) for a field, or any other validation?</li>
+        <li>Can we do an insertion and deletion at the same block of code and then apply save changes to them in a statement?</li>
+        <li>If we have not followed the proper conventions set by EF, then how we can mark a property as primary key?</li>
+        <li>What is the proper way of handing data deletion and why?</li>
+        <li>How do we delete entities with foreign keys or used primary keys?</li>
+    </ul>
+    <p>Questions you should have general knowledge of:</p>
+    <ul>
+        <li>What is is a Trigger?</li>
+        <li>What types of Triggers do you know?</li>
+        <li>What are the benefits of Stored Procedures in MSSQL?</li>
+        <li>What are the different types of locking we can experience in MSSQL?</li>
+        <li>What are complex types in Entity Framework?</li>
+        <li>Can we access a model in Entity Framework without primary key defined?</li>
+        <li>How can we use Stored Procedures in Entity Framework?</li>
+        <li>What’s the difference between LINQ to SQL and Entity Framework?</li>
+        <li>How can we do pessimistic locking in Entity Framework?</li>
+        <li>What is the difference between DbContext and ObjectContext?</li>
+    </ul>
+    <h2><a id="Give_Feedback_about_Your_Teammates_111"></a>Give Feedback about Your Teammates</h2>
+    <p>You will be invited to provide feedback about all your teammates, their attitude to this project, their technical skills, their team working skills, their contribution to the project, etc. <strong>The feedback is important part of the project evaluation so take it seriously and be honest.</strong></p>
 
-    <p>Use this area to provide additional information.</p>
 </body>
