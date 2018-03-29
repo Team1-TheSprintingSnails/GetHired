@@ -73,6 +73,17 @@ namespace GetHired.ASPClient.Controllers
             {
                 // TODO: Add update logic here
 
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+                var company = companyService.GetById(id);
+                if (company == null)
+                {
+                    return HttpNotFound();
+                }
+
                 return RedirectToAction("Index");
             }
             catch
