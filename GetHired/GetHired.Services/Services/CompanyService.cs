@@ -76,5 +76,11 @@ namespace GetHired.Services.Services
             var companies = this.unitOfWork.CompanyRepository.All;
             return companies.Select(c => this.mapper.Map<CompanyModel>(c));
         }
+
+        public CompanyModel GetById(int companyId)
+        {
+            var company = this.unitOfWork.CompanyRepository.GetById(companyId);
+            return this.mapper.Map<CompanyModel>(company);
+        }
     }
 }

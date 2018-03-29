@@ -1,10 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using AutoMapper;
-using GetHired.DataModels.Models;
 using GetHired.DTO;
 using GetHired.Services.Contracts;
-using GetHired.Services.Services;
 
 namespace GetHired.ASPClient.Controllers
 {
@@ -19,9 +16,9 @@ namespace GetHired.ASPClient.Controllers
             this.addressService = addressService;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-            var results = this.addressService.GetByCompanyId(1);
+            var results = this.addressService.GetByCompanyId(id);
             return View(results);
         }
 
@@ -37,24 +34,20 @@ namespace GetHired.ASPClient.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(AddressModel withCityViewModel)
+        public ActionResult Create(AddressModel model)
         {
-            if (ModelState.IsValid)
+            model.CompanyId = 1;
+
+            if (addressService.Add(model))
             {
-                //withCityDetailsModel.CityId = 1;
-                withCityViewModel.CompanyId = 1;
-
-                if (addressService.Add(withCityViewModel))
-                {
-                    return RedirectToAction("Index");
-                }
+                return RedirectToAction("Index");
             }
-
+            
             var cities = cityService.GetAll().ToList();
             ViewBag.Cities = cities;
             ViewBag.Invalid = "Address already exists.";
-            return View(withCityViewModel);
 
+            return View(model);
         }
     }
 }
