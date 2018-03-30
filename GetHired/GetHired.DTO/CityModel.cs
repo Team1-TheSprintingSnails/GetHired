@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.ComponentModel.DataAnnotations;
+using AutoMapper;
 using GetHired.DomainModels;
 using Heroic.AutoMapper;
 
@@ -8,10 +9,13 @@ namespace GetHired.DTO
     {
         public int CityId { get; set; }
 
+        [Required, MinLength(2), MaxLength(50)]
         public string Name { get; set; }
 
+        [MinLength(2), MaxLength(50)]
         public string State { get; set; }
 
+        [Required, MinLength(2), MaxLength(50)]
         public string Country { get; set; }
 
         public void CreateMappings(IMapperConfigurationExpression configuration)

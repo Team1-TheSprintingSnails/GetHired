@@ -17,14 +17,15 @@ namespace GetHired.DomainModels
 
         public int Id { get; set; }
         
-        [Required, MinLength(3), MaxLength(50)]
+        [Index(IsUnique = true), Required, MinLength(3), MaxLength(50)]
         public string Name { get; set; }
         
         public string BusinessInfo { get; set; }
         
-        [Required, MinLength(8), MaxLength(125)]
+        [Index(IsUnique = true), Required, MinLength(8), MaxLength(125)]
         public string Website { get; set; }
 
+        [MinLength(10), MaxLength(10)]
         public string PhoneNumber { get; set; }
 
         public ICollection<Address> Addresses { get; set; }

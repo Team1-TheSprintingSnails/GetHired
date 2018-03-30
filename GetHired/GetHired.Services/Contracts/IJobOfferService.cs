@@ -10,7 +10,8 @@ namespace GetHired.Services.Contracts
         bool Delete(JobOfferModel model);
         IEnumerable<JobOfferModel> GetAll();
         IEnumerable<JobOfferModel> GetByCompanyId(int companyId);
-        JobOfferWithCompanyViewModel GetById(int jobOfferId);
+        JobOfferWithCompanyViewModel GetByIdWithCompany(int jobOfferId);
+        JobOfferModel GetById(int jobOfferId);
         IEnumerable<JobOfferModel> GetByUserId(int userId);
         bool Update(JobOfferModel model);
         bool DeleteById(int jobOfferId);

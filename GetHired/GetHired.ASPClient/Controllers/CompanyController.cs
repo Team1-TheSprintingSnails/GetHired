@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Web;
+﻿using System.Net;
 using System.Web.Mvc;
+using GetHired.DTO;
 using GetHired.Services.Contracts;
 
 namespace GetHired.ASPClient.Controllers
@@ -31,7 +28,6 @@ namespace GetHired.ASPClient.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var company = this.companyService.GetById(id.Value);
-
             if (company == null)
             {
                 return HttpNotFound();
@@ -46,61 +42,72 @@ namespace GetHired.ASPClient.Controllers
             return View();
         }
 
-        // POST: Company/Create
-        //[HttpPost]
-        //public ActionResult Create(FormCollection collection)
-        //{
-        //    if (addressService.Add(model))
-        //    {
-        //        return RedirectToAction("Index");
-        //    }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(CompanyModel company)
+        {
+            if (this.companyService.Add(company))
+            {
+                RedirectToAction("Index");
+            }
 
-        //    ViewBag.Invalid = "Company already exists.";
-        //    return View(model);
-        //}
+            return View(company);
+        }
 
         // GET: Company/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (!id.HasValue)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var company = this.companyService.GetById(id.Value);
+            if (company == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(company);
         }
 
         // POST: Company/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(CompanyModel company)
         {
-            try
+            if (this.companyService.Update(company))
             {
-                // TODO: Add update logic here
+                RedirectToAction("Index");
+            }
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return View(company);
         }
 
         // GET: Company/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (!id.HasValue)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var company = this.companyService.GetById(id.Value);
+            if (company == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(company);
         }
 
         // POST: Company/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(CompanyModel company)
         {
-            try
+            if (this.companyService.Delete(company))
             {
-                // TODO: Add delete logic here
+                RedirectToAction("Index");
+            }
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return View(company);
         }
     }
 }
