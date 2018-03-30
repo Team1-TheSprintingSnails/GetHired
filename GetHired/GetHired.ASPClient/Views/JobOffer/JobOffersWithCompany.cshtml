@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<GetHired.DTO.JobOfferModel>
 
-
+<br/>
 <p>
-    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success btn-lg" })
+    @Html.ActionLink("Add new job offer to company", "Create", new { id = ViewBag.CompanyId })
 </p>
 <table class="table">
     <tr>
