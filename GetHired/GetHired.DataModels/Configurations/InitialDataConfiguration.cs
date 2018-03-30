@@ -1,19 +1,23 @@
+﻿using GetHired.DataModels.Configurations.Contracts;
+using GetHired.DataModels.Contracts;
 using GetHired.DataModels.Models;
+using GetHired.DomainModels;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace GetHired.DataModels.Migrations
+namespace GetHired.DataModels.Configurations
 {
-    using GetHired.DomainModels;
-    using System.Data.Entity.Migrations;
-
-    public sealed class Configuration : DbMigrationsConfiguration<GetHiredContext>
+    public class InitialDataConfiguration : DropCreateDatabaseIfModelChanges<GetHiredContext>
     {
-        public Configuration()
-        {
-            AutomaticMigrationsEnabled = false;
-        }
-
         protected override void Seed(GetHiredContext context)
         {
+            context.Companies.Add(new Company() { Id = 1, BusinessInfo = "Cleaning company", PhoneNumber = "0887385956", DateModified = new System.DateTime(2012, 5, 17), DateCreated = new System.DateTime(2018, 3, 27), Name = "WashAndGo", Website = "https://www.washandgo.com" });
+
             //context.Towns.AddOrUpdate(x => x.Id,
             // new City() { Id = 1, Name = "Lovech", State = "Lovech", Country = "Bulgaria" },
             // new City() { Id = 2, Name = "Panagyurishte", State = "Pazardjik", Country = "Bulgaria" },
@@ -46,7 +50,7 @@ namespace GetHired.DataModels.Migrations
             //    new Address() { Id = 5, CompanyId = 1, DateModified = new System.DateTime(2010, 2, 20), DateCreated = new System.DateTime(2018, 1, 4), StreetName = "23 Vasil Levski, 4000 Plovdiv", PostalCode = "4000", CityId = 4 }
             //    );
 
-            //context.SaveChanges();
+            base.Seed(context);
         }
     }
 }
