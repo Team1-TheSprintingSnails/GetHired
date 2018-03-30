@@ -77,7 +77,7 @@ namespace GetHired.Services.Services
 
         public bool DeleteById(int addressId)
         {
-           try
+            try
             {
                 var address = this.unitOfWork.AddressRepository.GetById(addressId);
                 this.unitOfWork.AddressRepository.Delete(address);
