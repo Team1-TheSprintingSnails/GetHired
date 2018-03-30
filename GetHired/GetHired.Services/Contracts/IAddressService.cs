@@ -9,7 +9,8 @@ namespace GetHired.Services.Contracts
         bool Add(AddressModel addressWithCityViewModel);
         bool Delete(AddressModel addressWithCityViewModel);
         IEnumerable<AddressModel> GetByCompanyId(int companyId);
-        AddressWithCityViewModel GetById(int id);
+        AddressWithCityViewModel GetByIdWithCity(int id);
+        AddressModel GetById(int id);
         bool Update(AddressModel addressWithCityViewModel);
         bool DeleteById(int addressId);
     }
