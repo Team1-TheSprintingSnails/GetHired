@@ -48,7 +48,7 @@ namespace GetHired.ASPClient.Controllers
         {
             if (this.companyService.Add(company))
             {
-                RedirectToAction("Index");
+                return RedirectToAction("Index");
             }
 
             return View(company);
@@ -72,11 +72,12 @@ namespace GetHired.ASPClient.Controllers
 
         // POST: Company/Edit/5
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(CompanyModel company)
         {
             if (this.companyService.Update(company))
             {
-                RedirectToAction("Index");
+                return RedirectToAction("Index");
             }
 
             return View(company);
@@ -99,12 +100,19 @@ namespace GetHired.ASPClient.Controllers
         }
 
         // POST: Company/Delete/5
-        [HttpPost]
-        public ActionResult Delete(CompanyModel company)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
+            var company = this.companyService.GetById(id);
+            if (company == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
             if (this.companyService.Delete(company))
             {
-                RedirectToAction("Index");
+                return RedirectToAction("Index");
             }
 
             return View(company);

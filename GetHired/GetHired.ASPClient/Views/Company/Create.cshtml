@@ -38,6 +38,7 @@
             @Html.LabelFor(model => model.BusinessInfo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextAreaFor(model => model.BusinessInfo, new { @class = "form-control", @rows = "3" })
+                @Html.ValidationMessageFor(model => model.Website, "", new { @class = "text-danger" })
             </div>
         </div>
 
