@@ -15,8 +15,15 @@ namespace GetHired.ASPClient.Controllers
             this.jobOfferService = jobOfferService;
         }
 
-        [ActionName("Index")]
-        public ActionResult GetJobOffersByCompanyId(int id)
+        // GET: JobOffer 
+        public ActionResult Index()
+        {
+            var jobOffers = this.jobOfferService.GetAll();
+            return View(jobOffers);
+        }
+
+        [ActionName("JobOffersWithCompany")]
+        public ActionResult GetAddressesByCompanyId(int id)
         {
             var results = this.jobOfferService.GetByCompanyId(id);
             ViewBag.CompanyId = id;
@@ -26,15 +33,15 @@ namespace GetHired.ASPClient.Controllers
 
         // GET: Address/Create
         [ActionName("Create")]
-        public ActionResult CreateJobOfferByCompanyId(int? id)
+        public ActionResult CreateAddressByCompanyId(int? id)
         {
             if (!id.HasValue)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var cities = jobOfferService.GetAll().ToList();
-            ViewBag.Cities = cities;
+            var jobOffers = this.jobOfferService.GetAll().ToList();
+            ViewBag.JobOffers = jobOffers;
 
             return View(new JobOfferModel() { CompanyId = id.Value });
         }
@@ -42,95 +49,17 @@ namespace GetHired.ASPClient.Controllers
         // POST: Address/Create
         [HttpPost, ActionName("Create")]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateJobOfferByCompanyId(JobOfferModel model)
+        public ActionResult CreateAddressByCompanyId(JobOfferModel model)
         {
             if (this.jobOfferService.Add(model))
             {
                 return RedirectToAction("Index", new { id = model.CompanyId });
             }
 
+            var jobOffers = this.jobOfferService.GetAll().ToList();
+            ViewBag.JobOffers = jobOffers;
+
             return View(model);
         }
-
-        // GET: Company/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (!id.HasValue)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var jobOffer = this.jobOfferService.GetById(id.Value);
-            if (jobOffer == null)
-            {
-                return HttpNotFound();
-            }
-
-            return View(jobOffer);
-        }
-
-        //// GET: Company/Edit/5
-        //public ActionResult Edit(int? id)
-        //{
-        //    if (!id.HasValue)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    var jobOffer = this.jobOfferService.GetById(id.Value);
-        //    if (jobOffer == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-
-        //    return View(jobOffer);
-        //}
-
-        //// POST: Company/Edit/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit(JobOfferModel jobOffer)
-        //{
-        //    if (this.jobOfferService.Update(jobOffer))
-        //    {
-        //        return RedirectToAction("Index");
-        //    }
-
-        //    return View(jobOffer);
-        //}
-
-        //// GET: Company/Delete/5
-        //public ActionResult Delete(int? id)
-        //{
-        //    if (!id.HasValue)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    var jobOffer = this.jobOfferService.GetById(id.Value);
-        //    if (jobOffer == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-
-        //    return View(jobOffer);
-        //}
-
-        //// POST: Company/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    var jobOffer = this.jobOfferService.GetById(id);
-        //    if (jobOffer == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-
-        //    if (this.jobOfferService.Delete(jobOffer))
-        //    {
-        //        return RedirectToAction("Index");
-        //    }
-
-        //    return View(jobOffer);
-        //}
-
     }
 }

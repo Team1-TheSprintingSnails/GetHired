@@ -38,13 +38,20 @@
             <dd>
                 @Html.DisplayFor(model => model.BusinessInfo)
             </dd>
-            
+
             <dt>
                 Locations
             </dt>
 
             <dd>
                 @Html.ActionLink("Find company's offices locations", "Index", "Address", new { id = Model.CompanyId }, null)
+            </dd>
+            <dt>
+                Job Offers
+            </dt>
+
+            <dd>
+                @Html.ActionLink("Find company's job offers", "JobOffersWithCompany", "JobOffer", new { id = Model.CompanyId }, null)
             </dd>
 
         </dl>
