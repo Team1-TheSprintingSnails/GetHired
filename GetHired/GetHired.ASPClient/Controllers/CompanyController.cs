@@ -100,18 +100,14 @@ namespace GetHired.ASPClient.Controllers
 
         // POST: Company/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(CompanyModel company)
         {
-            try
+            if (this.companyService.Delete(company))
             {
-                // TODO: Add delete logic here
+                RedirectToAction("Index");
+            }
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return View(company);
         }
     }
 }
