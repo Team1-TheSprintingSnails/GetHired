@@ -5,6 +5,7 @@
 
 <p>
     @Html.ActionLink("Add new address to company", "Create", new {id=ViewBag.CompanyId})
+    @Html.ActionLink("Back to Campany's Details", "Details", "Company", new { id = ViewBag.CompanyId },htmlAttributes: new {@class ="text-right"})
 </p>
 <table class="table">
     <tr>
@@ -32,5 +33,4 @@
             </td>
         </tr>
     }
-
 </table>
