@@ -37,9 +37,8 @@ namespace GetHired.ASPClient.Controllers
 
             var cities = cityService.GetAll().ToList();
             ViewBag.Cities = cities;
-            var model = new AddressModel {CompanyId = id.Value};
 
-            return View(model);
+            return View(new AddressModel { CompanyId = id.Value });
         }
 
         // POST: Address/Create
@@ -49,7 +48,7 @@ namespace GetHired.ASPClient.Controllers
         {
             if (addressService.Add(model))
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new {id = model.CompanyId});
             }
             
             var cities = cityService.GetAll().ToList();
