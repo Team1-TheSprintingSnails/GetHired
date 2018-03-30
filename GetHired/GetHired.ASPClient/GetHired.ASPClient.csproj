@@ -227,6 +227,7 @@
     <Content Include="Views\JobOffer\Index.cshtml" />
     <Content Include="Views\JobOffer\Create.cshtml" />
     <Content Include="Views\JobOffer\Details.cshtml" />
+    <Content Include="Views\JobOffer\JobOffersWithCompany.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
