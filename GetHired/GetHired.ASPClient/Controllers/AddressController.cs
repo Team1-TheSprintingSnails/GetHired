@@ -82,7 +82,7 @@ namespace GetHired.ASPClient.Controllers
         {
             if (this.addressService.Update(address))
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new {id=address.CompanyId});
             }
 
             var cities = cityService.GetAll().ToList();
@@ -112,14 +112,32 @@ namespace GetHired.ASPClient.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             var address = this.addressService.GetById(id);
+
             if (address == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            if (this.addressService.Delete(address))
+            if (this.addressService.DeleteById(id))
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new {id=address.CompanyId});
+            }
+
+            return View(address);
+        }
+
+        public ActionResult Details(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var address = this.addressService.GetByIdWithCity(id.Value);
+
+            if (address == null)
+            {
+                return HttpNotFound();
             }
 
             return View(address);
