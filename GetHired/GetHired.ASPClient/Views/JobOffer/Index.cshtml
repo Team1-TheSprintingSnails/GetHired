@@ -3,27 +3,32 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success btn-lg" })
+    @Html.ActionLink("Create New", "Create", null,  new { @class = "btn btn-success btn-lg" })
 </p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Position)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Payment)
-        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
+
         <th>
-            @Html.DisplayNameFor(model => model.JobCategory)
+            @Html.DisplayNameFor(model => model.Payment)
         </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.JobOfferRating)
+        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.JobType)
         </th>
+
         <th>
-            @Html.DisplayNameFor(model => model.JobOfferRating)
+            @Html.DisplayNameFor(model => model.JobCategory)
         </th>
     </tr>
 
@@ -34,19 +39,19 @@
             @Html.DisplayFor(modelItem => item.Position)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Payment)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.JobCategory)
+            @Html.DisplayFor(modelItem => item.Payment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobOfferRating)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.JobType)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.JobOfferRating)
+            @Html.DisplayFor(modelItem => item.JobCategory)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.CompanyId }) |

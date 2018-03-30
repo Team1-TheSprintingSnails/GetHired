@@ -1,4 +1,4 @@
-﻿@model GetHired.DTO.ViewModels.JobOfferWithCompanyViewModel
+﻿@model GetHired.DTO.JobOfferModel
 
 <body class="container">
 <h2>Details</h2>
@@ -10,18 +10,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.Position)
         </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CompanyBusinessInfo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CompanyName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CompanyWebsite)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Payment)
