@@ -51,23 +51,23 @@ namespace GetHired.ASPClient.Controllers
 
             return View(model);
         }
-        
-        //// GET: Company/Details/5
-        //public ActionResult Details(int? id)
-        //{
-        //    if (!id.HasValue)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    var jobOffer = this.jobOfferService.GetById(id.Value);
-        //    if (jobOffer == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
 
-        //    return View(jobOffer);
-        //}
-        
+        // GET: Company/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var jobOffer = this.jobOfferService.GetById(id.Value);
+            if (jobOffer == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(jobOffer);
+        }
+
         //// GET: Company/Edit/5
         //public ActionResult Edit(int? id)
         //{

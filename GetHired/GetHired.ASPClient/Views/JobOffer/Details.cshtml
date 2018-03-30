@@ -1,0 +1,59 @@
+﻿@model GetHired.DTO.ViewModels.JobOfferWithCompanyViewModel
+
+<body class="container">
+<h2>Details</h2>
+
+<div>
+    <h4>Job Offer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyBusinessInfo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyWebsite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Payment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobType)
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.JobOfferRating)
+        </dd>
+
+        <dt>
+            Locations
+        </dt>
+
+        <dd>
+            @Html.ActionLink("Find company's offices locations", "Index", "Address", new { id = Model.CompanyId }, null)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CompanyId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+</body>

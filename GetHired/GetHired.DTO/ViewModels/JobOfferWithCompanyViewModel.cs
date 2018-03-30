@@ -27,7 +27,7 @@ namespace GetHired.DTO.ViewModels
 
         public int CompanyBusinessInfo { get; set; }
 
-        public string CompanyyWebsite { get; set; }
+        public string CompanyWebsite { get; set; }
 
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
@@ -36,7 +36,7 @@ namespace GetHired.DTO.ViewModels
                 .ForMember(d => d.JobOfferRating, cfg => cfg.MapFrom(s => s.Rating))
                 .ForMember(d => d.CompanyName, cfg => cfg.MapFrom(s => s.Company.Name))
                 .ForMember(d => d.CompanyBusinessInfo, cfg => cfg.MapFrom(s => s.Company.BusinessInfo))
-                .ForMember(d => d.CompanyyWebsite, cfg => cfg.MapFrom(s => s.Company.Website));
+                .ForMember(d => d.CompanyWebsite, cfg => cfg.MapFrom(s => s.Company.Website));
 
             configuration.CreateMap<JobOfferWithCompanyViewModel, JobOffer>()
                 .ForMember(d => d.Id, cfg => cfg.MapFrom(s => s.JobOfferId))
