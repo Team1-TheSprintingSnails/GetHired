@@ -1,6 +1,7 @@
 ﻿@model GetHired.DTO.CompanyModel
 
-<h2>Details</h2>
+<body class="container">
+    <h2>Details</h2>
 
 <div>
     <h4>Company</h4>
@@ -10,25 +11,25 @@
             @Html.DisplayNameFor(model => model.Name)
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Website)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Website)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Website)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Website)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.BusinessInfo)
@@ -38,9 +39,10 @@
             @Html.DisplayFor(model => model.BusinessInfo)
         </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CompanyId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.CompanyId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
