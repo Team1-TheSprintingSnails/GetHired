@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 using GetHired.DTO;
 using GetHired.Services.Contracts;
@@ -15,29 +16,37 @@ namespace GetHired.ASPClient.Controllers
             this.cityService = cityService;
             this.addressService = addressService;
         }
-
-        public ActionResult Index(int id)
+        
+        [ActionName("Index")]
+        public ActionResult GetAddressesByCompanyId(int id)
         {
             var results = this.addressService.GetByCompanyId(id);
+            ViewBag.CompanyId = id;
+
             return View(results);
         }
 
-        // GET: Address
-        public ActionResult Create()
+        // GET: Address/Create
+        [ActionName("Create")]
+        public ActionResult CreateAddressByCompanyId(int? id)
         {
+            if (!id.HasValue)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
 
             var cities = cityService.GetAll().ToList();
             ViewBag.Cities = cities;
+            var model = new AddressModel {CompanyId = id.Value};
 
-            return View();
+            return View(model);
         }
 
-        [HttpPost]
+        // POST: Address/Create
+        [HttpPost, ActionName("Create")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(AddressModel model)
+        public ActionResult CreateAddressByCompanyId(AddressModel model)
         {
-            model.CompanyId = 1;
-
             if (addressService.Add(model))
             {
                 return RedirectToAction("Index");
@@ -45,7 +54,6 @@ namespace GetHired.ASPClient.Controllers
             
             var cities = cityService.GetAll().ToList();
             ViewBag.Cities = cities;
-            ViewBag.Invalid = "Address already exists.";
 
             return View(model);
         }
