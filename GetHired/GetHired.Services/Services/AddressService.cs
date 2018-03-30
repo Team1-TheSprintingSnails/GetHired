@@ -21,13 +21,22 @@ namespace GetHired.Services.Services
             this.mapper = mapper;
         }
 
-        public AddressWithCityViewModel GetById(int id)
+        public AddressWithCityViewModel GetByIdWithCity(int id)
         {
             var address = this.unitOfWork
                 .AddressRepository
                 .FirstOrDefaultWithCity(adr => adr.Id == id);
 
             return this.mapper.Map<AddressWithCityViewModel>(address);
+        }
+
+        public AddressModel GetById(int id)
+        {
+            var address = this.unitOfWork
+                .AddressRepository
+                .FirstOrDefaultWithCity(adr => adr.Id == id);
+
+            return this.mapper.Map<AddressModel>(address);
         }
 
         public bool Update(AddressModel addressWithCityViewModel)

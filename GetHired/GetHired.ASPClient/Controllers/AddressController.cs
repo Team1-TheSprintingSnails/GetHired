@@ -56,5 +56,73 @@ namespace GetHired.ASPClient.Controllers
 
             return View(model);
         }
+
+        // GET: Company/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var address = this.addressService.GetById(id.Value);
+            if (address == null)
+            {
+                return HttpNotFound();
+            }
+
+            var cities = cityService.GetAll().ToList();
+            ViewBag.Cities = cities;
+            return View(address);
+        }
+
+        // POST: Company/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(AddressModel address)
+        {
+            if (this.addressService.Update(address))
+            {
+                return RedirectToAction("Index");
+            }
+
+            var cities = cityService.GetAll().ToList();
+            ViewBag.Cities = cities;
+            return View(address);
+        }
+
+        // GET: Company/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var address = this.addressService.GetById(id.Value);
+            if (address == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(address);
+        }
+
+        // POST: Company/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            var address = this.addressService.GetById(id);
+            if (address == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            if (this.addressService.Delete(address))
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(address);
+        }
     }
 }
