@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.ComponentModel.DataAnnotations;
+using AutoMapper;
 using GetHired.DomainModels;
 using GetHired.DomainModels.Enums;
 using Heroic.AutoMapper;
@@ -9,6 +10,7 @@ namespace GetHired.DTO
     {
         public int JobOfferId { get; set; }
 
+        [Required, MinLength(2), MaxLength(50)]
         public string Position { get; set; }
 
         public string Description { get; set; }

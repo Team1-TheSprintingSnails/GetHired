@@ -21,7 +21,7 @@ namespace GetHired.DataModels.Configurations
                 .IsRequired();
 
             modelBuilder.Entity<Address>()
-                .HasIndex(p => new { p.PostalCode, p.StreetName })
+                .HasIndex(p => p.PostalCode)
                 .IsUnique();
         }
     }

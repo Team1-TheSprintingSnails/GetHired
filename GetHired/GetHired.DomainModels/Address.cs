@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using GetHired.DomainModels.Contracts;
 using Microsoft.TeamFoundation.TestManagement.Client;
 
@@ -12,7 +13,7 @@ namespace GetHired.DomainModels
         [Required, MinLength(5), MaxLength(125)]
         public string StreetName { get; set; }
 
-        [Required, MaxLength(4)]
+        [Index(IsUnique = true), Required, MinLength(4), MaxLength(4)]
         public string PostalCode { get; set; }
         
         public int CityId { get; set; }

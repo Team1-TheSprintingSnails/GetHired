@@ -59,7 +59,7 @@
     <Compile Include="AddressModel.cs" />
     <Compile Include="ViewModels\AddressWithCityViewModel.cs" />
     <Compile Include="CompanyModel.cs" />
-    <Compile Include="JobOffer.cs" />
+    <Compile Include="JobOfferModel.cs" />
     <Compile Include="ViewModels\JobOfferWithCompanyViewModel.cs" />
     <Compile Include="CityModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

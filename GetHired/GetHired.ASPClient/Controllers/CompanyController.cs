@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Web.Mvc;
 using GetHired.DTO;
 using GetHired.Services.Contracts;
@@ -29,7 +28,6 @@ namespace GetHired.ASPClient.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var company = this.companyService.GetById(id.Value);
-
             if (company == null)
             {
                 return HttpNotFound();
@@ -41,24 +39,19 @@ namespace GetHired.ASPClient.Controllers
         // GET: Company/Create
         public ActionResult Create()
         {
-            var cities = companyService.GetAll().ToList();
-            ViewBag.Cities = cities;
-
             return View();
         }
 
-        // POST: Company/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CompanyModel model)
+        public ActionResult Create(CompanyModel company)
         {
-            if (companyService.Add(model))
+            if (this.companyService.Add(company))
             {
-                return RedirectToAction("Index");
+                RedirectToAction("Index");
             }
 
-            ViewBag.Invalid = "Company already exists.";
-            return View(model);
+            return View(company);
         }
 
         // GET: Company/Edit/5
@@ -68,11 +61,7 @@ namespace GetHired.ASPClient.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
             var company = this.companyService.GetById(id.Value);
-
-            this.companyService.Update(company);
-
             if (company == null)
             {
                 return HttpNotFound();
@@ -81,59 +70,48 @@ namespace GetHired.ASPClient.Controllers
             return View(company);
         }
 
-        //// POST: Company/Edit/5
-        //[HttpPost]
-        //public ActionResult Edit(int id, FormCollection collection)
-        //{
-        //    try
-        //    {
-        //        // TODO: Add update logic here
+        // POST: Company/Edit/5
+        [HttpPost]
+        public ActionResult Edit(CompanyModel company)
+        {
+            if (this.companyService.Update(company))
+            {
+                RedirectToAction("Index");
+            }
 
-        //        var company = companyService.GetById(id);
-        //        if (company == null)
-        //        {
-        //            return HttpNotFound();
-        //        }
-
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+            return View(company);
+        }
 
         // GET: Company/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-
-            if (this.companyService.DeleteById(id))
+            if (!id.HasValue)
             {
-                return View();
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            
-            return Redirect("Index");
+            var company = this.companyService.GetById(id.Value);
+            if (company == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(company);
         }
 
         // POST: Company/Delete/5
-        //[HttpPost]
-        //public ActionResult Delete(int id, FormCollection collection)
-        //{
-        //    try
-        //    {
-        //        // TODO: Add delete logic here
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
 
-        //        if (companyService.DeleteById(id))
-        //        {
-        //            return RedirectToAction("Index");
-        //        }
-
-        //        return View();
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }

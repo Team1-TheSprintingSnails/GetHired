@@ -219,11 +219,9 @@
     <Content Include="Views\Address\Create.cshtml" />
     <Content Include="Views\City\Index.cshtml" />
     <Content Include="Views\Address\Index.cshtml" />
-    <Content Include="Views\JobOffer\Index.cshtml" />
     <Content Include="Views\Company\Index.cshtml" />
     <Content Include="Views\Company\Details.cshtml" />
     <Content Include="Views\Company\Create.cshtml" />
-    <Content Include="Views\Company\Edit.cshtml" />
     <Content Include="Views\Company\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
