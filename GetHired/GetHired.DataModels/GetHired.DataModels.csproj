@@ -45,6 +45,7 @@
     <Compile Include="Configurations\CityConfiguration.cs" />
     <Compile Include="Configurations\CompanyConfiguration.cs" />
     <Compile Include="Configurations\Contracts\IFluentConfiguration.cs" />
+    <Compile Include="Configurations\InitialDataConfiguration.cs" />
     <Compile Include="Configurations\JobOfferConfiguration.cs" />
     <Compile Include="Configurations\UserConfiguration.cs" />
     <Compile Include="Contracts\IGetHiredContext.cs" />
