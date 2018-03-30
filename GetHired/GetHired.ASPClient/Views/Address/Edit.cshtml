@@ -5,6 +5,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.AddressId);
     @Html.HiddenFor(model => model.CompanyId);
 
     <div class="form-horizontal">
