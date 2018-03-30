@@ -28,7 +28,7 @@ namespace GetHired.DataModels.Models
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
             this.RegisterConfigurations(modelBuilder);
-            
+
             base.OnModelCreating(modelBuilder);
         }
 
