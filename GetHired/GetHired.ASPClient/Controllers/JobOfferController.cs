@@ -7,12 +7,12 @@ namespace GetHired.ASPClient.Controllers
     public class JobOfferController : Controller
     {
         private readonly IJobOfferService jobOfferService;
-        private readonly IFileWriter fileWriter;
+        private readonly IFileWriter pdfWriter;
 
-        public JobOfferController(IJobOfferService jobOfferService, IFileWriter fileWriter)
+        public JobOfferController(IJobOfferService jobOfferService, IFileWriter pdfWriter)
         {
             this.jobOfferService = jobOfferService;
-            this.fileWriter = fileWriter;
+            this.pdfWriter = pdfWriter;
         }
 
         // GET: JobOffer 
@@ -24,7 +24,7 @@ namespace GetHired.ASPClient.Controllers
 
         public ActionResult DownloadPDF()
         {
-            this.fileWriter.WriteFile();
+            this.pdfWriter.WriteFile();
             return View();
         }
     }

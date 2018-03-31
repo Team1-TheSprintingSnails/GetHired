@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using GetHired.Utils.Contracts;
 using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Shapes;
 using MigraDoc.Rendering;
@@ -6,7 +7,7 @@ using PdfSharp.Pdf;
 
 namespace GetHired.Utils
 {
-    public class PDFWriter
+    public class PDFWriter : IFileWriter
     {
         private string path;
         private string fileName;
@@ -105,8 +106,7 @@ namespace GetHired.Utils
         /// <returns></returns>
         private PdfDocument Render(Document doc)
         {
-            var renderer = new PdfDocumentRenderer();
-            renderer.Document = doc;
+            var renderer = new PdfDocumentRenderer {Document = doc};
             renderer.RenderDocument();
             return renderer.PdfDocument;
         }

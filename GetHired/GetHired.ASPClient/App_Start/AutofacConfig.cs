@@ -5,6 +5,8 @@ using Autofac.Integration.Mvc;
 using AutoMapper;
 using GetHired.DataModels.Contracts;
 using GetHired.Services.Contracts;
+using GetHired.Utils;
+using GetHired.Utils.Contracts;
 
 namespace GetHired.ASPClient
 {
@@ -47,6 +49,10 @@ namespace GetHired.ASPClient
 
             var servicesAssembly = Assembly.GetAssembly(typeof(IJobOfferService));
             builder.RegisterAssemblyTypes(servicesAssembly)
+                .AsImplementedInterfaces();
+
+            var utilsAssembly = Assembly.GetAssembly(typeof(IFileWriter));
+            builder.RegisterAssemblyTypes(utilsAssembly)
                 .AsImplementedInterfaces();
         }
 
