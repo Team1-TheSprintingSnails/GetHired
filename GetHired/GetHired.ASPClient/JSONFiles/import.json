@@ -1,0 +1,12 @@
+{
+    "Id": 1,
+    "Position": "some position here",
+    "Description": "some description here",
+    "Payment": 15,
+    "CompanyId": 6,
+    "DateModified": "2018-03-31 17:57:39.823",
+    "DateCreated": "2018-03-31 17:57:39.823",
+    "Rating": 3,
+    "JobType": 0,
+    "JobCategory": 2
+}

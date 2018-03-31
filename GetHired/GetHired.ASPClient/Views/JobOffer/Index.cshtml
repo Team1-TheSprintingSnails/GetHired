@@ -6,6 +6,18 @@
     @Html.ActionLink("Export PDF with job offers", "DownloadPDF")
 </p>
 
+@*working on json loader*@
+
+@*@using (Html.BeginForm("LoadFromJson", "JobOffer", FormMethod.Post, new {enctype = "multipart/from-data"}))
+{
+    <div>
+        JSON FILE
+        <input type="file" name="jsonFile"/>
+        <br/>
+        <input type="submit" value="LoadFromJson" />
+    </div>
+}*@
+
 <table class="table">
     <tr>
         <th>

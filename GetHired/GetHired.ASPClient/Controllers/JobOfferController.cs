@@ -2,6 +2,7 @@
 using System.IO;
 using System.Web;
 using System.Web.Mvc;
+using GetHired.DataModels.Contracts;
 using GetHired.DomainModels;
 using GetHired.Services.Contracts;
 using Newtonsoft.Json;
@@ -12,10 +13,12 @@ namespace GetHired.ASPClient.Controllers
     public class JobOfferController : Controller
     {
         private readonly IJobOfferService jobOfferService;
+        private readonly IGetHiredContext ctx;
 
-        public JobOfferController(IJobOfferService jobOfferService)
+        public JobOfferController(IJobOfferService jobOfferService, IGetHiredContext ctx)
         {
             this.jobOfferService = jobOfferService;
+            this.ctx = ctx;
         }
 
         // GET: JobOffer 
@@ -30,44 +33,41 @@ namespace GetHired.ASPClient.Controllers
             return new ActionAsPdf("Index");
         }
 
-        [HttpPost]
-        public ActionResult LoadFromJson(HttpPostedFileBase jsonFile)
-        {
-            if (!Path.GetFileName(jsonFile.FileName).EndsWith(".json"))
-            {
+        // working on json loader
 
-            }
-            else
-            {
-                jsonFile.SaveAs(Server.MapPath("~/JSONFiles" + Path.GetFileName(jsonFile.FileName)));
+        //[HttpPost]
+        //public ActionResult LoadFromJson(HttpPostedFileBase jsonFile)
+        //{
+        //    jsonFile.SaveAs(Server.MapPath("~/JSONFiles/" + Path.GetFileName(jsonFile.FileName)));
 
-                StreamReader streamReader = new StreamReader(Server.MapPath("~/JSONFiles" + Path.GetFileName(jsonFile.FileName)));
+        //    StreamReader streamReader = new StreamReader(Server.MapPath("~/JSONFiles/" + Path.GetFileName(jsonFile.FileName)));
 
-                string data = streamReader.ReadToEnd();
+        //    string data = streamReader.ReadToEnd();
 
-                var jobOffers = JsonConvert.DeserializeObject<List<JobOffer>>(data);
+        //    var jobOffers = JsonConvert.DeserializeObject<List<JobOffer>>(data);
 
-                jobOffers.ForEach(jo =>
-                {
-                    var jobOffer = new JobOffer()
-                    {
-                        Id = jo.Id,
-                        Position = jo.Position,
-                        Description = jo.Description,
-                        Payment = jo.Payment,
-                        CompanyId = jo.CompanyId,
-                        Rating = jo.Rating,
-                        JobType = jo.JobType,
-                        JobCategory = jo.JobCategory,
-                        Company = jo.Company,
-                        LikedBy = jo.LikedBy,
-                        DateModified = jo.DateModified,
-                        DateCreated = jo.DateCreated
-                    };
-                });
-            }
+        //    jobOffers.ForEach(jo =>
+        //    {
+        //        var jobOffer = new JobOffer()
+        //        {
+        //            Id = jo.Id,
+        //            Position = jo.Position,
+        //            Description = jo.Description,
+        //            Payment = jo.Payment,
+        //            CompanyId = jo.CompanyId,
+        //            DateModified = jo.DateModified,
+        //            DateCreated = jo.DateCreated,
+        //            Rating = jo.Rating,
+        //            JobType = jo.JobType,
+        //            JobCategory = jo.JobCategory
+        //        };
 
-            return View("Index");
-        }
+        //        ctx.JobOffers.Add(jobOffer);
+        //        ctx.SaveChanges();
+        //    });
+
+
+        //    return View("Index");
+        //}
     }
 }
