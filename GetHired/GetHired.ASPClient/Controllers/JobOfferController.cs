@@ -18,5 +18,10 @@ namespace GetHired.ASPClient.Controllers
             var jobOffers = this.jobOfferService.GetAll();
             return View(jobOffers);
         }
+
+        public ActionResult DownloadPDF()
+        {
+            return View();
+        }
     }
 }
