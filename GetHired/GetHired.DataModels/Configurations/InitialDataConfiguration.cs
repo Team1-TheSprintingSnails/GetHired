@@ -43,8 +43,8 @@ namespace GetHired.DataModels.Configurations
             context.Addresses.AddOrUpdate(x => x.Id,
                 new Address() { Id = 1, CompanyId = 5, DateModified = new System.DateTime(2010, 2, 20), DateCreated = new System.DateTime(2018, 1, 4), StreetName = "33 Alexander Malinov, 1729 Sofia", PostalCode = "1000", CityId = 3 },
                 new Address() { Id = 2, CompanyId = 3, DateModified = new System.DateTime(2010, 2, 20), DateCreated = new System.DateTime(2018, 1, 4), StreetName = "21 Nikola Petkov, 5505 Lovech", PostalCode = "5500", CityId = 1 },
-                new Address() { Id = 3, CompanyId = 2, DateModified = new System.DateTime(2010, 2, 20), DateCreated = new System.DateTime(2018, 1, 4), StreetName = "122 Cherni Vrah, 1526 Sofia", PostalCode = "1000", CityId = 10 },
-                new Address() { Id = 4, CompanyId = 4, DateModified = new System.DateTime(2010, 2, 20), DateCreated = new System.DateTime(2018, 1, 4), StreetName = "Djuzepe Garivaldi Piazza", PostalCode = "1000", CityId = 3 },
+                new Address() { Id = 3, CompanyId = 2, DateModified = new System.DateTime(2010, 2, 20), DateCreated = new System.DateTime(2018, 1, 4), StreetName = "122 Cherni Vrah, 1526 Sofia", PostalCode = "3000", CityId = 10 },
+                new Address() { Id = 4, CompanyId = 4, DateModified = new System.DateTime(2010, 2, 20), DateCreated = new System.DateTime(2018, 1, 4), StreetName = "Djuzepe Garivaldi Piazza", PostalCode = "6000", CityId = 3 },
                 new Address() { Id = 5, CompanyId = 1, DateModified = new System.DateTime(2010, 2, 20), DateCreated = new System.DateTime(2018, 1, 4), StreetName = "23 Vasil Levski, 4000 Plovdiv", PostalCode = "4000", CityId = 4 }
                 );
 
