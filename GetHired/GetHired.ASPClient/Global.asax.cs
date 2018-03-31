@@ -20,8 +20,7 @@ namespace GetHired.ASPClient
 
             AutoMapperConfig.Configure();
 
-            var container = AutofacConfig.Build();
-            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+            AutofacConfig.Configure();
         }
     }
 }
