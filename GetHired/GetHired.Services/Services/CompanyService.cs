@@ -9,13 +9,18 @@ using GetHired.Services.Contracts;
 
 namespace GetHired.Services.Services
 {
-    class CompanyService : ICompanyService
+    public class CompanyService : ICompanyService
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
 
         public CompanyService(IUnitOfWork unitOfWork, IMapper mapper)
         {
+            if (unitOfWork == null || mapper == null)
+            {
+                throw new ArgumentNullException();
+            }
+
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
         }

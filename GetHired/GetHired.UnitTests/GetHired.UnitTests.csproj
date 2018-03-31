@@ -82,6 +82,8 @@
     <Compile Include="Services\AddressServiceTests\GetCompanyById_Should.cs" />
     <Compile Include="Services\AddressServiceTests\Update_Should.cs" />
     <Compile Include="Services\CityServiceTests\GetAll_Should.cs" />
+    <Compile Include="Services\CompanyServiceTestss\Add_Should.cs" />
+    <Compile Include="Services\CompanyServiceTestss\Constructor_Should.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
