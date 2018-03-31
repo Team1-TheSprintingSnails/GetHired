@@ -257,7 +257,6 @@
     <Content Include="Views\CompanyJobOffer\Details.cshtml" />
     <Content Include="Views\CompanyJobOffer\Edit.cshtml" />
     <Content Include="Views\CompanyJobOffer\Delete.cshtml" />
-    <Content Include="Views\JobOffer\DownloadPDF.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
