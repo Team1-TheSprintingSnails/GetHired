@@ -281,6 +281,10 @@
       <Project>{e7a3ff23-95ac-4c7a-ab7c-36c93e2568c2}</Project>
       <Name>GetHired.DataModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GetHired.DomainModels\GetHired.DomainModels.csproj">
+      <Project>{cd3237f3-97ce-428b-a4b1-85e567e7dad6}</Project>
+      <Name>GetHired.DomainModels</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GetHired.DTO\GetHired.DTO.csproj">
       <Project>{469a47b2-848b-4f50-adce-ebe0411f690f}</Project>
       <Name>GetHired.DTO</Name>
