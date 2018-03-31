@@ -16,14 +16,14 @@ namespace GetHired.ASPClient.Controllers
             this.cityService = cityService;
             this.addressService = addressService;
         }
-        
+
         [ActionName("Index")]
         public ActionResult GetAddressesByCompanyId(int id)
         {
             var results = this.addressService.GetByCompanyId(id);
             ViewBag.CompanyId = id;
 
-            return View(results);
+            return View("Index", results);
         }
 
         // GET: Address/Create
@@ -38,7 +38,7 @@ namespace GetHired.ASPClient.Controllers
             var cities = cityService.GetAll().ToList();
             ViewBag.Cities = cities;
 
-            return View(new AddressModel { CompanyId = id.Value });
+            return View("Create", new AddressModel { CompanyId = id.Value });
         }
 
         // POST: Address/Create
@@ -48,13 +48,13 @@ namespace GetHired.ASPClient.Controllers
         {
             if (addressService.Add(model))
             {
-                return RedirectToAction("Index", new {id = model.CompanyId});
+                return RedirectToAction("Index", new { id = model.CompanyId });
             }
-            
+
             var cities = cityService.GetAll().ToList();
             ViewBag.Cities = cities;
 
-            return View(model);
+            return View("Create", model);
         }
 
         // GET: Address/Edit/5
@@ -72,7 +72,7 @@ namespace GetHired.ASPClient.Controllers
 
             var cities = cityService.GetAll().ToList();
             ViewBag.Cities = cities;
-            return View(address);
+            return View("Edit", address);
         }
 
         // POST: Company/Edit/5
@@ -82,12 +82,12 @@ namespace GetHired.ASPClient.Controllers
         {
             if (this.addressService.Update(address))
             {
-                return RedirectToAction("Index", new {id=address.CompanyId});
+                return RedirectToAction("Index", new { id = address.CompanyId });
             }
 
             var cities = cityService.GetAll().ToList();
             ViewBag.Cities = cities;
-            return View(address);
+            return View("Edit", address);
         }
 
         // GET: Address/Delete/5
@@ -103,7 +103,7 @@ namespace GetHired.ASPClient.Controllers
                 return HttpNotFound();
             }
 
-            return View(address);
+            return View("Delete", address);
         }
 
         // POST: Address/Delete/5
@@ -120,10 +120,10 @@ namespace GetHired.ASPClient.Controllers
 
             if (this.addressService.DeleteById(id))
             {
-                return RedirectToAction("Index", new {id=address.CompanyId});
+                return RedirectToAction("Index", new { id = address.CompanyId });
             }
 
-            return View(address);
+            return View("Delete", address);
         }
 
         public ActionResult Details(int? id)
@@ -140,7 +140,7 @@ namespace GetHired.ASPClient.Controllers
                 return HttpNotFound();
             }
 
-            return View(address);
+            return View("Details", address);
         }
     }
 }
