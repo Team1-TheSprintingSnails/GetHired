@@ -17,7 +17,7 @@ namespace GetHired.ASPClient.Controllers
         public ActionResult Index()
         {
             var companies = companyService.GetAll();
-            return View(companies);
+            return View("Index", companies);
         }
 
         // GET: Company/Details/5
@@ -33,7 +33,7 @@ namespace GetHired.ASPClient.Controllers
                 return HttpNotFound();
             }
 
-            return View(company);
+            return View("Details", company);
         }
 
         // GET: Company/Create

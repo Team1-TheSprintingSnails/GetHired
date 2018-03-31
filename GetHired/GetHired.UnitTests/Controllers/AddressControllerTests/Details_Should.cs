@@ -45,7 +45,7 @@ namespace GetHired.UnitTests.Controllers.AddressControllerTests
             addressServiceMock.Setup(x => x.GetByIdWithCity(It.IsAny<int>())).Returns(addressWithCityMock.Object);
 
             var controller = new AddressController(cityServiceMock.Object, addressServiceMock.Object);
-            var result = controller.Details(1);
+            var result = controller.Details(It.IsAny<int>());
             Assert.IsInstanceOf(typeof(ViewResult), result);
         }
     }
