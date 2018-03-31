@@ -184,6 +184,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AddressController.cs" />
+    <Compile Include="Controllers\CompanyAddressController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\CompanyJobOfferController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -191,6 +192,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AddOrUpdateAddressViewModel.cs" />
+    <Compile Include="Models\AddressViewModel.cs" />
+    <Compile Include="Models\CompanyAddressesViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -250,10 +254,15 @@
     <Content Include="Views\CompanyJobOffer\Edit.cshtml" />
     <Content Include="Views\CompanyJobOffer\Delete.cshtml" />
     <Content Include="Views\JobOffer\DownloadPDF.cshtml" />
+    <Content Include="Views\CompanyAddress\Create.cshtml" />
+    <Content Include="Views\CompanyAddress\Delete.cshtml" />
+    <Content Include="Views\CompanyAddress\Details.cshtml" />
+    <Content Include="Views\CompanyAddress\Edit.cshtml" />
+    <Content Include="Views\CompanyAddress\Index.cshtml" />
+    <Content Include="Views\JobOffer\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
