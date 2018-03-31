@@ -21,7 +21,7 @@ namespace GetHired.Utils
         /// <summary>
         /// Exports document (invokes all needed methods to create a pdf)
         /// </summary>
-        public void Export()
+        public void WriteFile()
         {
             var doc = this.CreateDocument();
             this.DefineStyles(doc);

@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IFileReader.cs" />
+    <Compile Include="Contracts\IFileWriter.cs" />
     <Compile Include="JSONReader.cs" />
     <Compile Include="PDFWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

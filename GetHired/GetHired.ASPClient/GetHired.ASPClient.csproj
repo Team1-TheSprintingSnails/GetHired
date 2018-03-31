@@ -266,6 +266,10 @@
       <Project>{e59d5f5a-0d55-4fe1-a044-765fd6b2ff24}</Project>
       <Name>GetHired.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GetHired.Utils\GetHired.Utils.csproj">
+      <Project>{b5cf4677-6c75-4cdd-ba4c-a62501b9b9be}</Project>
+      <Name>GetHired.Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

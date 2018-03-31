@@ -1,15 +1,18 @@
 ﻿using System.Web.Mvc;
 using GetHired.Services.Contracts;
+using GetHired.Utils.Contracts;
 
 namespace GetHired.ASPClient.Controllers
 {
     public class JobOfferController : Controller
     {
         private readonly IJobOfferService jobOfferService;
+        private readonly IFileWriter fileWriter;
 
-        public JobOfferController(IJobOfferService jobOfferService)
+        public JobOfferController(IJobOfferService jobOfferService, IFileWriter fileWriter)
         {
             this.jobOfferService = jobOfferService;
+            this.fileWriter = fileWriter;
         }
 
         // GET: JobOffer 
@@ -21,6 +24,7 @@ namespace GetHired.ASPClient.Controllers
 
         public ActionResult DownloadPDF()
         {
+            this.fileWriter.WriteFile();
             return View();
         }
     }
