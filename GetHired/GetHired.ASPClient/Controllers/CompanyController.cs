@@ -88,7 +88,8 @@ namespace GetHired.ASPClient.Controllers
         {
             if (!id.HasValue)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("NotFound");
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var company = this.companyService.GetById(id.Value);
             if (company == null)

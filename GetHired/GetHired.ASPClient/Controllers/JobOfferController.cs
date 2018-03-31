@@ -1,7 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 using GetHired.Services.Contracts;
 using GetHired.Utils;
 using GetHired.Utils.Contracts;
+using Rotativa;
 
 namespace GetHired.ASPClient.Controllers
 {
@@ -25,8 +27,8 @@ namespace GetHired.ASPClient.Controllers
 
         public ActionResult DownloadPDF()
         {
-            this.pdfWriter.WriteFile();
-            return View();
+            return new ActionAsPdf("Index");
+            //return View();
         }
     }
 }
