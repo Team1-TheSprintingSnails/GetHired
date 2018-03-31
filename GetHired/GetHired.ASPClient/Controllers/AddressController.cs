@@ -57,7 +57,7 @@ namespace GetHired.ASPClient.Controllers
             return View(model);
         }
 
-        // GET: Company/Edit/5
+        // GET: Address/Edit/5
         public ActionResult Edit(int? id)
         {
             if (!id.HasValue)
@@ -90,7 +90,7 @@ namespace GetHired.ASPClient.Controllers
             return View(address);
         }
 
-        // GET: Company/Delete/5
+        // GET: Address/Delete/5
         public ActionResult Delete(int? id)
         {
             if (!id.HasValue)
@@ -106,7 +106,7 @@ namespace GetHired.ASPClient.Controllers
             return View(address);
         }
 
-        // POST: Company/Delete/5
+        // POST: Address/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

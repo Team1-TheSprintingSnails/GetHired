@@ -26,7 +26,7 @@ namespace GetHired.ASPClient.Controllers
 
 
 
-        // GET: JobOffer/Create
+        // GET: CompanyJobOffer/Create
         public ActionResult Create(int? id)
         {
             if (!id.HasValue)
@@ -40,7 +40,7 @@ namespace GetHired.ASPClient.Controllers
             return View(new JobOfferModel() { CompanyId = id.Value });
         }
 
-        // POST: JobOffer/Create
+        // POST: CompanyJobOffer/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(JobOfferModel model)
@@ -56,24 +56,24 @@ namespace GetHired.ASPClient.Controllers
             return View(model);
         }
 
-        //public ActionResult Details(int? id)
-        //{
-        //    if (!id.HasValue)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
+        public ActionResult Details(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
 
-        //    var jobOfferWithCompany = this.jobOfferService.GetByIdWithCompany(id.Value);
+            var jobOfferWithCompany = this.jobOfferService.GetByIdWithCompany(id.Value);
 
-        //    if (jobOfferWithCompany == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
+            if (jobOfferWithCompany == null)
+            {
+                return HttpNotFound();
+            }
 
-        //    return View(jobOfferWithCompany);
-        //}
+            return View(jobOfferWithCompany);
+        }
 
-        // GET: Company/Delete/5
+        // GET: CompanyJobOffer/Delete/5
 
         public ActionResult Delete(int? id)
         {
@@ -91,7 +91,7 @@ namespace GetHired.ASPClient.Controllers
             return View(jobOffer);
         }
 
-        // POST: Company/Delete/5
+        // POST: CompanyJobOffer/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
@@ -108,6 +108,34 @@ namespace GetHired.ASPClient.Controllers
                 return RedirectToAction("Index", new { id = jobOffer.CompanyId });
             }
 
+            return View(jobOffer);
+        }
+
+        public ActionResult Edit(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var jobOffer = this.jobOfferService.GetById(id.Value);
+            if (jobOffer == null)
+            {
+                return HttpNotFound();
+            }
+            
+            return View(jobOffer);
+        }
+
+        // POST: CompanyJobOffer/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(JobOfferModel jobOffer)
+        {
+            if (this.jobOfferService.Update(jobOffer))
+            {
+                return RedirectToAction("Index", new { id = jobOffer.CompanyId });
+            }
+            
             return View(jobOffer);
         }
     }
