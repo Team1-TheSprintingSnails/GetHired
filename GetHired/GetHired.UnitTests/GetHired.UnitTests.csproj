@@ -84,6 +84,14 @@
     <Compile Include="Services\CityServiceTests\GetAll_Should.cs" />
     <Compile Include="Services\CompanyServiceTestss\Add_Should.cs" />
     <Compile Include="Services\CompanyServiceTestss\Constructor_Should.cs" />
+    <Compile Include="Services\CompanyServiceTestss\DeleteById_Should.cs" />
+    <Compile Include="Services\CompanyServiceTestss\Delete_Should.cs" />
+    <Compile Include="Services\CompanyServiceTestss\GetAll_Should.cs" />
+    <Compile Include="Services\CompanyServiceTestss\GetById_Should.cs" />
+    <Compile Include="Services\CompanyServiceTestss\Update_Should.cs" />
+    <Compile Include="Services\JobOfferServiceTests\Add_Should.cs" />
+    <Compile Include="Services\JobOfferServiceTests\Delete_Should.cs" />
+    <Compile Include="Services\JobOfferServiceTests\Update_Should.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
