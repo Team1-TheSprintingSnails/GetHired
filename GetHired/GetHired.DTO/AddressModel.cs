@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using AutoMapper;
 using GetHired.DomainModels;
 using Heroic.AutoMapper;
@@ -13,7 +12,7 @@ namespace GetHired.DTO
         [Required, MinLength(5), MaxLength(125)]
         public string StreetName { get; set; }
 
-        [Index(IsUnique = true), Required, MinLength(4), MaxLength(4)]
+        [Required, MinLength(4), MaxLength(4)]
         public string PostalCode { get; set; }
 
         public int CompanyId { get; set; }

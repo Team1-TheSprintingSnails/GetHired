@@ -1,0 +1,35 @@
+﻿@model GetHired.ASPClient.Models.CompanyAddressesViewModel
+
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Add new address to company", "Create", new {id=Model.CompanyId})
+    @Html.ActionLink("Back to Campany's Details", "Details", "Company", new { id = Model.CompanyId})
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Street name")
+        </th>
+        <th>
+            @Html.DisplayName("Postal code")
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Addresses)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StreetName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id=item.AddressId}) |
+                @Html.ActionLink("Details", "Details", new { id = item.AddressId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.AddressId })
+            </td>
+        </tr>
+    }
+</table>

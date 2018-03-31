@@ -102,12 +102,12 @@ namespace GetHired.Services.Services
             return jobOffers.Select(j => this.mapper.Map<JobOfferModel>(j));
         }
 
-        public JobOfferWithCompanyViewModel GetByIdWithCompany(int jobOfferId)
+        public JobOfferWithCompanyModel GetByIdWithCompany(int jobOfferId)
         {
             var jobOffers = this.unitOfWork.JobOfferRepository
                 .GetJobOfferWithCompany(jobOfferId);
 
-            return this.mapper.Map<JobOfferWithCompanyViewModel>(jobOffers);
+            return this.mapper.Map<JobOfferWithCompanyModel>(jobOffers);
         }
 
         public bool DeleteById(int jobOfferId)

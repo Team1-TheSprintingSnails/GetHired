@@ -26,13 +26,13 @@ namespace GetHired.Services.Services
             this.mapper = mapper;
         }
 
-        public AddressWithCityViewModel GetByIdWithCity(int id)
+        public AddressWithCityModel GetByIdWithCity(int id)
         {
             var address = this.unitOfWork
                 .AddressRepository
                 .FirstOrDefaultWithCity(adr => adr.Id == id);
 
-            return this.mapper.Map<AddressWithCityViewModel>(address);
+            return this.mapper.Map<AddressWithCityModel>(address);
         }
 
         public AddressModel GetById(int id)
