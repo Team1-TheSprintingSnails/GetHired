@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<GetHired.DTO.JobOfferModel>
 
-<br/>
+<br />
 <p>
     @Html.ActionLink("Add new job offer to company", "Create", new { id = ViewBag.CompanyId })
 </p>
@@ -53,9 +53,9 @@
                 @Html.DisplayFor(modelItem => item.JobCategory)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.CompanyId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.CompanyId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.CompanyId })
+                @Html.ActionLink("Edit", "Edit", new { id = item.JobOfferId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.JobOfferId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.JobOfferId })
             </td>
         </tr>
     }

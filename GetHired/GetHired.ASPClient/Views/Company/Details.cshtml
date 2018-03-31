@@ -51,13 +51,13 @@
             </dt>
 
             <dd>
-                @Html.ActionLink("Find company's job offers", "JobOffersWithCompany", "JobOffer", new { id = Model.CompanyId }, null)
+                @Html.ActionLink("Find company's job offers", "Index", "CompanyJobOffer", new { id = Model.CompanyId }, null)
             </dd>
 
         </dl>
     </div>
     <p>
         @Html.ActionLink("Edit", "Edit", new { id = Model.CompanyId }) |
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Back to List", "Index", new { id = Model.CompanyId })
     </p>
 </body>

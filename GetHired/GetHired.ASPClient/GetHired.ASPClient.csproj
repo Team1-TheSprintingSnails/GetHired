@@ -170,6 +170,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
+    <Compile Include="Controllers\CompanyJobOfferController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobOfferController.cs" />
     <Compile Include="Global.asax.cs">
@@ -230,7 +231,12 @@
     <Content Include="Views\JobOffer\Index.cshtml" />
     <Content Include="Views\JobOffer\Create.cshtml" />
     <Content Include="Views\JobOffer\Details.cshtml" />
-    <Content Include="Views\JobOffer\JobOffersWithCompany.cshtml" />
+    <Content Include="Views\JobOffer\Edit.cshtml" />
+    <Content Include="Views\CompanyJobOffer\Index.cshtml" />
+    <Content Include="Views\CompanyJobOffer\Create.cshtml" />
+    <Content Include="Views\CompanyJobOffer\Details.cshtml" />
+    <Content Include="Views\CompanyJobOffer\Edit.cshtml" />
+    <Content Include="Views\CompanyJobOffer\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
