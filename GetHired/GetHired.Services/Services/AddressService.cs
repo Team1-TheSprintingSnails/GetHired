@@ -17,6 +17,11 @@ namespace GetHired.Services.Services
 
         public AddressService(IUnitOfWork unitOfWork, IMapper mapper)
         {
+            if(unitOfWork == null || mapper == null)
+            {
+                throw new ArgumentNullException();
+            }
+
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
         }
