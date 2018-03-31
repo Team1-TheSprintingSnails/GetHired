@@ -1,18 +1,17 @@
 ﻿using System;
+using NUnit.Framework;
 using GetHired.DataModels.Contracts;
 using Moq;
-using NUnit.Framework;
 using AutoMapper;
 using GetHired.Services.Services;
 using GetHired.DTO;
-using GetHired.DataModels.Repositories.Models;
-using GetHired.DomainModels;
 using GetHired.DataModels.Repositories.Contracts;
+using GetHired.DomainModels;
 
 namespace GetHired.UnitTests.Services.AddressServiceTests
 {
     [TestFixture]
-    public class Update_Should
+    public class Add_Should
     {
         [Test]
         public void ReturnFalse_WhenNullArgumentIsPassed()
@@ -23,7 +22,7 @@ namespace GetHired.UnitTests.Services.AddressServiceTests
             var addressService = new AddressService(mockedUnitOfWork.Object, mockedMapper.Object);
 
             //Act & Assert
-            Assert.IsFalse(addressService.Update(null));
+            Assert.IsFalse(addressService.Add(null));
         }
 
         [Test]
@@ -39,7 +38,7 @@ namespace GetHired.UnitTests.Services.AddressServiceTests
             mockedUnitOfWork.Setup(x => x.AddressRepository).Throws(new Exception());
 
             //Assert
-            Assert.IsFalse(addressService.Update(mockedAddressModel.Object));
+            Assert.IsFalse(addressService.Add(mockedAddressModel.Object));
         }
 
         [Test]
@@ -55,14 +54,14 @@ namespace GetHired.UnitTests.Services.AddressServiceTests
 
             //Act
             mockedMapper.Setup(x => x.Map<Address>(mockedAddressModel.Object)).Returns(mockedAddress.Object);
-            addressService.Update(mockedAddressModel.Object);
+            addressService.Add(mockedAddressModel.Object);
 
             //Assert
             mockedMapper.Verify(x => x.Map<Address>(mockedAddressModel.Object), Times.Once);
         }
 
         [Test]
-        public void CallInheritedUpdateMethod_WhenInvokedWithValidArgs()
+        public void CallInheritedInsertMethod_WhenInvokedWithValidArgs()
         {
             //Arrange
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
@@ -75,10 +74,10 @@ namespace GetHired.UnitTests.Services.AddressServiceTests
             //Act
             mockedMapper.Setup(x => x.Map<Address>(mockedAddressModel.Object)).Returns(mockedAddress.Object);
             mockedUnitOfWork.Setup(x => x.AddressRepository).Returns(mockedAddressRepository.Object);
-            addressService.Update(mockedAddressModel.Object);
+            addressService.Add(mockedAddressModel.Object);
 
             //Assert
-            mockedAddressRepository.Verify(x => x.Update(mockedAddress.Object), Times.Once);
+            mockedAddressRepository.Verify(x => x.Insert(mockedAddress.Object), Times.Once);
         }
 
         [Test]
@@ -95,7 +94,7 @@ namespace GetHired.UnitTests.Services.AddressServiceTests
             //Act
             mockedMapper.Setup(x => x.Map<Address>(mockedAddressModel.Object)).Returns(mockedAddress.Object);
             mockedUnitOfWork.Setup(x => x.AddressRepository).Returns(mockedAddressRepository.Object);
-            addressService.Update(mockedAddressModel.Object);
+            addressService.Add(mockedAddressModel.Object);
 
             //Assert
             mockedUnitOfWork.Verify(x => x.SaveChanges(), Times.Once);
@@ -119,7 +118,7 @@ namespace GetHired.UnitTests.Services.AddressServiceTests
             mockedUnitOfWork.Setup(x => x.SaveChanges());
 
             //Assert
-            Assert.IsTrue(addressService.Update(mockedAddressModel.Object));
+            Assert.IsTrue(addressService.Add(mockedAddressModel.Object));
         }
     }
 }
