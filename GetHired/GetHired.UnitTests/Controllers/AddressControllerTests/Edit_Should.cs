@@ -11,28 +11,26 @@ namespace GetHired.UnitTests.Controllers.AddressControllerTests
     public class Edit_Should
     {
         [Test]
-        public void ReturnProperView_WhenIvokedWithId()
+        public void ReturnEditView_WhenIvokedWithId()
         {
-            var cityServiceMock = new Mock<ICityService>();
-            var addressServiceMock = new Mock<IAddressService>();
-            var addressModelMock = new Mock<AddressModel>();
-            addressServiceMock.Setup(x => x.GetById(It.IsAny<int>())).Returns(addressModelMock.Object);
+            var companyServiceMock = new Mock<ICompanyService>();
+            var companyModelMock = new Mock<CompanyModel>();
+            companyServiceMock.Setup(x => x.GetById(It.IsAny<int>())).Returns(companyModelMock.Object);
 
-            var controller = new AddressController(cityServiceMock.Object, addressServiceMock.Object);
-            var result = controller.Edit(1) as ViewResult;
+            var controller = new CompanyController(companyServiceMock.Object);
+            var result = controller.Edit(It.IsAny<int>()) as ViewResult;
             Assert.AreEqual("Edit", result.ViewName);
         }
 
         [Test]
         public void ReturnIndexView_WhenUpdateReturnsTrue()
         {
-            var cityServiceMock = new Mock<ICityService>();
-            var addressServiceMock = new Mock<IAddressService>();
-            var addressModelMock = new Mock<AddressModel>();
-            var controller = new AddressController(cityServiceMock.Object, addressServiceMock.Object);
-            addressServiceMock.Setup(x => x.Update(addressModelMock.Object)).Returns(true);
+            var companyServiceMock = new Mock<ICompanyService>();
+            var companyModelMock = new Mock<CompanyModel>();
+            companyServiceMock.Setup(x => x.Update(companyModelMock.Object)).Returns(true);
 
-            var result = controller.Edit(addressModelMock.Object) as RedirectToRouteResult;
+            var controller = new CompanyController(companyServiceMock.Object);
+            var result = controller.Edit(companyModelMock.Object) as RedirectToRouteResult;
 
             Assert.AreEqual(result.RouteValues["Action"], "Index");
         }
@@ -40,28 +38,14 @@ namespace GetHired.UnitTests.Controllers.AddressControllerTests
         [Test]
         public void ReturnEditView_WhenUpdateReturnsFalse()
         {
-            var cityServiceMock = new Mock<ICityService>();
-            var addressServiceMock = new Mock<IAddressService>();
-            var addressModelMock = new Mock<AddressModel>();
-            var controller = new AddressController(cityServiceMock.Object, addressServiceMock.Object);
-            addressServiceMock.Setup(x => x.Update(addressModelMock.Object)).Returns(false);
+            var companyServiceMock = new Mock<ICompanyService>();
+            var companyModelMock = new Mock<CompanyModel>();
+            companyServiceMock.Setup(x => x.Update(companyModelMock.Object)).Returns(false);
+            
+            var controller = new CompanyController(companyServiceMock.Object);
+            var result = controller.Edit(companyModelMock.Object) as ViewResult;
 
-            var result = controller.Edit(addressModelMock.Object) as ViewResult;
             Assert.AreEqual("Edit", result.ViewName);
-
-        }
-
-        [Test]
-        public void ReturnViewResult_WhenAddressIsNull()
-        {
-            var cityServiceMock = new Mock<ICityService>();
-            var addressServiceMock = new Mock<IAddressService>();
-            var addressWithCityMock = new Mock<AddressWithCityModel>();
-            addressServiceMock.Setup(x => x.GetByIdWithCity(It.IsAny<int>())).Returns(addressWithCityMock.Object);
-
-            var controller = new AddressController(cityServiceMock.Object, addressServiceMock.Object);
-            var result = controller.Edit(1);
-            Assert.IsInstanceOf(typeof(HttpNotFoundResult), result);
         }
     }
 }

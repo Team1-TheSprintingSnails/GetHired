@@ -39,7 +39,7 @@ namespace GetHired.ASPClient.Controllers
         // GET: Company/Create
         public ActionResult Create()
         {
-            return View();
+            return View("Create");
         }
 
         [HttpPost]
@@ -51,7 +51,7 @@ namespace GetHired.ASPClient.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(company);
+            return View("Create", company);
         }
 
         // GET: Company/Edit/5
@@ -67,7 +67,7 @@ namespace GetHired.ASPClient.Controllers
                 return HttpNotFound();
             }
 
-            return View(company);
+            return View("Edit", company);
         }
 
         // POST: Company/Edit/5
@@ -80,7 +80,7 @@ namespace GetHired.ASPClient.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(company);
+            return View("Edit", company);
         }
 
         // GET: Company/Delete/5

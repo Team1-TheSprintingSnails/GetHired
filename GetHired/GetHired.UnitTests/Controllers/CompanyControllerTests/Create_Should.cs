@@ -8,40 +8,42 @@ using NUnit.Framework;
 namespace GetHired.UnitTests.Controllers.CompanyControllerTests
 {
     [TestFixture]
-    public class Details_Should
+    public class Create_Should
     {
         [Test]
-        public void ReturnHttpStatusCodeResult_WhenIdHasNoValue()
+        public void ReturnCreateView_WhenInvokedWithoutParams()
         {
             var companyServiceMock = new Mock<ICompanyService>();
 
             var controller = new CompanyController(companyServiceMock.Object);
-            var result = controller.Details(null);
-            Assert.IsInstanceOf(typeof(HttpStatusCodeResult), result);
+            var result = controller.Create() as ViewResult;
+            Assert.AreEqual("Create", result.ViewName);
         }
 
         [Test]
-        public void ReturnHttpNotFoundResult_WhenIdHasNoValue()
+        public void ReturnCreateView_WhenInvokedAddReturnsFalse()
         {
             var companyServiceMock = new Mock<ICompanyService>();
             var companyModelMock = new Mock<CompanyModel>();
-            companyServiceMock.Setup(x => x.GetById(It.IsAny<int>())).Returns(companyModelMock.Object);
+            companyServiceMock.Setup(x => x.Add(companyModelMock.Object)).Returns(false);
 
             var controller = new CompanyController(companyServiceMock.Object);
-            var result = controller.Details(It.IsAny<int>());
-            Assert.IsInstanceOf(typeof(ViewResult), result);
+            var result = controller.Create(companyModelMock.Object) as ViewResult;
+            Assert.AreEqual("Create", result.ViewName);
         }
 
         [Test]
-        public void ReturnDetailsView_WhenInvokedWithCorrectParams()
+        public void ReturnIndexView_WhenInvokedAddReturnsTrue()
         {
             var companyServiceMock = new Mock<ICompanyService>();
             var companyModelMock = new Mock<CompanyModel>();
-            companyServiceMock.Setup(x => x.GetById(It.IsAny<int>())).Returns(companyModelMock.Object);
-            
+            companyServiceMock.Setup(x => x.Add(companyModelMock.Object)).Returns(true);
+
+          
             var controller = new CompanyController(companyServiceMock.Object);
-            var result = controller.Details(It.IsAny<int>()) as ViewResult;
-            Assert.AreEqual("Details", result.ViewName);
+            var result = controller.Create(companyModelMock.Object) as RedirectToRouteResult;
+
+            Assert.AreEqual(result.RouteValues["Action"], "Index");
         }
     }
 }

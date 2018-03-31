@@ -99,7 +99,9 @@
     <Compile Include="Controllers\AddressControllerTests\Details_Should.cs" />
     <Compile Include="Controllers\AddressControllerTests\Edit_Should.cs" />
     <Compile Include="Controllers\AddressControllerTests\GetAddressesByCompanyId_Should.cs" />
+    <Compile Include="Controllers\CompanyControllerTests\Create_Should.cs" />
     <Compile Include="Controllers\CompanyControllerTests\Details_Should.cs" />
+    <Compile Include="Controllers\CompanyControllerTests\Edit_Should.cs" />
     <Compile Include="Controllers\CompanyControllerTests\Index_Should.cs" />
     <Compile Include="Controllers\HomeControllerTests\About_Should.cs" />
     <Compile Include="Controllers\HomeControllerTests\Contact_Should.cs" />
