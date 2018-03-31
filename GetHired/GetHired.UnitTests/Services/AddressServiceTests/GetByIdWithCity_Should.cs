@@ -8,7 +8,7 @@ using AutoMapper;
 using GetHired.Services.Services;
 using GetHired.DataModels.Repositories.Contracts;
 using GetHired.DataModels.Repositories.Models;
-using GetHired.DTO.ViewModels;
+using GetHired.DTO;
 
 namespace GetHired.UnitTests.Services.AddressServiceTests
 {
@@ -19,7 +19,7 @@ namespace GetHired.UnitTests.Services.AddressServiceTests
         public void MakeAllChainCalls_WhenInvoked()
         {
             //Arrange
-            var mockedAddressWithCityViewModel = new Mock<AddressWithCityViewModel>();
+            var mockedAddressWithCityViewModel = new Mock<AddressWithCityModel>();
             var mockedAddressRepository = new Mock<IAddressRepository>();
             var mockedAddress = new Mock<Address>();
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
@@ -29,16 +29,16 @@ namespace GetHired.UnitTests.Services.AddressServiceTests
             //Act & Assert
             mockedUnitOfWork.Setup(x => x.AddressRepository).Returns(mockedAddressRepository.Object);
             mockedAddressRepository.Setup(x => x.FirstOrDefaultWithCity(It.IsAny<Expression<Func<Address, bool>>>())).Returns(mockedAddress.Object);
-            mockedMapper.Setup(x => x.Map<AddressWithCityViewModel>(mockedAddress)).Returns(mockedAddressWithCityViewModel.Object);
+            mockedMapper.Setup(x => x.Map<AddressWithCityModel>(mockedAddress)).Returns(mockedAddressWithCityViewModel.Object);
             addressService.GetByIdWithCity(1);
-            mockedMapper.Verify(x => x.Map<AddressWithCityViewModel>(mockedAddress.Object), Times.Once);
+            mockedMapper.Verify(x => x.Map<AddressWithCityModel>(mockedAddress.Object), Times.Once);
         }
 
         [Test]
         public void ReturnExpectedValue_WhenInvoked()
         {
             //Arrange
-            var mockedAddressWithCityViewModel = new Mock<AddressWithCityViewModel>();
+            var mockedAddressWithCityViewModel = new Mock<AddressWithCityModel>();
             var mockedAddressRepository = new Mock<IAddressRepository>();
             var mockedAddress = new Mock<Address>();
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
@@ -48,7 +48,7 @@ namespace GetHired.UnitTests.Services.AddressServiceTests
             //Act & Assert
             mockedUnitOfWork.Setup(x => x.AddressRepository).Returns(mockedAddressRepository.Object);
             mockedAddressRepository.Setup(x => x.FirstOrDefaultWithCity(It.IsAny<Expression<Func<Address, bool>>>())).Returns(mockedAddress.Object);
-            mockedMapper.Setup(x => x.Map<AddressWithCityViewModel>(mockedAddress.Object)).Returns(mockedAddressWithCityViewModel.Object);
+            mockedMapper.Setup(x => x.Map<AddressWithCityModel>(mockedAddress.Object)).Returns(mockedAddressWithCityViewModel.Object);
             Assert.AreEqual(mockedAddressWithCityViewModel.Object, addressService.GetByIdWithCity(1));
         }
     }

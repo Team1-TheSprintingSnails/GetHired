@@ -34,12 +34,6 @@
     <Reference Include="AutoMapper, Version=6.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Heroic.AutoMapper, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Heroic.AutoMapper.4.0.0\lib\net45\Heroic.AutoMapper.dll</HintPath>
     </Reference>
@@ -57,10 +51,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddressModel.cs" />
-    <Compile Include="ViewModels\AddressWithCityViewModel.cs" />
+    <Compile Include="AddressWithCityModel.cs" />
     <Compile Include="CompanyModel.cs" />
     <Compile Include="JobOfferModel.cs" />
-    <Compile Include="ViewModels\JobOfferWithCompanyViewModel.cs" />
+    <Compile Include="JobOfferWithCompanyModel.cs" />
     <Compile Include="CityModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using GetHired.DTO;
-using GetHired.DTO.ViewModels;
 
 namespace GetHired.Services.Contracts
 {
@@ -9,7 +8,7 @@ namespace GetHired.Services.Contracts
         bool Add(AddressModel addressWithCityViewModel);
         bool Delete(AddressModel addressWithCityViewModel);
         IEnumerable<AddressModel> GetByCompanyId(int companyId);
-        AddressWithCityViewModel GetByIdWithCity(int id);
+        AddressWithCityModel GetByIdWithCity(int id);
         AddressModel GetById(int id);
         bool Update(AddressModel addressWithCityViewModel);
         bool DeleteById(int addressId);
