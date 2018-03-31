@@ -55,9 +55,26 @@
             @Html.DisplayFor(modelItem => item.JobCategory)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.CompanyId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.CompanyId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.CompanyId })
+            @Html.ActionLink(
+          linkText: "Edit",
+          actionName: "Edit",
+          controllerName: "CompanyJobOffer",
+             routeValues: new { id = item.JobOfferId },
+             htmlAttributes: null) |
+
+            @Html.ActionLink(
+          linkText: "Details",
+          actionName: "Details",
+          controllerName: "CompanyJobOffer",
+             routeValues: new { id = item.JobOfferId },
+             htmlAttributes: null) |
+
+            @Html.ActionLink(
+             linkText: "Delete",
+             actionName: "Delete",
+             controllerName: "CompanyJobOffer",
+             routeValues: new { id = item.JobOfferId },
+             htmlAttributes: null)
         </td>
     </tr>
     }

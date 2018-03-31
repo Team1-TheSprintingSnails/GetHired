@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using GetHired.Services.Contracts;
+using GetHired.Utils;
 using GetHired.Utils.Contracts;
 
 namespace GetHired.ASPClient.Controllers
