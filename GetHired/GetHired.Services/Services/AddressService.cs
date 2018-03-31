@@ -5,7 +5,6 @@ using GetHired.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using GetHired.DTO.ViewModels;
 using GetHired.Services.Contracts;
 
 namespace GetHired.Services.Services

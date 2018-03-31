@@ -8,7 +8,7 @@ using AutoMapper;
 using GetHired.Services.Services;
 using GetHired.DataModels.Repositories.Contracts;
 using GetHired.DataModels.Repositories.Models;
-using GetHired.DTO.ViewModels;
+using GetHired.DTO;
 
 namespace GetHired.UnitTests.Services.AddressServiceTests
 {
