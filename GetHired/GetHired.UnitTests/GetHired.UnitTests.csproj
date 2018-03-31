@@ -78,6 +78,7 @@
     <Compile Include="Services\AddressServiceTests\Delete_Should.cs" />
     <Compile Include="Services\AddressServiceTests\GetByIdWithCity_Should.cs" />
     <Compile Include="Services\AddressServiceTests\GetById_Should.cs" />
+    <Compile Include="Services\AddressServiceTests\GetCompanyById_Should.cs" />
     <Compile Include="Services\AddressServiceTests\Update_Should.cs" />
   </ItemGroup>
   <ItemGroup>
