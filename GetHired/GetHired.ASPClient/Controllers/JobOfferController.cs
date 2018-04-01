@@ -13,19 +13,19 @@ namespace GetHired.ASPClient.Controllers
     public class JobOfferController : Controller
     {
         private readonly IJobOfferService jobOfferService;
-        private readonly IGetHiredContext ctx;
+        //private readonly IGetHiredContext ctx;
 
-        public JobOfferController(IJobOfferService jobOfferService, IGetHiredContext ctx)
+        public JobOfferController(IJobOfferService jobOfferService)//, IGetHiredContext ctx)
         {
             this.jobOfferService = jobOfferService;
-            this.ctx = ctx;
+            //this.ctx = ctx;
         }
 
         // GET: JobOffer 
         public ActionResult Index()
         {
             var jobOffers = this.jobOfferService.GetAll();
-            return View(jobOffers);
+            return View("Index", jobOffers);
         }
 
         public ActionResult DownloadPDF()

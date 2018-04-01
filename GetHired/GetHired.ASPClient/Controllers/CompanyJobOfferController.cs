@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using System.Net;
 using System.Web.Mvc;
 using GetHired.DTO;
 using GetHired.Services.Contracts;
@@ -21,23 +20,21 @@ namespace GetHired.ASPClient.Controllers
             var results = this.jobOfferService.GetByCompanyId(id);
             ViewBag.CompanyId = id;
 
-            return View(results);
+            return View("Index", results);
         }
-
-
 
         // GET: CompanyJobOffer/Create
         public ActionResult Create(int? id)
         {
             if (!id.HasValue)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("NotFound");
             }
 
             var jobOffers = this.jobOfferService.GetAll().ToList();
             ViewBag.JobOffers = jobOffers;
 
-            return View(new JobOfferModel() { CompanyId = id.Value });
+            return View("Create", new JobOfferModel() { CompanyId = id.Value });
         }
 
         // POST: CompanyJobOffer/Create
@@ -53,7 +50,7 @@ namespace GetHired.ASPClient.Controllers
             var jobOffers = this.jobOfferService.GetAll().ToList();
             ViewBag.JobOffers = jobOffers;
 
-            return View(model);
+            return View("Create", model);
         }
 
         public ActionResult Details(int? id)
@@ -61,7 +58,6 @@ namespace GetHired.ASPClient.Controllers
             if (!id.HasValue)
             {
                 return View("NotFound");
-                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
             var jobOfferWithCompany = this.jobOfferService.GetByIdWithCompany(id.Value);
@@ -71,7 +67,7 @@ namespace GetHired.ASPClient.Controllers
                 return View("NotFound");
             }
 
-            return View(jobOfferWithCompany);
+            return View("Details", jobOfferWithCompany);
         }
 
         // GET: CompanyJobOffer/Delete/5
@@ -80,28 +76,29 @@ namespace GetHired.ASPClient.Controllers
         {
             if (!id.HasValue)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("NotFound");
             }
             var jobOffer = this.jobOfferService.GetById(id.Value);
 
             if (jobOffer == null)
             {
-                return HttpNotFound();
+                return View("NotFound");
             }
 
-            return View(jobOffer);
+            return View("Delete", jobOffer);
         }
 
         // POST: CompanyJobOffer/Delete/5
         [HttpPost]
+        [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id)
+        public ActionResult DeleteConfirmed(int id)
         {
             var jobOffer = this.jobOfferService.GetById(id);
 
             if (jobOffer == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("NotFound");
             }
 
             if (this.jobOfferService.DeleteById(id))
@@ -109,24 +106,23 @@ namespace GetHired.ASPClient.Controllers
                 return RedirectToAction("Index", new { id = jobOffer.CompanyId });
             }
 
-            return View(jobOffer);
+            return View("Delete", jobOffer);
         }
 
         public ActionResult Edit(int? id)
         {
             if (!id.HasValue)
             {
-                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 return View("NotFound");
             }
             var jobOffer = this.jobOfferService.GetById(id.Value);
+
             if (jobOffer == null)
             {
                 return View("NotFound");
-                //return HttpNotFound();
             }
 
-            return View(jobOffer);
+            return View("Edit", jobOffer);
         }
 
         // POST: CompanyJobOffer/Edit/5
@@ -138,8 +134,8 @@ namespace GetHired.ASPClient.Controllers
             {
                 return RedirectToAction("Index", new { id = jobOffer.CompanyId });
             }
-            
-            return View(jobOffer);
+
+            return View("Edit", jobOffer);
         }
     }
 }

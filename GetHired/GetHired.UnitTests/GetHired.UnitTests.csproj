@@ -63,6 +63,9 @@
     <Reference Include="nunit.framework, Version=3.10.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.10.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -105,9 +108,17 @@
     <Compile Include="Controllers\CompanyControllerTests\Details_Should.cs" />
     <Compile Include="Controllers\CompanyControllerTests\Edit_Should.cs" />
     <Compile Include="Controllers\CompanyControllerTests\Index_Should.cs" />
+    <Compile Include="Controllers\CompanyJobOfferControllerTests\Create_Should.cs" />
+    <Compile Include="Controllers\CompanyJobOfferControllerTests\DeleteConfirmed_Should.cs" />
+    <Compile Include="Controllers\CompanyJobOfferControllerTests\Delete_Should.cs" />
+    <Compile Include="Controllers\CompanyJobOfferControllerTests\Details_Should.cs" />
+    <Compile Include="Controllers\CompanyJobOfferControllerTests\Edit_Should.cs" />
+    <Compile Include="Controllers\CompanyJobOfferControllerTests\Index_Should.cs" />
     <Compile Include="Controllers\HomeControllerTests\About_Should.cs" />
     <Compile Include="Controllers\HomeControllerTests\Contact_Should.cs" />
     <Compile Include="Controllers\HomeControllerTests\Index_Should.cs" />
+    <Compile Include="Controllers\JobOfferControllerTests\DownloadPDF_Should.cs" />
+    <Compile Include="Controllers\JobOfferControllerTests\Index_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AddressServiceTests\Add_Should.cs" />
     <Compile Include="Services\AddressServiceTests\Constructor_Should.cs" />
@@ -131,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="App_Browsers\qt.browser" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -155,9 +167,12 @@
       <Name>GetHired.Services</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Controllers\CompanyJobOfferControllerTests\" />
-    <Folder Include="Controllers\JobOfferControllerTests\" />
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
