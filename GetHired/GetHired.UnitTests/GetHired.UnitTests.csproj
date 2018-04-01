@@ -100,6 +100,8 @@
     <Compile Include="Controllers\AddressControllerTests\Edit_Should.cs" />
     <Compile Include="Controllers\AddressControllerTests\GetAddressesByCompanyId_Should.cs" />
     <Compile Include="Controllers\CompanyControllerTests\Create_Should.cs" />
+    <Compile Include="Controllers\CompanyControllerTests\DeleteConfirmed_Should.cs" />
+    <Compile Include="Controllers\CompanyControllerTests\Delete_Should.cs" />
     <Compile Include="Controllers\CompanyControllerTests\Details_Should.cs" />
     <Compile Include="Controllers\CompanyControllerTests\Edit_Should.cs" />
     <Compile Include="Controllers\CompanyControllerTests\Index_Should.cs" />

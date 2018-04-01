@@ -33,7 +33,7 @@ namespace GetHired.UnitTests.Controllers.CompanyControllerTests
         }
 
         [Test]
-        public void ReturnIndexView_WhenInvokedAddReturnsTrue()
+        public void RedirectToIndexView_WhenCompanyIsCreated()
         {
             var companyServiceMock = new Mock<ICompanyService>();
             var companyModelMock = new Mock<CompanyModel>();

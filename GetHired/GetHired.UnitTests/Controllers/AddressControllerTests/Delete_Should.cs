@@ -8,45 +8,32 @@ using NUnit.Framework;
 namespace GetHired.UnitTests.Controllers.AddressControllerTests
 {
     [TestFixture]
-    public class Delete_Should
+    public class DeleteConfirmed_Should
     {
         [Test]
-        public void ReturnProperView_WhenIvokedWithId()
+        public void ReturnViewOfProperType_WhenIvokedWithId()
         {
-            var cityServiceMock = new Mock<ICityService>();
-            var addressServiceMock = new Mock<IAddressService>();
-            var addressModelMock = new Mock<AddressModel>();
-            addressServiceMock.Setup(x => x.GetById(It.IsAny<int>())).Returns(addressModelMock.Object);
+            var companyServiceMock = new Mock<ICompanyService>();
+            var companyModelMock = new Mock<CompanyModel>();
+            companyServiceMock.Setup(x => x.GetById(It.IsAny<int>())).Returns(companyModelMock.Object);
 
-            var controller = new AddressController(cityServiceMock.Object, addressServiceMock.Object);
-            var result = controller.Delete(1) as ViewResult;
-            Assert.AreEqual("Delete", result.ViewName);
+            var controller = new CompanyController(companyServiceMock.Object);
+            var result = controller.Delete(It.IsAny<int>());
+            Assert.IsInstanceOf(typeof(ViewResult), result);
         }
 
         [Test]
-        public void ReturnHttpStatusCodeResult_WhenIdHasNoValue()
+        public void ReturnHttpStatusCodeResult_WhenCompanyIsNull()
         {
-            var cityServiceMock = new Mock<ICityService>();
-            var addressServiceMock = new Mock<IAddressService>();
-            var addressWithCityMock = new Mock<AddressWithCityModel>();
-            addressServiceMock.Setup(x => x.GetByIdWithCity(It.IsAny<int>())).Returns(addressWithCityMock.Object);
+            var companyServiceMock = new Mock<ICompanyService>();
+            CompanyModel companyModelMock = null;
+            companyServiceMock.Setup(x => x.GetById(It.IsAny<int>())).Returns(companyModelMock);
 
-            var controller = new AddressController(cityServiceMock.Object, addressServiceMock.Object);
-            var result = controller.Delete(null);
+            var controller = new CompanyController(companyServiceMock.Object);
+            var result = controller.Delete(It.IsAny<int>());
             Assert.IsInstanceOf(typeof(HttpStatusCodeResult), result);
         }
 
-        [Test]
-        public void ReturnViewResult_WhenAddressIsNull()
-        {
-            var cityServiceMock = new Mock<ICityService>();
-            var addressServiceMock = new Mock<IAddressService>();
-            var addressWithCityMock = new Mock<AddressWithCityModel>();
-            addressServiceMock.Setup(x => x.GetByIdWithCity(It.IsAny<int>())).Returns(addressWithCityMock.Object);
-
-            var controller = new AddressController(cityServiceMock.Object, addressServiceMock.Object);
-            var result = controller.Delete(1);
-            Assert.IsInstanceOf(typeof(HttpNotFoundResult), result);
-        }
+        
     }
 }

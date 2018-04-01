@@ -97,7 +97,7 @@ namespace GetHired.ASPClient.Controllers
                 return HttpNotFound();
             }
 
-            return View(company);
+            return View("Delete", company);
         }
 
         // POST: Company/Delete/5
@@ -108,7 +108,7 @@ namespace GetHired.ASPClient.Controllers
             var company = this.companyService.GetById(id);
             if (company == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("NotFound");
             }
 
             if (this.companyService.Delete(company))
@@ -116,7 +116,7 @@ namespace GetHired.ASPClient.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(company);
+            return View("Delete", company);
         }
     }
 }
