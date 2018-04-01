@@ -8,15 +8,15 @@
 
 @*working on json loader*@
 
-@*@using (Html.BeginForm("LoadFromJson", "JobOffer", FormMethod.Post, new {enctype = "multipart/from-data"}))
+@using (Html.BeginForm("LoadFromJson", "JobOffer", FormMethod.Post, new {enctype = "multipart/form-data"}))
 {
     <div>
         JSON FILE
         <input type="file" name="jsonFile"/>
         <br/>
-        <input type="submit" value="LoadFromJson" />
+        <input type="submit" value="LoadFromJson" method="post" />
     </div>
-}*@
+}
 
 <table class="table">
     <tr>

@@ -2,8 +2,10 @@
 using System.IO;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper;
 using GetHired.DataModels.Contracts;
 using GetHired.DomainModels;
+using GetHired.DTO;
 using GetHired.Services.Contracts;
 using Newtonsoft.Json;
 using Rotativa;
@@ -13,12 +15,13 @@ namespace GetHired.ASPClient.Controllers
     public class JobOfferController : Controller
     {
         private readonly IJobOfferService jobOfferService;
-        //private readonly IGetHiredContext ctx;
+        private readonly IGetHiredContext ctx;
+        private readonly IMapper mapper = Mapper.Instance;
 
-        public JobOfferController(IJobOfferService jobOfferService)//, IGetHiredContext ctx)
+        public JobOfferController(IJobOfferService jobOfferService, IGetHiredContext ctx)
         {
             this.jobOfferService = jobOfferService;
-            //this.ctx = ctx;
+            this.ctx = ctx;
         }
 
         // GET: JobOffer 
@@ -32,42 +35,46 @@ namespace GetHired.ASPClient.Controllers
         {
             return new ActionAsPdf("Index");
         }
-
-        // working on json loader
-
-        //[HttpPost]
-        //public ActionResult LoadFromJson(HttpPostedFileBase jsonFile)
-        //{
-        //    jsonFile.SaveAs(Server.MapPath("~/JSONFiles/" + Path.GetFileName(jsonFile.FileName)));
-
-        //    StreamReader streamReader = new StreamReader(Server.MapPath("~/JSONFiles/" + Path.GetFileName(jsonFile.FileName)));
-
-        //    string data = streamReader.ReadToEnd();
-
-        //    var jobOffers = JsonConvert.DeserializeObject<List<JobOffer>>(data);
-
-        //    jobOffers.ForEach(jo =>
-        //    {
-        //        var jobOffer = new JobOffer()
-        //        {
-        //            Id = jo.Id,
-        //            Position = jo.Position,
-        //            Description = jo.Description,
-        //            Payment = jo.Payment,
-        //            CompanyId = jo.CompanyId,
-        //            DateModified = jo.DateModified,
-        //            DateCreated = jo.DateCreated,
-        //            Rating = jo.Rating,
-        //            JobType = jo.JobType,
-        //            JobCategory = jo.JobCategory
-        //        };
-
-        //        ctx.JobOffers.Add(jobOffer);
-        //        ctx.SaveChanges();
-        //    });
+        
+        [HttpPost]
+        public ActionResult LoadFromJson(HttpPostedFileBase jsonFile)
+        {
+            jsonFile = Request.Files["jsonFile"];
+            var count = Request.Files.Count;
 
 
-        //    return View("Index");
-        //}
+            jsonFile.SaveAs(Server.MapPath("~/JSONFiles/" + Path.GetFileName(jsonFile.FileName)));
+
+            using (StreamReader streamReader = new StreamReader(Server.MapPath("~/JSONFiles/" + Path.GetFileName(jsonFile.FileName))))
+            {
+                string data = streamReader.ReadToEnd();
+
+                var jobOfferModels = JsonConvert.DeserializeObject<List<JobOfferModel>>(data);
+                var jobOffers = this.mapper.Map<List<JobOffer>>(jobOfferModels);
+
+                jobOffers.ForEach(jo =>
+                {
+                    var jobOffer = new JobOfferModel()
+                    {
+                        JobOfferId = jo.Id,
+                        Position = jo.Position,
+                        Description = jo.Description,
+                        Payment = jo.Payment,
+                        CompanyId = jo.CompanyId,
+                        JobOfferRating = jo.Rating,
+                        JobType = jo.JobType,
+                        JobCategory = jo.JobCategory
+                    };
+
+                    this.jobOfferService.Add(jobOffer);
+                });
+            }
+
+            if (Session["type"] != null && Session["resulttype"] != null)
+            {
+                return View("Index");
+            }
+                return Redirect(Request.UrlReferrer.ToString());
+        }
     }
 }

@@ -216,7 +216,6 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="App_Browsers\qt.browser" />
-    <Content Include="JSONFiles\import.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -260,9 +259,11 @@
     <Content Include="Views\CompanyJobOffer\Edit.cshtml" />
     <Content Include="Views\CompanyJobOffer\Delete.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
+    <Content Include="Views\JobOffer\LoadFromJson.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="JSONFiles\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
