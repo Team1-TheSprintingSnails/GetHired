@@ -1,11 +1,9 @@
 ﻿@model IEnumerable<GetHired.DTO.AddressModel>
 
-
-<h2>Index</h2>
-
 <p>
-    @Html.ActionLink("Add new address to company", "Create", new {id=ViewBag.CompanyId})
-    @Html.ActionLink("Back to Campany's Details", "Details", "Company", new { id = ViewBag.CompanyId },htmlAttributes: new {@class ="text-right"})
+    @Html.ActionLink("Add new address to company", "Create", new { id = ViewBag.CompanyId }, new { @class = "btn btn-success" })
+
+    @Html.ActionLink("Back to Campany's Details", "Details", "Company", new { id = ViewBag.CompanyId }, new { @class = "btn btn-success" })
 </p>
 <table class="table">
     <tr>

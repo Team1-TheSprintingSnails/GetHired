@@ -1,18 +1,25 @@
-﻿<body>
+﻿@using System.Activities.DurableInstancing
+@using System.Activities.Expressions
+<div class="overlay">
     <div>
-        <img style="opacity: 0.7" src="/Resources/vid.gif" class="img-responsive">
-        <div class="container">
-            <div class="carousel-caption">
-                <h1>FIND YOUR DREAM PLACE</h1>
-                <p>
-                    @Html.ActionLink(
-                             linkText: "Еxplore",
-                             actionName: "Index",
-                             controllerName: "Company",
-                        routeValues: null, 
-                          htmlAttributes: new { @class = "btn btn-success btn-lg" })
-                </p>
+        <div class="row">
+            <div class="wow fadeInUp" data-wow-delay="0.2s">
+                <img src="~/Resources/img1.jpeg" class="img-responsive" alt="Home">
+            </div>
+
+            <div>
+                <div class="home-thumb">
+                    <h1 class="wow fadeInUp" data-wow-delay="0.7s">Find the job that not only pays the bills but truly inspires!</h1>
+                    <a data-wow-delay="1s"
+                       @Html.ActionLink(
+                           linkText: "Еxplore",
+                           actionName: "Index",
+                           controllerName: "Company",
+                           routeValues: null,
+                           htmlAttributes: new { @class = "col-md-offset-5 wow fadeInUp section-btn btn btn-success smoothScroll" })
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</body>
+</div>
