@@ -55,49 +55,7 @@ namespace GetHired.Services.Services
                 return false;
             }
         }
-
-        //public bool LoadFromJson(string path)
-        //{
-        //    try
-        //    {
-        //        // var path = "~/JSONFiles/import.json";
-
-        //        using (StreamReader streamReader = new StreamReader(path))
-        //        {
-        //            string data = streamReader.ReadToEnd();
-
-        //            var jobOfferModels = JsonConvert.DeserializeObject<List<JobOfferModel>>(data);
-        //            var jobOffers = this.mapper.Map<List<JobOffer>>(jobOfferModels);
-
-        //            jobOffers.ForEach(jo =>
-        //            {
-        //                var jobOffer = new JobOffer()
-        //                {
-        //                    Id = jo.Id,
-        //                    Position = jo.Position,
-        //                    Description = jo.Description,
-        //                    Payment = jo.Payment,
-        //                    CompanyId = jo.CompanyId,
-        //                    DateModified = jo.DateModified,
-        //                    DateCreated = jo.DateCreated,
-        //                    Rating = jo.Rating,
-        //                    JobType = jo.JobType,
-        //                    JobCategory = jo.JobCategory
-        //                };
-
-        //                this.unitOfWork.JobOfferRepository.Insert(jobOffer);
-        //                this.unitOfWork.SaveChanges();
-        //            });
-        //        }
-
-        //        return true;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return false;
-        //    }
-        //}
-
+        
         public bool Update(JobOfferModel model)
         {
             if (model == null) return false;
