@@ -23,15 +23,15 @@ namespace GetHired.UnitTests.Controllers.AddressControllerTests
         }
 
         [Test]
-        public void ReturnHttpStatusCodeResult_WhenCompanyIsNull()
+        public void ReturnNotFound_WhenCompanyIsNull()
         {
             var companyServiceMock = new Mock<ICompanyService>();
             CompanyModel companyModelMock = null;
             companyServiceMock.Setup(x => x.GetById(It.IsAny<int>())).Returns(companyModelMock);
 
             var controller = new CompanyController(companyServiceMock.Object);
-            var result = controller.Delete(It.IsAny<int>());
-            Assert.IsInstanceOf(typeof(HttpStatusCodeResult), result);
+            var result = controller.Delete(It.IsAny<int>()) as ViewResult;
+            Assert.AreEqual("NotFound", result.ViewName);
         }
 
         

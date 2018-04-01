@@ -11,13 +11,13 @@ namespace GetHired.UnitTests.Controllers.CompanyControllerTests
     public class Details_Should
     {
         [Test]
-        public void ReturnHttpStatusCodeResult_WhenIdHasNoValue()
+        public void ReturnNotFound_WhenIdHasNoValue()
         {
             var companyServiceMock = new Mock<ICompanyService>();
 
             var controller = new CompanyController(companyServiceMock.Object);
-            var result = controller.Details(null);
-            Assert.IsInstanceOf(typeof(HttpStatusCodeResult), result);
+            var result = controller.Details(null) as ViewResult;
+            Assert.AreEqual("NotFound", result.ViewName);
         }
 
         [Test]

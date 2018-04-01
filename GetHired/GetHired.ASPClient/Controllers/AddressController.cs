@@ -32,7 +32,8 @@ namespace GetHired.ASPClient.Controllers
         {
             if (!id.HasValue)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("NotFound");
             }
 
             var cities = cityService.GetAll().ToList();
@@ -62,12 +63,15 @@ namespace GetHired.ASPClient.Controllers
         {
             if (!id.HasValue)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("NotFound");
             }
             var address = this.addressService.GetById(id.Value);
             if (address == null)
             {
-                return HttpNotFound();
+                //return HttpNotFound();
+                return View("NotFound");
+
             }
 
             var cities = cityService.GetAll().ToList();
@@ -95,12 +99,15 @@ namespace GetHired.ASPClient.Controllers
         {
             if (!id.HasValue)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("NotFound");
+
             }
             var address = this.addressService.GetById(id.Value);
             if (address == null)
             {
-                return HttpNotFound();
+                //return HttpNotFound();
+                return View("NotFound");
             }
 
             return View("Delete", address);
@@ -115,7 +122,8 @@ namespace GetHired.ASPClient.Controllers
 
             if (address == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("NotFound");
             }
 
             if (this.addressService.DeleteById(id))
@@ -130,14 +138,16 @@ namespace GetHired.ASPClient.Controllers
         {
             if (!id.HasValue)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("NotFound");
             }
 
             var address = this.addressService.GetByIdWithCity(id.Value);
 
             if (address == null)
             {
-                return HttpNotFound();
+                return View("NotFound");
+                //return HttpNotFound();
             }
 
             return View("Details", address);

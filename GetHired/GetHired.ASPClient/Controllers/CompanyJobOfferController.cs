@@ -60,14 +60,15 @@ namespace GetHired.ASPClient.Controllers
         {
             if (!id.HasValue)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("NotFound");
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
             var jobOfferWithCompany = this.jobOfferService.GetByIdWithCompany(id.Value);
 
             if (jobOfferWithCompany == null)
             {
-                return HttpNotFound();
+                return View("NotFound");
             }
 
             return View(jobOfferWithCompany);
@@ -115,14 +116,16 @@ namespace GetHired.ASPClient.Controllers
         {
             if (!id.HasValue)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("NotFound");
             }
             var jobOffer = this.jobOfferService.GetById(id.Value);
             if (jobOffer == null)
             {
-                return HttpNotFound();
+                return View("NotFound");
+                //return HttpNotFound();
             }
-            
+
             return View(jobOffer);
         }
 

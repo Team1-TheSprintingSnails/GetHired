@@ -60,8 +60,8 @@ namespace GetHired.UnitTests.Controllers.CompanyControllerTests
             addressServiceMock.Setup(x => x.GetByIdWithCity(It.IsAny<int>())).Returns(addressWithCityMock.Object);
 
             var controller = new AddressController(cityServiceMock.Object, addressServiceMock.Object);
-            var result = controller.Edit(1);
-            Assert.IsInstanceOf(typeof(HttpNotFoundResult), result);
+            var result = controller.Edit(1) as ViewResult;
+            Assert.AreEqual("NotFound", result.ViewName);
         }
     }
 }

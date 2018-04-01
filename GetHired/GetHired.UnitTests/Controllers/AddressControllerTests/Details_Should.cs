@@ -24,7 +24,7 @@ namespace GetHired.UnitTests.Controllers.AddressControllerTests
         }
 
         [Test]
-        public void ReturnHttpStatusCodeResult_WhenIdHasNoValue()
+        public void ReturnNotFound_WhenIdHasNoValue()
         {
             var cityServiceMock = new Mock<ICityService>();
             var addressServiceMock = new Mock<IAddressService>();
@@ -32,8 +32,9 @@ namespace GetHired.UnitTests.Controllers.AddressControllerTests
             addressServiceMock.Setup(x => x.GetByIdWithCity(It.IsAny<int>())).Returns(addressWithCityMock.Object);
 
             var controller = new AddressController(cityServiceMock.Object, addressServiceMock.Object);
-            var result = controller.Details(null);
-            Assert.IsInstanceOf(typeof(HttpStatusCodeResult), result);
+            var result = controller.Details(null) as ViewResult;
+            Assert.AreEqual("NotFound", result.ViewName);
+
         }
 
         [Test]
