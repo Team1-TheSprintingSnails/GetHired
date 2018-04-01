@@ -1,14 +1,7 @@
-﻿using GetHired.DataModels.Configurations.Contracts;
-using GetHired.DataModels.Contracts;
-using GetHired.DataModels.Models;
+﻿using GetHired.DataModels.Models;
 using GetHired.DomainModels;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GetHired.DataModels.Configurations
 {

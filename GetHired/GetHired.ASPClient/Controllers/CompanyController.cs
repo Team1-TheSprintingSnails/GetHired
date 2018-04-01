@@ -1,5 +1,4 @@
-﻿using System.Net;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using GetHired.DTO;
 using GetHired.Services.Contracts;
 
@@ -25,14 +24,12 @@ namespace GetHired.ASPClient.Controllers
         {
             if (!id.HasValue)
             {
-                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 return View("NotFound");
             }
             var company = this.companyService.GetById(id.Value);
             if (company == null)
             {
                 return View("NotFound");
-                //return HttpNotFound();
             }
 
             return View("Details", company);
@@ -62,13 +59,11 @@ namespace GetHired.ASPClient.Controllers
             if (!id.HasValue)
             {
                 return View("NotFound");
-                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var company = this.companyService.GetById(id.Value);
             if (company == null)
             {
                 return View("NotFound");
-                //return HttpNotFound();
             }
 
             return View("Edit", company);
@@ -93,13 +88,11 @@ namespace GetHired.ASPClient.Controllers
             if (!id.HasValue)
             {
                 return View("NotFound");
-                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var company = this.companyService.GetById(id.Value);
             if (company == null)
             {
                 return View("NotFound");
-                //return HttpNotFound();
             }
 
             return View("Delete", company);

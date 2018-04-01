@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using System.Net;
 using System.Web.Mvc;
 using GetHired.DTO;
 using GetHired.Services.Contracts;
@@ -32,7 +31,6 @@ namespace GetHired.ASPClient.Controllers
         {
             if (!id.HasValue)
             {
-                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 return View("NotFound");
             }
 
@@ -63,13 +61,11 @@ namespace GetHired.ASPClient.Controllers
         {
             if (!id.HasValue)
             {
-                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 return View("NotFound");
             }
             var address = this.addressService.GetById(id.Value);
             if (address == null)
             {
-                //return HttpNotFound();
                 return View("NotFound");
 
             }
@@ -99,14 +95,12 @@ namespace GetHired.ASPClient.Controllers
         {
             if (!id.HasValue)
             {
-                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 return View("NotFound");
 
             }
             var address = this.addressService.GetById(id.Value);
             if (address == null)
             {
-                //return HttpNotFound();
                 return View("NotFound");
             }
 
@@ -122,7 +116,6 @@ namespace GetHired.ASPClient.Controllers
 
             if (address == null)
             {
-                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 return View("NotFound");
             }
 
@@ -138,7 +131,6 @@ namespace GetHired.ASPClient.Controllers
         {
             if (!id.HasValue)
             {
-                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 return View("NotFound");
             }
 
@@ -147,7 +139,6 @@ namespace GetHired.ASPClient.Controllers
             if (address == null)
             {
                 return View("NotFound");
-                //return HttpNotFound();
             }
 
             return View("Details", address);

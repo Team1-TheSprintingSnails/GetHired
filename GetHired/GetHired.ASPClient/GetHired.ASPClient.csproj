@@ -252,13 +252,13 @@
     <Content Include="Views\Address\Edit.cshtml" />
     <Content Include="Views\Address\Delete.cshtml" />
     <Content Include="Views\Address\Details.cshtml" />
-    <Content Include="Views\JobOffer\Index.cshtml" />
     <Content Include="Views\CompanyJobOffer\Index.cshtml" />
     <Content Include="Views\CompanyJobOffer\Create.cshtml" />
     <Content Include="Views\CompanyJobOffer\Details.cshtml" />
     <Content Include="Views\CompanyJobOffer\Edit.cshtml" />
     <Content Include="Views\CompanyJobOffer\Delete.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
+    <Content Include="Views\JobOffer\Index.cshtml" />
     <Content Include="Views\JobOffer\LoadFromJson.cshtml" />
   </ItemGroup>
   <ItemGroup>

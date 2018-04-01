@@ -3,7 +3,6 @@ using System.IO;
 using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
-using GetHired.DataModels.Contracts;
 using GetHired.DomainModels;
 using GetHired.DTO;
 using GetHired.Services.Contracts;
@@ -15,13 +14,11 @@ namespace GetHired.ASPClient.Controllers
     public class JobOfferController : Controller
     {
         private readonly IJobOfferService jobOfferService;
-        private readonly IGetHiredContext ctx;
         private readonly IMapper mapper = Mapper.Instance;
 
-        public JobOfferController(IJobOfferService jobOfferService, IGetHiredContext ctx)
+        public JobOfferController(IJobOfferService jobOfferService)
         {
             this.jobOfferService = jobOfferService;
-            this.ctx = ctx;
         }
 
         // GET: JobOffer 
@@ -35,7 +32,7 @@ namespace GetHired.ASPClient.Controllers
         {
             return new ActionAsPdf("Index");
         }
-        
+
         [HttpPost]
         public ActionResult LoadFromJson(HttpPostedFileBase jsonFile)
         {
@@ -74,7 +71,8 @@ namespace GetHired.ASPClient.Controllers
             {
                 return View("Index");
             }
-                return Redirect(Request.UrlReferrer.ToString());
+
+            return Redirect(Request.UrlReferrer.ToString());
         }
     }
 }

@@ -1,12 +1,9 @@
-using System;
 using GetHired.DataModels.Models;
-using GetHired.DomainModels.Enums;
+using GetHired.DomainModels;
+using System.Data.Entity.Migrations;
 
 namespace GetHired.DataModels.Migrations
 {
-    using GetHired.DomainModels;
-    using System.Data.Entity.Migrations;
-
     public sealed class Configuration : DbMigrationsConfiguration<GetHiredContext>
     {
         public Configuration()

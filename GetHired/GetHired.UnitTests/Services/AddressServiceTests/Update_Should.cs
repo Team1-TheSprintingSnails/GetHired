@@ -5,7 +5,6 @@ using NUnit.Framework;
 using AutoMapper;
 using GetHired.Services.Services;
 using GetHired.DTO;
-using GetHired.DataModels.Repositories.Models;
 using GetHired.DomainModels;
 using GetHired.DataModels.Repositories.Contracts;
 
