@@ -135,7 +135,11 @@
     <Compile Include="Services\CompanyServiceTestss\GetById_Should.cs" />
     <Compile Include="Services\CompanyServiceTestss\Update_Should.cs" />
     <Compile Include="Services\JobOfferServiceTests\Add_Should.cs" />
+    <Compile Include="Services\JobOfferServiceTests\DeleteById_Should.cs" />
     <Compile Include="Services\JobOfferServiceTests\Delete_Should.cs" />
+    <Compile Include="Services\JobOfferServiceTests\GetAll_Should.cs" />
+    <Compile Include="Services\JobOfferServiceTests\GetById_Should.cs" />
+    <Compile Include="Services\JobOfferServiceTests\GetCompanyById_Should.cs" />
     <Compile Include="Services\JobOfferServiceTests\Update_Should.cs" />
   </ItemGroup>
   <ItemGroup>
