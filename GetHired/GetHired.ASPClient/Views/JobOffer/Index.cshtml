@@ -7,7 +7,7 @@
 {
 <div class="row">
     <p class="col-md-4">
-        @Html.ActionLink("Export PDF with job offers", "DownloadPDF", null, new { @class = "btn btn-success" })
+        @Html.ActionLink("Export PDF with job offers", "DownloadPDF", Model, new { @class = "btn btn-success" })
     </p>
     <p class="col-md-4">
         <input class="btn btn-success" type="file" name="jsonFile" />
@@ -18,55 +18,4 @@
 </div>
 }
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Position)
-        </th>
-
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-
-        <th>
-            @Html.DisplayNameFor(model => model.Payment)
-        </th>
-
-        <th>
-            @Html.DisplayNameFor(model => model.JobOfferRating)
-        </th>
-
-        <th>
-            @Html.DisplayNameFor(model => model.JobType)
-        </th>
-
-        <th>
-            @Html.DisplayNameFor(model => model.JobCategory)
-        </th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Position)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Payment)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.JobOfferRating)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.JobType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.JobCategory)
-            </td>
-        </tr>
-    }
-
-</table>
+@Html.Partial("_JobOffersPartial", Model)
