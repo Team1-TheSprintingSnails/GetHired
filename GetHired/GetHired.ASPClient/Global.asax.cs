@@ -1,10 +1,15 @@
 ﻿using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using Autofac.Integration.Mvc;
 using System.Data.Entity;
+using System.Reflection;
+using System.Web;
+using GetHired.ASPClient.Identity_Providers;
 using GetHired.DataModels.Models;
 using GetHired.DataModels.Configurations;
+using IdentityDemoWithIoC;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace GetHired.ASPClient
 {

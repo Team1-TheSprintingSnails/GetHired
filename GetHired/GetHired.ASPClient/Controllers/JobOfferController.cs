@@ -6,7 +6,6 @@ using AutoMapper;
 using GetHired.DomainModels;
 using GetHired.DTO;
 using GetHired.Services.Contracts;
-using Newtonsoft.Json;
 using Rotativa;
 
 namespace GetHired.ASPClient.Controllers

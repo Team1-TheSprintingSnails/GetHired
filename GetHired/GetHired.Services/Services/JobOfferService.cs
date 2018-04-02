@@ -95,14 +95,6 @@ namespace GetHired.Services.Services
             return this.mapper.Map<JobOfferModel>(jobOffer);
         }
 
-        public IEnumerable<JobOfferModel> GetByUserId(int userId)
-        {
-            var jobOffers = this.unitOfWork.JobOfferRepository
-                .GetByUserId(userId);
-
-            return jobOffers.Select(j => this.mapper.Map<JobOfferModel>(j));
-        }
-
         public JobOfferWithCompanyModel GetByIdWithCompany(int jobOfferId)
         {
             var jobOffers = this.unitOfWork.JobOfferRepository

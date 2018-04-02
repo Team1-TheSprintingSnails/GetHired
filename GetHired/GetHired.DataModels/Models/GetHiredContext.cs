@@ -19,7 +19,6 @@ namespace GetHired.DataModels.Models
         public virtual IDbSet<Address> Addresses { get; set; }
         public virtual IDbSet<JobOffer> JobOffers { get; set; }
         public virtual IDbSet<City> Towns { get; set; }
-        public virtual IDbSet<User> Users { get; set; }
         public virtual IDbSet<Company> Companies { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -1,10 +1,21 @@
-﻿using System.Reflection;
+﻿using System.Data.Entity;
+using System.Linq;
+using System.Reflection;
+using System.Web;
 using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
 using AutoMapper;
+using GetHired.ASPClient.Identity_Providers;
 using GetHired.DataModels.Contracts;
+using GetHired.DataModels.Repositories.Contracts;
 using GetHired.Services.Contracts;
+using GetHired.Utils.Contracts;
+using IdentityDemoWithIoC;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin;
 
 namespace GetHired.ASPClient
 {
@@ -12,6 +23,7 @@ namespace GetHired.ASPClient
     {
         public static void Configure()
         {
+
             var builder = new ContainerBuilder();
 
             RegisterConventions(builder);
@@ -19,6 +31,8 @@ namespace GetHired.ASPClient
             RegisterControllers(builder);
 
             RegisterMapper(builder);
+
+            RegisterIdentityProviders(builder);
 
             var container = builder.Build();
 
@@ -45,6 +59,25 @@ namespace GetHired.ASPClient
         {
             builder.RegisterControllers(typeof(MvcApplication).Assembly)
                 .InstancePerRequest();
+        }
+
+        private static void RegisterIdentityProviders(ContainerBuilder builder)
+        {
+            builder.RegisterType<ApplicationDbContext>()
+                .InstancePerDependency();
+
+            builder.RegisterType<ApplicationUserStore>()
+                .As<IUserStore<ApplicationUser>>()
+                .InstancePerDependency();
+
+            builder.RegisterType<ApplicationUserManager>()
+                .InstancePerDependency();
+
+            builder.RegisterType<ApplicationSignInManager>()
+                .InstancePerDependency();
+
+            builder.Register(x => HttpContext.Current.GetOwinContext()?.Authentication 
+                ?? new OwinContext().Authentication).InstancePerDependency();
         }
     }
 }

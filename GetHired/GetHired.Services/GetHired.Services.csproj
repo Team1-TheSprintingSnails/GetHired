@@ -50,7 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IUserService.cs" />
     <Compile Include="Services\AddressService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CompanyService.cs" />
@@ -60,7 +59,6 @@
     <Compile Include="Contracts\IJobOfferService.cs" />
     <Compile Include="Services\JobOfferService.cs" />
     <Compile Include="Services\CityService.cs" />
-    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GetHired.DataModels\GetHired.DataModels.csproj">

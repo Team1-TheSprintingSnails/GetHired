@@ -13,7 +13,6 @@ namespace GetHired.DataModels.Models
         private IGenericRepository<Company> companyRepository;
         private IJobOfferRepository jobOfferRepository;
         private IReadonlyRepository<City> cityRepository;
-        private IUserRepository userRepository;
 
         public UnitOfWork(IGetHiredContext context)
         {
@@ -54,15 +53,7 @@ namespace GetHired.DataModels.Models
                 return this.cityRepository ?? (this.cityRepository = new GenericRepository<City>(this.context));
             }
         }
-
-        public IUserRepository UserRepository
-        {
-            get
-            {
-                return this.userRepository ?? (this.userRepository = new UserRepository(this.context));
-            }
-        }
-
+        
         public int SaveChanges()
         {
             return this.context.SaveChanges();

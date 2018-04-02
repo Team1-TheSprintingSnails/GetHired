@@ -10,7 +10,6 @@ namespace GetHired.DataModels.Contracts
         IDbSet<Company> Companies { get; set; }
         IDbSet<JobOffer> JobOffers { get; set; }
         IDbSet<City> Towns { get; set; }
-        IDbSet<User> Users { get; set; }
 
         DbSet<TEntity> Set<TEntity>() where TEntity : class;
         DbEntityEntry Entry(object entity);
