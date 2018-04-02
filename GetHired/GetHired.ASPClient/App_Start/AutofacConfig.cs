@@ -10,7 +10,6 @@ using GetHired.ASPClient.Identity_Providers;
 using GetHired.DataModels.Contracts;
 using GetHired.DataModels.Repositories.Contracts;
 using GetHired.Services.Contracts;
-using GetHired.Utils.Contracts;
 using IdentityDemoWithIoC;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
