@@ -20,13 +20,6 @@ namespace GetHired.DataModels.Repositories.Models
                 .Where(x => x.Company.Id.Equals(companyId));
         }
 
-        public IEnumerable<JobOffer> GetByUserId(int userId)
-        {
-            return this.DbSet
-                .AsNoTracking()
-                .Where(x => x.LikedBy.Any(u => u.Id.Equals(userId)));
-        }
-
         public IEnumerable<JobOffer> GetAllOrderedByRating()
         {
             return this.DbSet

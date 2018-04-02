@@ -11,7 +11,6 @@ namespace GetHired.Services.Contracts
         IEnumerable<JobOfferModel> GetByCompanyId(int companyId);
         JobOfferWithCompanyModel GetByIdWithCompany(int jobOfferId);
         JobOfferModel GetById(int jobOfferId);
-        IEnumerable<JobOfferModel> GetByUserId(int userId);
         bool Update(JobOfferModel model);
         bool DeleteById(int jobOfferId);
     }

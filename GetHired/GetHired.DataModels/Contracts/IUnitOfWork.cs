@@ -9,7 +9,6 @@ namespace GetHired.DataModels.Contracts
         IGenericRepository<Company> CompanyRepository { get; }
         IJobOfferRepository JobOfferRepository { get; }
         IReadonlyRepository<City> CityRepository { get; }
-        IUserRepository UserRepository { get; }
 
         int SaveChanges();
     }

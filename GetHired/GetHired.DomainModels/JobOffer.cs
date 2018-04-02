@@ -9,11 +9,6 @@ namespace GetHired.DomainModels
 {
     public class JobOffer : IIdentifiable<int>, IModificationHistory
     {
-        public JobOffer()
-        {
-            this.LikedBy = new HashSet<User>();
-        }
-
         public int Id { get; set; }
 
         [Required, MinLength(2), MaxLength(50)]
@@ -32,8 +27,6 @@ namespace GetHired.DomainModels
         public JobCategory JobCategory { get; set; }
 
         public Company Company { get; set; }
-
-        public ICollection<User> LikedBy { get; set; }
 
         public DateTime DateModified { get; set; }
         public DateTime DateCreated { get; set; }

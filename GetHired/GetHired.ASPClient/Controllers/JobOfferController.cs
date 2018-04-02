@@ -5,7 +5,6 @@ using System.Web.Mvc;
 using GetHired.DataModels.Contracts;
 using GetHired.DomainModels;
 using GetHired.Services.Contracts;
-using Newtonsoft.Json;
 using Rotativa;
 
 namespace GetHired.ASPClient.Controllers

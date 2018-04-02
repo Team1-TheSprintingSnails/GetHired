@@ -50,7 +50,6 @@
     <Compile Include="Enums\Role.cs" />
     <Compile Include="JobOffer.cs" />
     <Compile Include="City.cs" />
-    <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
