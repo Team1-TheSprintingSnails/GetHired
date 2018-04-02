@@ -1,6 +1,5 @@
 [
 {
-    "Id": 1,
     "Position": "some position here",
     "Description": "some description here",
     "Payment": 15,
@@ -10,7 +9,6 @@
     "JobCategory": 2
 },
 {
-    "Id": 2,
     "Position": "position 2",
     "Description": "description",
     "Payment": 45,

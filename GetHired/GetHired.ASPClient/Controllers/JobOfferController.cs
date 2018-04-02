@@ -36,10 +36,6 @@ namespace GetHired.ASPClient.Controllers
         [HttpPost]
         public ActionResult LoadFromJson(HttpPostedFileBase jsonFile)
         {
-            jsonFile = Request.Files["jsonFile"];
-            var count = Request.Files.Count;
-
-
             jsonFile.SaveAs(Server.MapPath("~/JSONFiles/" + Path.GetFileName(jsonFile.FileName)));
 
             using (StreamReader streamReader = new StreamReader(Server.MapPath("~/JSONFiles/" + Path.GetFileName(jsonFile.FileName))))
@@ -53,7 +49,6 @@ namespace GetHired.ASPClient.Controllers
                 {
                     var jobOffer = new JobOfferModel()
                     {
-                        JobOfferId = jo.Id,
                         Position = jo.Position,
                         Description = jo.Description,
                         Payment = jo.Payment,

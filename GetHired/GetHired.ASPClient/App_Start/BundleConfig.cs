@@ -28,6 +28,7 @@ namespace GetHired.ASPClient
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/style.css",
+                      "~/Content/notFound.css",
                       "~/Content/animate.css"));
         }
     }
